@@ -1,8 +1,20 @@
 # Algorithmic Trading
 
-Can a 20-hour breakout pay for its trading costs across BTC, ETH, SOL, HYPE, AAVE and XRP? This Python project replays spot trades with public hourly candles and simulated USDT.
+Can price, visible liquidity and options flow predict a profitable limit entry on **BTC, ETH, SOL, HYPE, AAVE and XRP**? This project tests ideas with public exchange data and keeps a record of each result.
 
-## Run the experiment
+**Latest held-out run (March–April 2026)** — 118 wins from 284 filled long and short orders, **41.55% win rate, −1.76% net return**, and 2.96% maximum drawdown. Live P&L is unmeasured. The earlier spot experiments are preserved below.
+
+| Start here | What to open |
+| --- | --- |
+| Compare the starting and current win rates | [Scorecard, same-period controls and stop-out study](research/scorecard.md) |
+| Reproduce the two-sided model | [Data, training, frozen model selection and execution](research/flow-v1/README.md) |
+| Check individual trades | [All 518 submitted orders](research/flow-v1/orders.csv) and [results by coin and side](research/flow-v1/holdout.json) |
+| Read a live heatmap | [Original shared CryExc layout](https://cryexc.josedonato.com/app?layout=Pq4IMXG9) and [free tools and panel guide](research/market-data.md) |
+| Capture current market flow | Run `python flow_live.py` to record displayed bids/asks, aggressive buy/sell volume and actual BTC/ETH call/put trades. |
+
+<a id="run-the-experiment"></a>
+
+## Earlier spot experiments
 
 ### Train the limit-entry model
 
@@ -73,11 +85,4 @@ The last period runs from October 19 at 19:00 UTC through the end of December. I
 
 A 2% target and 1% stop give a planned 2:1 reward-to-risk ratio before costs. The table uses actual average winning and losing trades in USDT after costs. At the observed 1.455 ratio, about 40.7% of trades would need to win to break even if average win and loss sizes stayed the same. Only 19 of 59 won.
 
-## Next experiment
-
-- Freeze this baseline. Reserve a fresh, later period for a final comparison since the 2024 results are now visible.
-- Test a 1D convolutional neural network as a filter on the same breakout opportunities. Feed it trailing sequences of candle returns, ranges and volume. Label past examples by whether the simulated trade earned money after costs. Fit input scaling on training data alone and exclude training labels whose exits cross the split boundary.
-- Pick a score threshold on chronological validation folds. Compare its trade count, average net profit per trade, drawdown and total return against the unfiltered rule under identical execution assumptions.
-- Forward-test the frozen strategy with a paper account. Log each decision when it happens, including skipped entries. Compare observed spreads and simulated fills with the backtest assumptions before considering automation.
-
-The project currently models bar-level execution. Order-book depth, partial fills, exchange lot sizes and service interruptions are outside the first simulation.
+The original spot baseline uses bar-level execution. The subsequent perpetuals study adds depth, funding, two-sided orders and finer execution candles. [Current study](research/flow-v1/README.md)

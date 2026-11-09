@@ -6,7 +6,6 @@ import hashlib
 import json
 from collections import defaultdict
 from datetime import date, datetime, timezone
-from pathlib import Path
 
 import joblib
 import numpy as np
@@ -14,7 +13,7 @@ import sklearn
 from sklearn.ensemble import HistGradientBoostingRegressor
 from threadpoolctl import threadpool_limits
 
-from backtest import INITIAL
+from backtest import FEE, INITIAL
 from compare import COINS
 from flow_data import FIRST, HOLDOUT, LAST, ROOT, epoch, prepare
 from flow_features import FEATURES, decisions
@@ -160,7 +159,8 @@ def evaluate():
             raise ValueError(f"Training input changed for {coin}; start a separately versioned run")
     inputs("test")
     markets, rows, coverage = dataset(LAST, HOLDOUT)
-    results = dict(test_start=str(HOLDOUT), test_end_exclusive=str(LAST), cash_return_pct=0,
+    freeze_id = hashlib.sha256(json.dumps(freeze, separators=(",", ":"), sort_keys=True).encode()).hexdigest()
+    results = dict(test_start=str(HOLDOUT), test_end_exclusive=str(LAST), cash_return_pct=0, freeze_id=freeze_id,
                    coverage=coverage, combined_input_fingerprints={c: m.fingerprint for c, m in markets.items()},
                    models={})
     for name, spec in freeze["models"].items():
@@ -173,6 +173,13 @@ def evaluate():
         scores = model.predict(matrix(rows, len(spec["features"]))).reshape(-1, 2)
         ledger = replay(rows, scores, spec["cutoff"])
         result = summary(ledger)
+        fills = [t for t in ledger if t.proposal.outcome.fill is not None]
+        gross = sum(t.quantity * t.proposal.order.side * (t.proposal.outcome.price - t.proposal.order.entry)
+                    for t in fills)
+        fees = sum(t.quantity * FEE * (t.proposal.order.entry + t.proposal.outcome.price) for t in fills)
+        if abs(gross - fees + result["funding_usdt"] - result["net_usdt"]) > 1e-5:
+            raise ValueError("Fees, funding and price P&L do not reconcile")
+        result.update(gross_price_pnl_usdt=gross, trading_fees_usdt=fees)
         result.update(return_pct=100 * result["net_usdt"] / (INITIAL * len(COINS)),
                       max_drawdown_pct=max_drawdown(ledger, markets),
                       double_cost_pnl=stress_pnl(ledger), win_pct_block_interval=win_interval(ledger, markets))

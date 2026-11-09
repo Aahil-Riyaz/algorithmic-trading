@@ -1,0 +1,665 @@
+{
+  "test_start": "2026-03-01",
+  "test_end_exclusive": "2026-05-01",
+  "cash_return_pct": 0,
+  "freeze_id": "e5b96d30792350cdcf2ac3292b0888f066ffc8690454e08004a3704098ea4d22",
+  "coverage": {
+    "BTC": {
+      "eligible": 1437,
+      "missing_or_stale_book": 2,
+      "purged_end": 25
+    },
+    "ETH": {
+      "eligible": 1437,
+      "missing_or_stale_book": 2,
+      "purged_end": 25
+    },
+    "SOL": {
+      "eligible": 1437,
+      "missing_or_stale_book": 2,
+      "purged_end": 25
+    },
+    "HYPE": {
+      "eligible": 1437,
+      "missing_or_stale_book": 2,
+      "purged_end": 25
+    },
+    "AAVE": {
+      "eligible": 1437,
+      "missing_or_stale_book": 2,
+      "purged_end": 25
+    },
+    "XRP": {
+      "eligible": 1437,
+      "missing_or_stale_book": 2,
+      "purged_end": 25
+    }
+  },
+  "combined_input_fingerprints": {
+    "BTC": "007bb4537e69f13aa5cf8e0d823aab0ea1beab667727557273b8bc8186f21de7",
+    "ETH": "89c189af3e9159291ac7360e131c485955c4187d35c37c9d7cf088776a631f05",
+    "SOL": "eaef04153fdd3c84562759f2025d094f743d8cb21bb12cf2d8bbc2080618cc0d",
+    "HYPE": "437fe1b5e506108e4d5fc495429670e57fa5931c7015ac832e6c19c449b67c97",
+    "AAVE": "366d421e8f89c0fe2084ae89c1e8f68db9719e89f9a684908e84d5fb0d4f9461",
+    "XRP": "3924843b9b38a9f1f18cbbf70386682ff4540bf8d1f8895dbcbdf021a0ef1ee2"
+  },
+  "models": {
+    "price": {
+      "orders": 230,
+      "fills": 142,
+      "wins": 43,
+      "fill_pct": 61.73913043478261,
+      "win_pct": 30.281690140845072,
+      "net_usdt": -2348.60010636095,
+      "avg_win_loss": 1.0343249192345616,
+      "expectancy_r": -0.336671488193314,
+      "profit_factor": 0.4492522376473348,
+      "funding_usdt": 1.6668488601442872,
+      "exits": {
+        "stop": 81,
+        "timeout": 46,
+        "target": 15
+      },
+      "gross_price_pnl_usdt": -1762.4961950899003,
+      "trading_fees_usdt": 587.7707601311942,
+      "return_pct": -3.9143335106015837,
+      "max_drawdown_pct": 3.9705099674327338,
+      "double_cost_pnl": -2989.6142036464794,
+      "win_pct_block_interval": [
+        20.408163265306122,
+        40.39769119114579
+      ],
+      "by_coin": {
+        "BTC": {
+          "orders": 42,
+          "fills": 23,
+          "wins": 5,
+          "fill_pct": 54.76190476190476,
+          "win_pct": 21.73913043478261,
+          "net_usdt": -568.6787832941969,
+          "avg_win_loss": 0.8025029177037055,
+          "expectancy_r": -0.5072577781956192,
+          "profit_factor": 0.2229174771399182,
+          "funding_usdt": -1.4437271187859566,
+          "exits": {
+            "stop": 13,
+            "target": 1,
+            "timeout": 9
+          }
+        },
+        "ETH": {
+          "orders": 36,
+          "fills": 28,
+          "wins": 9,
+          "fill_pct": 77.77777777777777,
+          "win_pct": 32.142857142857146,
+          "net_usdt": -368.7451972683045,
+          "avg_win_loss": 1.180243850219644,
+          "expectancy_r": -0.2657499918480932,
+          "profit_factor": 0.5590628764198313,
+          "funding_usdt": 0.5530859687641532,
+          "exits": {
+            "stop": 16,
+            "target": 5,
+            "timeout": 7
+          }
+        },
+        "SOL": {
+          "orders": 36,
+          "fills": 21,
+          "wins": 4,
+          "fill_pct": 58.333333333333336,
+          "win_pct": 19.047619047619047,
+          "net_usdt": -517.1469580010729,
+          "avg_win_loss": 1.17076292404004,
+          "expectancy_r": -0.503422238801658,
+          "profit_factor": 0.27547362918589174,
+          "funding_usdt": -1.1569733710096757,
+          "exits": {
+            "stop": 14,
+            "target": 1,
+            "timeout": 6
+          }
+        },
+        "HYPE": {
+          "orders": 41,
+          "fills": 22,
+          "wins": 7,
+          "fill_pct": 53.65853658536585,
+          "win_pct": 31.818181818181817,
+          "net_usdt": -470.0607741387774,
+          "avg_win_loss": 0.7662057608279991,
+          "expectancy_r": -0.4353163939775026,
+          "profit_factor": 0.35756268838639954,
+          "funding_usdt": 0.5990228746621247,
+          "exits": {
+            "stop": 15,
+            "timeout": 5,
+            "target": 2
+          }
+        },
+        "AAVE": {
+          "orders": 41,
+          "fills": 27,
+          "wins": 9,
+          "fill_pct": 65.85365853658537,
+          "win_pct": 33.333333333333336,
+          "net_usdt": -420.75015171467896,
+          "avg_win_loss": 0.987626454403921,
+          "expectancy_r": -0.31591938436009975,
+          "profit_factor": 0.4938132272019605,
+          "funding_usdt": 3.8886122671965206,
+          "exits": {
+            "stop": 16,
+            "timeout": 8,
+            "target": 3
+          }
+        },
+        "XRP": {
+          "orders": 34,
+          "fills": 21,
+          "wins": 9,
+          "fill_pct": 61.76470588235294,
+          "win_pct": 42.857142857142854,
+          "net_usdt": -3.218241943919638,
+          "avg_win_loss": 1.3231075471853806,
+          "expectancy_r": -0.000989123482960124,
+          "profit_factor": 0.9923306603890355,
+          "funding_usdt": -0.7731717606828794,
+          "exits": {
+            "timeout": 11,
+            "stop": 7,
+            "target": 3
+          }
+        }
+      },
+      "by_side": {
+        "long": {
+          "orders": 19,
+          "fills": 12,
+          "wins": 1,
+          "fill_pct": 63.1578947368421,
+          "win_pct": 8.333333333333334,
+          "net_usdt": -361.17533894670845,
+          "avg_win_loss": 1.8275514815175298,
+          "expectancy_r": -0.6178476967256861,
+          "profit_factor": 0.1661410437743209,
+          "funding_usdt": 0.3417013145780111,
+          "exits": {
+            "stop": 8,
+            "timeout": 3,
+            "target": 1
+          }
+        },
+        "short": {
+          "orders": 211,
+          "fills": 130,
+          "wins": 42,
+          "fill_pct": 61.611374407582936,
+          "win_pct": 32.30769230769231,
+          "net_usdt": -1987.4247674142418,
+          "avg_win_loss": 1.0083522871051822,
+          "expectancy_r": -0.31071676125186426,
+          "profit_factor": 0.4812590461183825,
+          "funding_usdt": 1.325147545566276,
+          "exits": {
+            "stop": 73,
+            "timeout": 43,
+            "target": 14
+          }
+        }
+      },
+      "by_exit_month": {
+        "2026-03": {
+          "orders": 125,
+          "fills": 77,
+          "wins": 26,
+          "fill_pct": 61.6,
+          "win_pct": 33.76623376623377,
+          "net_usdt": -1198.8164159774312,
+          "avg_win_loss": 0.9313839183785283,
+          "expectancy_r": -0.31473757566243526,
+          "profit_factor": 0.47482317407532815,
+          "funding_usdt": -0.4398223836657437,
+          "exits": {
+            "stop": 44,
+            "timeout": 25,
+            "target": 8
+          }
+        },
+        "2026-04": {
+          "orders": 105,
+          "fills": 65,
+          "wins": 17,
+          "fill_pct": 61.904761904761905,
+          "win_pct": 26.153846153846153,
+          "net_usdt": -1149.7836903835191,
+          "avg_win_loss": 1.1853101741016123,
+          "expectancy_r": -0.3626547384222011,
+          "profit_factor": 0.4197973533276544,
+          "funding_usdt": 2.106671243810031,
+          "exits": {
+            "stop": 37,
+            "timeout": 21,
+            "target": 7
+          }
+        }
+      }
+    },
+    "flow": {
+      "orders": 85,
+      "fills": 52,
+      "wins": 20,
+      "fill_pct": 61.1764705882353,
+      "win_pct": 38.46153846153846,
+      "net_usdt": -484.16678968253643,
+      "avg_win_loss": 0.9931641825124793,
+      "expectancy_r": -0.18566681193198634,
+      "profit_factor": 0.6207276140702995,
+      "funding_usdt": -5.129347497938653,
+      "exits": {
+        "target": 5,
+        "timeout": 24,
+        "stop": 23
+      },
+      "gross_price_pnl_usdt": -243.31711805973717,
+      "trading_fees_usdt": 235.72032412486064,
+      "return_pct": -0.806944649470894,
+      "max_drawdown_pct": 1.1593151041047522,
+      "double_cost_pnl": -740.8995515599839,
+      "win_pct_block_interval": [
+        27.586206896551722,
+        51.52356902356898
+      ],
+      "by_coin": {
+        "BTC": {
+          "orders": 19,
+          "fills": 14,
+          "wins": 6,
+          "fill_pct": 73.6842105263158,
+          "win_pct": 42.857142857142854,
+          "net_usdt": -24.037337530116712,
+          "avg_win_loss": 1.2155908475108725,
+          "expectancy_r": -0.03257667893119326,
+          "profit_factor": 0.9116931356331544,
+          "funding_usdt": -1.4168083562986944,
+          "exits": {
+            "timeout": 8,
+            "target": 2,
+            "stop": 4
+          }
+        },
+        "ETH": {
+          "orders": 11,
+          "fills": 9,
+          "wins": 4,
+          "fill_pct": 81.81818181818181,
+          "win_pct": 44.44444444444444,
+          "net_usdt": -127.22305446819793,
+          "avg_win_loss": 0.6141702665201555,
+          "expectancy_r": -0.2823963974314794,
+          "profit_factor": 0.49133621321612436,
+          "funding_usdt": -0.6421170752048392,
+          "exits": {
+            "target": 1,
+            "stop": 5,
+            "timeout": 3
+          }
+        },
+        "SOL": {
+          "orders": 13,
+          "fills": 6,
+          "wins": 2,
+          "fill_pct": 46.15384615384615,
+          "win_pct": 33.333333333333336,
+          "net_usdt": -51.60843440624074,
+          "avg_win_loss": 1.48666414304166,
+          "expectancy_r": -0.16893865978489012,
+          "profit_factor": 0.74333207152083,
+          "funding_usdt": -0.6815257177122671,
+          "exits": {
+            "target": 2,
+            "stop": 4
+          }
+        },
+        "HYPE": {
+          "orders": 4,
+          "fills": 2,
+          "wins": 1,
+          "fill_pct": 50.0,
+          "win_pct": 50.0,
+          "net_usdt": 34.321153363646545,
+          "avg_win_loss": 47.189423676986316,
+          "expectancy_r": 0.34323749713298785,
+          "profit_factor": 47.189423676986316,
+          "funding_usdt": -0.790946603971173,
+          "exits": {
+            "timeout": 2
+          }
+        },
+        "AAVE": {
+          "orders": 24,
+          "fills": 12,
+          "wins": 5,
+          "fill_pct": 50.0,
+          "win_pct": 41.666666666666664,
+          "net_usdt": -111.37882774201684,
+          "avg_win_loss": 0.8821104712056934,
+          "expectancy_r": -0.18464492655941905,
+          "profit_factor": 0.6300789080040667,
+          "funding_usdt": 1.2745013691771214,
+          "exits": {
+            "timeout": 6,
+            "stop": 6
+          }
+        },
+        "XRP": {
+          "orders": 14,
+          "fills": 9,
+          "wins": 2,
+          "fill_pct": 64.28571428571429,
+          "win_pct": 22.22222222222222,
+          "net_usdt": -204.24028889961076,
+          "avg_win_loss": 0.6560034899055446,
+          "expectancy_r": -0.4571263394874306,
+          "profit_factor": 0.18742956854444132,
+          "funding_usdt": -2.8724511139288014,
+          "exits": {
+            "timeout": 5,
+            "stop": 4
+          }
+        }
+      },
+      "by_side": {
+        "long": {
+          "orders": 19,
+          "fills": 12,
+          "wins": 4,
+          "fill_pct": 63.1578947368421,
+          "win_pct": 33.333333333333336,
+          "net_usdt": -28.87524689300795,
+          "avg_win_loss": 1.800195394954518,
+          "expectancy_r": -0.04804621477341892,
+          "profit_factor": 0.900097697477259,
+          "funding_usdt": -0.7722523442715755,
+          "exits": {
+            "target": 3,
+            "timeout": 4,
+            "stop": 5
+          }
+        },
+        "short": {
+          "orders": 66,
+          "fills": 40,
+          "wins": 16,
+          "fill_pct": 60.60606060606061,
+          "win_pct": 40.0,
+          "net_usdt": -455.2915427895285,
+          "avg_win_loss": 0.8084407539646727,
+          "expectancy_r": -0.22695299107955655,
+          "profit_factor": 0.5389605026431151,
+          "funding_usdt": -4.3570951536670774,
+          "exits": {
+            "target": 2,
+            "timeout": 20,
+            "stop": 18
+          }
+        }
+      },
+      "by_exit_month": {
+        "2026-03": {
+          "orders": 33,
+          "fills": 22,
+          "wins": 10,
+          "fill_pct": 66.66666666666667,
+          "win_pct": 45.45454545454545,
+          "net_usdt": -63.70224939754935,
+          "avg_win_loss": 1.0434302168900336,
+          "expectancy_r": -0.05637293117038079,
+          "profit_factor": 0.8695251807416947,
+          "funding_usdt": -3.0432301248612217,
+          "exits": {
+            "target": 4,
+            "timeout": 9,
+            "stop": 9
+          }
+        },
+        "2026-04": {
+          "orders": 52,
+          "fills": 30,
+          "wins": 10,
+          "fill_pct": 57.69230769230769,
+          "win_pct": 33.333333333333336,
+          "net_usdt": -420.4645402849871,
+          "avg_win_loss": 0.9332824661734226,
+          "expectancy_r": -0.28048232449049704,
+          "profit_factor": 0.46664123308671124,
+          "funding_usdt": -2.086117373077432,
+          "exits": {
+            "timeout": 15,
+            "stop": 14,
+            "target": 1
+          }
+        }
+      }
+    },
+    "options_flow": {
+      "orders": 518,
+      "fills": 284,
+      "wins": 118,
+      "fill_pct": 54.826254826254825,
+      "win_pct": 41.54929577464789,
+      "net_usdt": -1056.2405449804016,
+      "avg_win_loss": 1.1938359096594924,
+      "expectancy_r": -0.07568430774115831,
+      "profit_factor": 0.8486303454206031,
+      "funding_usdt": 5.789442894181129,
+      "exits": {
+        "timeout": 93,
+        "stop": 131,
+        "target": 60
+      },
+      "gross_price_pnl_usdt": 133.07609618464798,
+      "trading_fees_usdt": 1195.1060840592309,
+      "return_pct": -1.7604009083006693,
+      "max_drawdown_pct": 2.961440252587122,
+      "double_cost_pnl": -2344.813396288869,
+      "win_pct_block_interval": [
+        35.587022005411384,
+        47.2547619047619
+      ],
+      "by_coin": {
+        "BTC": {
+          "orders": 80,
+          "fills": 47,
+          "wins": 18,
+          "fill_pct": 58.75,
+          "win_pct": 38.297872340425535,
+          "net_usdt": -372.15625348649115,
+          "avg_win_loss": 1.139614318085062,
+          "expectancy_r": -0.15879107780242752,
+          "profit_factor": 0.7073468181217626,
+          "funding_usdt": -0.28922823891664506,
+          "exits": {
+            "timeout": 15,
+            "stop": 23,
+            "target": 9
+          }
+        },
+        "ETH": {
+          "orders": 91,
+          "fills": 47,
+          "wins": 23,
+          "fill_pct": 51.64835164835165,
+          "win_pct": 48.93617021276596,
+          "net_usdt": 214.81657588827957,
+          "avg_win_loss": 1.2613844457070125,
+          "expectancy_r": 0.0932102124833324,
+          "profit_factor": 1.2088267604692204,
+          "funding_usdt": 3.1035213864875257,
+          "exits": {
+            "timeout": 15,
+            "stop": 19,
+            "target": 13
+          }
+        },
+        "SOL": {
+          "orders": 84,
+          "fills": 44,
+          "wins": 24,
+          "fill_pct": 52.38095238095238,
+          "win_pct": 54.54545454545455,
+          "net_usdt": 396.3711454318222,
+          "avg_win_loss": 1.2255414266546552,
+          "expectancy_r": 0.1794945181183197,
+          "profit_factor": 1.4706497119855861,
+          "funding_usdt": -0.09961665616498411,
+          "exits": {
+            "timeout": 14,
+            "stop": 16,
+            "target": 14
+          }
+        },
+        "HYPE": {
+          "orders": 92,
+          "fills": 49,
+          "wins": 15,
+          "fill_pct": 53.26086956521739,
+          "win_pct": 30.612244897959183,
+          "net_usdt": -738.2698841894037,
+          "avg_win_loss": 1.0783545206555172,
+          "expectancy_r": -0.31071479091313653,
+          "profit_factor": 0.47574464146566925,
+          "funding_usdt": 2.610314391823976,
+          "exits": {
+            "timeout": 15,
+            "stop": 28,
+            "target": 6
+          }
+        },
+        "AAVE": {
+          "orders": 95,
+          "fills": 55,
+          "wins": 22,
+          "fill_pct": 57.89473684210526,
+          "win_pct": 40.0,
+          "net_usdt": -393.47433778064055,
+          "avg_win_loss": 1.089325121403164,
+          "expectancy_r": -0.1434192822953777,
+          "profit_factor": 0.7262167476021093,
+          "funding_usdt": 2.2555761251785995,
+          "exits": {
+            "timeout": 17,
+            "stop": 27,
+            "target": 11
+          }
+        },
+        "XRP": {
+          "orders": 76,
+          "fills": 42,
+          "wins": 16,
+          "fill_pct": 55.26315789473684,
+          "win_pct": 38.095238095238095,
+          "net_usdt": -163.52779084396803,
+          "avg_win_loss": 1.3565731507504637,
+          "expectancy_r": -0.07611229154066888,
+          "profit_factor": 0.8348142466156699,
+          "funding_usdt": -1.7911241142273426,
+          "exits": {
+            "timeout": 17,
+            "stop": 18,
+            "target": 7
+          }
+        }
+      },
+      "by_side": {
+        "long": {
+          "orders": 191,
+          "fills": 114,
+          "wins": 55,
+          "fill_pct": 59.68586387434555,
+          "win_pct": 48.24561403508772,
+          "net_usdt": 280.4863883688887,
+          "avg_win_loss": 1.1993946623591787,
+          "expectancy_r": 0.04822068801236551,
+          "profit_factor": 1.1180797699958445,
+          "funding_usdt": 5.812292874699809,
+          "exits": {
+            "timeout": 45,
+            "target": 27,
+            "stop": 42
+          }
+        },
+        "short": {
+          "orders": 327,
+          "fills": 170,
+          "wins": 63,
+          "fill_pct": 51.98776758409786,
+          "win_pct": 37.05882352941177,
+          "net_usdt": -1336.7269333492904,
+          "avg_win_loss": 1.2051332814463784,
+          "expectancy_r": -0.15877354018763898,
+          "profit_factor": 0.7095644554310451,
+          "funding_usdt": -0.0228499805186797,
+          "exits": {
+            "stop": 89,
+            "target": 33,
+            "timeout": 48
+          }
+        }
+      },
+      "by_exit_month": {
+        "2026-03": {
+          "orders": 276,
+          "fills": 150,
+          "wins": 62,
+          "fill_pct": 54.34782608695652,
+          "win_pct": 41.333333333333336,
+          "net_usdt": -630.9237052612167,
+          "avg_win_loss": 1.1817140048129164,
+          "expectancy_r": -0.08330477490188952,
+          "profit_factor": 0.8325712306636457,
+          "funding_usdt": 5.351316938158593,
+          "exits": {
+            "timeout": 46,
+            "stop": 71,
+            "target": 33
+          }
+        },
+        "2026-04": {
+          "orders": 242,
+          "fills": 134,
+          "wins": 56,
+          "fill_pct": 55.37190082644628,
+          "win_pct": 41.791044776119406,
+          "net_usdt": -425.316839719185,
+          "avg_win_loss": 1.208282797358664,
+          "expectancy_r": -0.06715393405377261,
+          "profit_factor": 0.8674850852831434,
+          "funding_usdt": 0.4381259560225363,
+          "exits": {
+            "target": 27,
+            "timeout": 47,
+            "stop": 60
+          }
+        }
+      },
+      "paired_stops": {
+        "wide": {
+          "fills": 284,
+          "stops": 131,
+          "observed_12h": 131,
+          "back_to_entry_12h": 46,
+          "avg_stop_distance_pct": 2.448764151956165
+        },
+        "previous_width": {
+          "fills": 284,
+          "stops": 175,
+          "observed_12h": 175,
+          "back_to_entry_12h": 122,
+          "avg_stop_distance_pct": 1.0328209789484564
+        }
+      }
+    }
+  }
+}
