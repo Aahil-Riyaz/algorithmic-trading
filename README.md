@@ -2,7 +2,7 @@
 
 Can price, visible liquidity and options flow predict a profitable limit entry on **BTC, ETH, SOL, HYPE, AAVE and XRP**? This project tests ideas with public exchange data and keeps a record of each result.
 
-**Latest held-out run (March–April 2026)** — 118 wins from 284 filled long and short orders, **41.55% win rate, −1.76% net return**, and 2.96% maximum drawdown. Live P&L is unmeasured. The earlier spot experiments are preserved below.
+**Latest experiment (May–June 2026).** An Elliott-wave-inspired pullback filter won 4 of 19 filled trades (21.05%) and lost 483.71 simulated USDT across two monthly replays. The original frozen options model came closest to break-even at −27.98 USDT. Live P&L is unmeasured. [Wave study and monthly results](research/wave-plan.md)
 
 | Start here | What to open |
 | --- | --- |

@@ -1,6 +1,6 @@
 # Win rate and profit history
 
-**Current frozen research model: 118 wins from 284 fills (41.55%), −1.76% net, March–April 2026.** This is a historical simulation. Live win rate and live P&L are unmeasured.
+**Latest wave candidate: 4 wins from 19 fills (21.05%) and −483.71 simulated USDT across May and June.** The existing frozen model won 119 of 255 over those months and lost 27.98 USDT. The candidate stays experimental. Live win rate and live P&L are unmeasured.
 
 | Experiment | Test market and dates (UTC) | Wins / fills | Net win rate | Net return |
 | --- | --- | ---: | ---: | ---: |
@@ -8,6 +8,10 @@
 | First six-coin breakout | KuCoin spot, Dec 13–31, 2025 | 7 / 51 | 13.73% | −2.79% |
 | First trained long-only limits | KuCoin spot, January 2026 | 45 / 144 | 31.25% | −2.54% |
 | Two-sided limits with options and flow | Binance perpetuals, March–April 2026 | 118 / 284 | 41.55% | −1.76% |
+| Monthly refit with wave filter | Binance perpetuals, May 2026 | 1 / 7 | 14.29% | −0.40% |
+| Monthly refit with wave filter | Binance perpetuals, June 2026 | 3 / 12 | 25.00% | −0.41% |
+
+May and June each start with fresh balances. [Matched controls and monthly results](wave-plan.md)
 
 A win is a filled trade with positive P&L after costs, including funding on perpetuals. Expired orders are excluded from the win-rate denominator. Each six-coin run started with six separate 10,000 USDT accounts. Return is total P&L divided by 60,000 USDT. The starting Bitcoin run had a single 10,000 USDT account.
 

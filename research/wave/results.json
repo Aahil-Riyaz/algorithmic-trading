@@ -1,0 +1,164 @@
+{
+  "2026-05-01": {
+    "training_orders": 51684,
+    "eligible_coin_hours": 4302,
+    "original": {
+      "orders": 252,
+      "fills": 131,
+      "wins": 58,
+      "fill_pct": 51.98412698412698,
+      "win_pct": 44.274809160305345,
+      "net_usdt": -366.5747903712394,
+      "avg_win_loss": 1.096775028429567,
+      "expectancy_r": -0.05502352947054383,
+      "profit_factor": 0.8714102965604779,
+      "funding_usdt": 0.5470863540760946,
+      "exits": {
+        "stop": 50,
+        "timeout": 58,
+        "target": 23
+      }
+    },
+    "refit": {
+      "orders": 167,
+      "fills": 87,
+      "wins": 35,
+      "fill_pct": 52.09580838323353,
+      "win_pct": 40.229885057471265,
+      "net_usdt": -555.3805124082395,
+      "avg_win_loss": 1.1078884933503026,
+      "expectancy_r": -0.12703909761292487,
+      "profit_factor": 0.7456941782165498,
+      "funding_usdt": 4.319722744491837,
+      "exits": {
+        "timeout": 34,
+        "stop": 39,
+        "target": 14
+      }
+    },
+    "wave": {
+      "orders": 11,
+      "fills": 7,
+      "wins": 1,
+      "fill_pct": 63.63636363636363,
+      "win_pct": 14.285714285714286,
+      "net_usdt": -240.45129110648682,
+      "avg_win_loss": 0.44643204701601163,
+      "expectancy_r": -0.6878635221416131,
+      "profit_factor": 0.07440534116933527,
+      "funding_usdt": 0.5786959788616908,
+      "exits": {
+        "timeout": 2,
+        "stop": 5
+      }
+    }
+  },
+  "2026-06-01": {
+    "training_orders": 51960,
+    "eligible_coin_hours": 4170,
+    "original": {
+      "orders": 239,
+      "fills": 124,
+      "wins": 61,
+      "fill_pct": 51.88284518828452,
+      "win_pct": 49.193548387096776,
+      "net_usdt": 338.59035316058527,
+      "avg_win_loss": 1.159844746598137,
+      "expectancy_r": 0.05658275184859633,
+      "profit_factor": 1.1230242784521645,
+      "funding_usdt": -0.13395779840164584,
+      "exits": {
+        "target": 30,
+        "stop": 51,
+        "timeout": 43
+      }
+    },
+    "refit": {
+      "orders": 247,
+      "fills": 142,
+      "wins": 64,
+      "fill_pct": 57.48987854251012,
+      "win_pct": 45.070422535211264,
+      "net_usdt": -308.7639185456953,
+      "avg_win_loss": 1.1038358922672837,
+      "expectancy_r": -0.041457785711559766,
+      "profit_factor": 0.9057115013475149,
+      "funding_usdt": 0.7785191502562477,
+      "exits": {
+        "target": 29,
+        "stop": 59,
+        "timeout": 54
+      }
+    },
+    "wave": {
+      "orders": 30,
+      "fills": 12,
+      "wins": 3,
+      "fill_pct": 40.0,
+      "win_pct": 25.0,
+      "net_usdt": -243.26075536016387,
+      "avg_win_loss": 1.2261863911171031,
+      "expectancy_r": -0.4046751512632161,
+      "profit_factor": 0.4087287970390344,
+      "funding_usdt": -0.5341083167646307,
+      "exits": {
+        "stop": 7,
+        "timeout": 4,
+        "target": 1
+      }
+    }
+  },
+  "pooled": {
+    "original": {
+      "orders": 491,
+      "fills": 255,
+      "wins": 119,
+      "fill_pct": 51.93482688391039,
+      "win_pct": 46.666666666666664,
+      "net_usdt": -27.984437210654082,
+      "avg_win_loss": 1.1371490461906528,
+      "expectancy_r": -0.0007522397310403798,
+      "profit_factor": 0.995005415416821,
+      "funding_usdt": 0.4131285556744488,
+      "exits": {
+        "stop": 101,
+        "timeout": 101,
+        "target": 53
+      }
+    },
+    "refit": {
+      "orders": 414,
+      "fills": 229,
+      "wins": 99,
+      "fill_pct": 55.31400966183575,
+      "win_pct": 43.23144104803494,
+      "net_usdt": -864.1444309539347,
+      "avg_win_loss": 1.1052503093171135,
+      "expectancy_r": -0.07397120988369411,
+      "profit_factor": 0.8416906201722636,
+      "funding_usdt": 5.098241894748085,
+      "exits": {
+        "timeout": 88,
+        "stop": 98,
+        "target": 43
+      }
+    },
+    "wave": {
+      "orders": 41,
+      "fills": 19,
+      "wins": 4,
+      "fill_pct": 46.34146341463415,
+      "win_pct": 21.05263157894737,
+      "net_usdt": -483.7120464666507,
+      "avg_win_loss": 1.0474978193711857,
+      "expectancy_r": -0.509007708955257,
+      "profit_factor": 0.27933275183231615,
+      "funding_usdt": 0.0445876620970601,
+      "exits": {
+        "timeout": 6,
+        "stop": 12,
+        "target": 1
+      }
+    }
+  }
+}
