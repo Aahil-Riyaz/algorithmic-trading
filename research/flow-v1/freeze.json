@@ -1,0 +1,146 @@
+{
+  "sklearn": "1.9.1",
+  "train_start": "2025-10-01",
+  "train_end_exclusive": "2026-03-01",
+  "holdout_end_exclusive": "2026-05-01",
+  "fixed": {
+    "max_iter": 120,
+    "learning_rate": 0.04,
+    "min_samples_leaf": 100,
+    "l2_regularization": 2.0,
+    "random_state": 17,
+    "early_stopping": false
+  },
+  "candidate_leaves": [
+    7,
+    15,
+    31
+  ],
+  "cutoffs": [
+    0.0,
+    0.05,
+    0.1
+  ],
+  "feature_cutoffs": "hourly UTC; orders activate five minutes later",
+  "training_fingerprints": {
+    "BTC": "8e595ff2438a9aa1416475df4d9f89fb3e94e027eae195605d7c9fd48545680f",
+    "ETH": "714df730f9b748d18bd57f286f6d11fd601f64b97da9135ba8e520d0134af0d5",
+    "SOL": "1a42669014049cd62c2928a5bb45ac9fcc540399203e837a609c058b7103e69a",
+    "HYPE": "a1984559372b046016ddb58890debf91c37200d293e08b20306694785b9ef676",
+    "AAVE": "5ac381c9b64eede4af73f8cb30e5de3940eb9eeba7f4f5f93aceda9b69a4b3fe",
+    "XRP": "a202568957721c01c9ca8c82c00e6f7d13b05253890c2537e9cc9b244588347f"
+  },
+  "coverage": {
+    "BTC": {
+      "warmup": 25,
+      "eligible": 3571,
+      "missing_or_stale_book": 3,
+      "purged_end": 25
+    },
+    "ETH": {
+      "warmup": 25,
+      "eligible": 3571,
+      "missing_or_stale_book": 3,
+      "purged_end": 25
+    },
+    "SOL": {
+      "warmup": 25,
+      "eligible": 3547,
+      "missing_or_stale_book": 27,
+      "purged_end": 25
+    },
+    "HYPE": {
+      "warmup": 25,
+      "eligible": 3571,
+      "missing_or_stale_book": 3,
+      "purged_end": 25
+    },
+    "AAVE": {
+      "warmup": 25,
+      "eligible": 3571,
+      "missing_or_stale_book": 3,
+      "purged_end": 25
+    },
+    "XRP": {
+      "warmup": 25,
+      "eligible": 3547,
+      "missing_or_stale_book": 27,
+      "purged_end": 25
+    }
+  },
+  "coin_hours": 21378,
+  "proposed_orders": 42756,
+  "models": {
+    "price": {
+      "features": [
+        "side",
+        "atr_fraction",
+        "move_1h",
+        "move_6h",
+        "move_24h",
+        "close_location",
+        "volume_ratio",
+        "stop_in_atr"
+      ],
+      "leaves": 7,
+      "cutoff": 0.05,
+      "validation_pnl": -912.5065588081551,
+      "min_fills": 70,
+      "model_sha256": "dc64677388a76a03c6743466267c8cb16aebc3a0d04d741dd941885b1c985a66"
+    },
+    "flow": {
+      "features": [
+        "side",
+        "atr_fraction",
+        "move_1h",
+        "move_6h",
+        "move_24h",
+        "close_location",
+        "volume_ratio",
+        "stop_in_atr",
+        "taker_1h",
+        "taker_6h",
+        "taker_24h",
+        "depth_1pct",
+        "depth_2pct",
+        "funding_bps"
+      ],
+      "leaves": 7,
+      "cutoff": 0.1,
+      "validation_pnl": -344.4398665851393,
+      "min_fills": 21,
+      "model_sha256": "cca4974a12280ee40c5cfee0cd7fc1be710ccd3abdae8ec7ecc2948dba319931"
+    },
+    "options_flow": {
+      "features": [
+        "side",
+        "atr_fraction",
+        "move_1h",
+        "move_6h",
+        "move_24h",
+        "close_location",
+        "volume_ratio",
+        "stop_in_atr",
+        "taker_1h",
+        "taker_6h",
+        "taker_24h",
+        "depth_1pct",
+        "depth_2pct",
+        "funding_bps",
+        "BTC_call_share_centered",
+        "BTC_call_aggressor",
+        "BTC_put_aggressor",
+        "BTC_log_count",
+        "ETH_call_share_centered",
+        "ETH_call_aggressor",
+        "ETH_put_aggressor",
+        "ETH_log_count"
+      ],
+      "leaves": 15,
+      "cutoff": 0.05,
+      "validation_pnl": -654.2818411379136,
+      "min_fills": 159,
+      "model_sha256": "5502526a75a44a55aebcd52acb9aa0d7d4de28ba50b5d100f5028f1c7d1ec5bc"
+    }
+  }
+}

@@ -1,0 +1,1844 @@
+{
+  "price": [
+    {
+      "leaves": 7,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 378,
+          "fills": 208,
+          "wins": 94,
+          "fill_pct": 55.026455026455025,
+          "win_pct": 45.19230769230769,
+          "net_usdt": -122.49285017642389,
+          "avg_win_loss": 1.1802794241035806,
+          "expectancy_r": -0.010858289507580924,
+          "profit_factor": 0.9732128584713735,
+          "funding_usdt": 9.551455851463626,
+          "exits": {
+            "timeout": 80,
+            "stop": 81,
+            "target": 47
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 375,
+          "fills": 191,
+          "wins": 64,
+          "fill_pct": 50.93333333333333,
+          "win_pct": 33.50785340314136,
+          "net_usdt": -2596.3715429977833,
+          "avg_win_loss": 1.0230668331478976,
+          "expectancy_r": -0.27844597711522795,
+          "profit_factor": 0.5155612387516965,
+          "funding_usdt": 10.151018559851682,
+          "exits": {
+            "stop": 100,
+            "timeout": 66,
+            "target": 25
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 289,
+          "fills": 162,
+          "wins": 82,
+          "fill_pct": 56.055363321799305,
+          "win_pct": 50.617283950617285,
+          "net_usdt": 761.8745290890039,
+          "avg_win_loss": 1.213888129112942,
+          "expectancy_r": 0.09571896098478058,
+          "profit_factor": 1.2442353323407658,
+          "funding_usdt": -6.673872779588582,
+          "exits": {
+            "timeout": 70,
+            "target": 38,
+            "stop": 54
+          }
+        }
+      ],
+      "validation_pnl": -1956.9898640852034,
+      "min_fills": 162
+    },
+    {
+      "leaves": 7,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 246,
+          "fills": 141,
+          "wins": 67,
+          "fill_pct": 57.31707317073171,
+          "win_pct": 47.5177304964539,
+          "net_usdt": -40.89847584454121,
+          "avg_win_loss": 1.0892700045532022,
+          "expectancy_r": -0.004152378484455476,
+          "profit_factor": 0.9862309500684399,
+          "funding_usdt": 4.780271797816055,
+          "exits": {
+            "timeout": 59,
+            "stop": 52,
+            "target": 30
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 217,
+          "fills": 109,
+          "wins": 44,
+          "fill_pct": 50.23041474654378,
+          "win_pct": 40.36697247706422,
+          "net_usdt": -653.1628407710142,
+          "avg_win_loss": 1.117030415674329,
+          "expectancy_r": -0.11984627612108598,
+          "profit_factor": 0.7561436659949304,
+          "funding_usdt": 4.4045681548370945,
+          "exits": {
+            "target": 19,
+            "timeout": 41,
+            "stop": 49
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 142,
+          "fills": 70,
+          "wins": 30,
+          "fill_pct": 49.29577464788732,
+          "win_pct": 42.857142857142854,
+          "net_usdt": -218.44524219259964,
+          "avg_win_loss": 1.1666320866433726,
+          "expectancy_r": -0.06026386457492061,
+          "profit_factor": 0.8749740649825294,
+          "funding_usdt": -1.590438434011849,
+          "exits": {
+            "timeout": 23,
+            "stop": 32,
+            "target": 15
+          }
+        }
+      ],
+      "validation_pnl": -912.5065588081551,
+      "min_fills": 70
+    },
+    {
+      "leaves": 7,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 135,
+          "fills": 87,
+          "wins": 41,
+          "fill_pct": 64.44444444444444,
+          "win_pct": 47.12643678160919,
+          "net_usdt": 255.7912826078157,
+          "avg_win_loss": 1.3011409873263773,
+          "expectancy_r": 0.060337766870003126,
+          "profit_factor": 1.1597126191387277,
+          "funding_usdt": 2.3183374657578306,
+          "exits": {
+            "timeout": 41,
+            "stop": 26,
+            "target": 20
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 84,
+          "fills": 40,
+          "wins": 18,
+          "fill_pct": 47.61904761904762,
+          "win_pct": 45.0,
+          "net_usdt": -0.4346169331116625,
+          "avg_win_loss": 1.2216376848181598,
+          "expectancy_r": 0.000539640010128516,
+          "profit_factor": 0.9995217421239488,
+          "funding_usdt": 0.08137856737459248,
+          "exits": {
+            "stop": 17,
+            "timeout": 13,
+            "target": 10
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 26,
+          "fills": 18,
+          "wins": 9,
+          "fill_pct": 69.23076923076923,
+          "win_pct": 50.0,
+          "net_usdt": 67.29790045372751,
+          "avg_win_loss": 1.1600152026623043,
+          "expectancy_r": 0.07595696617944898,
+          "profit_factor": 1.1600152026623043,
+          "funding_usdt": 0.25359223192704267,
+          "exits": {
+            "stop": 8,
+            "target": 5,
+            "timeout": 5
+          }
+        }
+      ],
+      "validation_pnl": 322.65456612843155,
+      "min_fills": 18
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 419,
+          "fills": 219,
+          "wins": 91,
+          "fill_pct": 52.2673031026253,
+          "win_pct": 41.55251141552512,
+          "net_usdt": -705.7485951735889,
+          "avg_win_loss": 1.2035006245943198,
+          "expectancy_r": -0.06289975320247722,
+          "profit_factor": 0.8556137252975244,
+          "funding_usdt": 8.269315516839058,
+          "exits": {
+            "timeout": 90,
+            "stop": 85,
+            "target": 44
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 400,
+          "fills": 200,
+          "wins": 77,
+          "fill_pct": 50.0,
+          "win_pct": 38.5,
+          "net_usdt": -1837.5101933015717,
+          "avg_win_loss": 1.029872413402971,
+          "expectancy_r": -0.18592026052102836,
+          "profit_factor": 0.6447168766831608,
+          "funding_usdt": 7.134572123348707,
+          "exits": {
+            "stop": 94,
+            "timeout": 74,
+            "target": 32
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 327,
+          "fills": 175,
+          "wins": 87,
+          "fill_pct": 53.51681957186544,
+          "win_pct": 49.714285714285715,
+          "net_usdt": 613.1366334272501,
+          "avg_win_loss": 1.1894998125543066,
+          "expectancy_r": 0.07180091204565639,
+          "profit_factor": 1.1759827692298261,
+          "funding_usdt": -4.903580186935452,
+          "exits": {
+            "timeout": 75,
+            "target": 40,
+            "stop": 60
+          }
+        }
+      ],
+      "validation_pnl": -1930.1221550479104,
+      "min_fills": 175
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 334,
+          "fills": 189,
+          "wins": 76,
+          "fill_pct": 56.58682634730539,
+          "win_pct": 40.21164021164021,
+          "net_usdt": -679.5102052387786,
+          "avg_win_loss": 1.2580119671927432,
+          "expectancy_r": -0.07046798150654023,
+          "profit_factor": 0.8460965443066236,
+          "funding_usdt": 8.927427067883709,
+          "exits": {
+            "timeout": 70,
+            "stop": 79,
+            "target": 40
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 286,
+          "fills": 148,
+          "wins": 58,
+          "fill_pct": 51.74825174825175,
+          "win_pct": 39.189189189189186,
+          "net_usdt": -907.877378119367,
+          "avg_win_loss": 1.1610573594602651,
+          "expectancy_r": -0.12276791523705952,
+          "profit_factor": 0.7482369649855041,
+          "funding_usdt": 3.12349838803184,
+          "exits": {
+            "timeout": 60,
+            "target": 27,
+            "stop": 61
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 224,
+          "fills": 121,
+          "wins": 56,
+          "fill_pct": 54.017857142857146,
+          "win_pct": 46.28099173553719,
+          "net_usdt": 131.68923681089203,
+          "avg_win_loss": 1.2159595429922894,
+          "expectancy_r": 0.021219559133885332,
+          "profit_factor": 1.0475959139625879,
+          "funding_usdt": -2.2053554953078254,
+          "exits": {
+            "timeout": 40,
+            "target": 31,
+            "stop": 50
+          }
+        }
+      ],
+      "validation_pnl": -1455.6983465472535,
+      "min_fills": 121
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 214,
+          "fills": 123,
+          "wins": 53,
+          "fill_pct": 57.47663551401869,
+          "win_pct": 43.08943089430894,
+          "net_usdt": -470.5135221906444,
+          "avg_win_loss": 1.0831958531888262,
+          "expectancy_r": -0.07599991972951123,
+          "profit_factor": 0.8201340031286828,
+          "funding_usdt": 3.7842944868709743,
+          "exits": {
+            "timeout": 56,
+            "stop": 45,
+            "target": 22
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 167,
+          "fills": 86,
+          "wins": 35,
+          "fill_pct": 51.49700598802395,
+          "win_pct": 40.69767441860465,
+          "net_usdt": -420.17128524972617,
+          "avg_win_loss": 1.1640044710981035,
+          "expectancy_r": -0.09654839245740618,
+          "profit_factor": 0.7988265978124238,
+          "funding_usdt": 0.05003358535480839,
+          "exits": {
+            "target": 18,
+            "stop": 38,
+            "timeout": 30
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 90,
+          "fills": 48,
+          "wins": 20,
+          "fill_pct": 53.333333333333336,
+          "win_pct": 41.666666666666664,
+          "net_usdt": -257.9579036320709,
+          "avg_win_loss": 1.093833647405096,
+          "expectancy_r": -0.10615793611772043,
+          "profit_factor": 0.7813097481464971,
+          "funding_usdt": -1.2595106650098298,
+          "exits": {
+            "timeout": 18,
+            "stop": 21,
+            "target": 9
+          }
+        }
+      ],
+      "validation_pnl": -1148.6427110724414,
+      "min_fills": 48
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 426,
+          "fills": 225,
+          "wins": 90,
+          "fill_pct": 52.816901408450704,
+          "win_pct": 40.0,
+          "net_usdt": -878.929637950863,
+          "avg_win_loss": 1.2454761410849755,
+          "expectancy_r": -0.07736884497183376,
+          "profit_factor": 0.8303174273899838,
+          "funding_usdt": 3.9507872058850046,
+          "exits": {
+            "timeout": 84,
+            "stop": 93,
+            "target": 48
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 437,
+          "fills": 219,
+          "wins": 89,
+          "fill_pct": 50.11441647597254,
+          "win_pct": 40.63926940639269,
+          "net_usdt": -1559.294041288832,
+          "avg_win_loss": 1.057198937301087,
+          "expectancy_r": -0.1431253686965531,
+          "profit_factor": 0.7237746570753597,
+          "funding_usdt": 5.6149554367074614,
+          "exits": {
+            "target": 39,
+            "stop": 104,
+            "timeout": 76
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 358,
+          "fills": 194,
+          "wins": 95,
+          "fill_pct": 54.18994413407821,
+          "win_pct": 48.96907216494845,
+          "net_usdt": 729.2890381047721,
+          "avg_win_loss": 1.2337576968203885,
+          "expectancy_r": 0.07529378073577667,
+          "profit_factor": 1.1839089009892618,
+          "funding_usdt": -7.093238740851784,
+          "exits": {
+            "timeout": 77,
+            "target": 46,
+            "stop": 71
+          }
+        }
+      ],
+      "validation_pnl": -1708.934641134923,
+      "min_fills": 194
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 380,
+          "fills": 205,
+          "wins": 80,
+          "fill_pct": 53.94736842105263,
+          "win_pct": 39.02439024390244,
+          "net_usdt": -816.1532001852191,
+          "avg_win_loss": 1.2933734996005597,
+          "expectancy_r": -0.0784881186835679,
+          "profit_factor": 0.8277590397443583,
+          "funding_usdt": 8.673269013647596,
+          "exits": {
+            "timeout": 78,
+            "stop": 84,
+            "target": 43
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 340,
+          "fills": 160,
+          "wins": 68,
+          "fill_pct": 47.05882352941177,
+          "win_pct": 42.5,
+          "net_usdt": -713.7312998139141,
+          "avg_win_loss": 1.1047728102891743,
+          "expectancy_r": -0.08897510691366145,
+          "profit_factor": 0.816571207605042,
+          "funding_usdt": 1.5813835171857287,
+          "exits": {
+            "timeout": 61,
+            "target": 30,
+            "stop": 69
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 279,
+          "fills": 149,
+          "wins": 73,
+          "fill_pct": 53.40501792114696,
+          "win_pct": 48.993288590604024,
+          "net_usdt": 610.4140639598595,
+          "avg_win_loss": 1.2548974805294535,
+          "expectancy_r": 0.0821334260398889,
+          "profit_factor": 1.2053620536664487,
+          "funding_usdt": -2.3438676316790823,
+          "exits": {
+            "timeout": 60,
+            "target": 36,
+            "stop": 53
+          }
+        }
+      ],
+      "validation_pnl": -919.4704360392737,
+      "min_fills": 149
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 315,
+          "fills": 167,
+          "wins": 68,
+          "fill_pct": 53.01587301587302,
+          "win_pct": 40.7185628742515,
+          "net_usdt": -801.1347795365946,
+          "avg_win_loss": 1.1544537699396618,
+          "expectancy_r": -0.0961558492052125,
+          "profit_factor": 0.7929581450090607,
+          "funding_usdt": 6.225076080585777,
+          "exits": {
+            "timeout": 64,
+            "stop": 70,
+            "target": 33
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 247,
+          "fills": 117,
+          "wins": 46,
+          "fill_pct": 47.36842105263158,
+          "win_pct": 39.31623931623932,
+          "net_usdt": -899.0667126234403,
+          "avg_win_loss": 1.0778000995899268,
+          "expectancy_r": -0.15396207772538886,
+          "profit_factor": 0.69829302226953,
+          "funding_usdt": -0.8362541399709533,
+          "exits": {
+            "timeout": 42,
+            "target": 21,
+            "stop": 54
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 170,
+          "fills": 91,
+          "wins": 36,
+          "fill_pct": 53.529411764705884,
+          "win_pct": 39.56043956043956,
+          "net_usdt": -422.3087661480099,
+          "avg_win_loss": 1.2443993111028822,
+          "expectancy_r": -0.09217710221434344,
+          "profit_factor": 0.8145159127218865,
+          "funding_usdt": -0.8031217313954411,
+          "exits": {
+            "timeout": 29,
+            "stop": 42,
+            "target": 20
+          }
+        }
+      ],
+      "validation_pnl": -2122.5102583080447,
+      "min_fills": 91
+    }
+  ],
+  "flow": [
+    {
+      "leaves": 7,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 409,
+          "fills": 209,
+          "wins": 91,
+          "fill_pct": 51.100244498777506,
+          "win_pct": 43.54066985645933,
+          "net_usdt": -789.1737930467684,
+          "avg_win_loss": 1.08702619339825,
+          "expectancy_r": -0.07880783706023434,
+          "profit_factor": 0.8382998610105148,
+          "funding_usdt": 14.476102916923677,
+          "exits": {
+            "stop": 89,
+            "timeout": 78,
+            "target": 42
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 382,
+          "fills": 181,
+          "wins": 73,
+          "fill_pct": 47.382198952879584,
+          "win_pct": 40.331491712707184,
+          "net_usdt": -1364.2097727966686,
+          "avg_win_loss": 1.0382988757166063,
+          "expectancy_r": -0.15099827050878079,
+          "profit_factor": 0.701813128956595,
+          "funding_usdt": 12.382691454060542,
+          "exits": {
+            "target": 32,
+            "stop": 85,
+            "timeout": 64
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 319,
+          "fills": 179,
+          "wins": 67,
+          "fill_pct": 56.1128526645768,
+          "win_pct": 37.43016759776536,
+          "net_usdt": -1266.9359872603284,
+          "avg_win_loss": 1.2391188231599273,
+          "expectancy_r": -0.1421193027898906,
+          "profit_factor": 0.7412585817117421,
+          "funding_usdt": 10.218405184020797,
+          "exits": {
+            "timeout": 48,
+            "target": 40,
+            "stop": 91
+          }
+        }
+      ],
+      "validation_pnl": -3420.3195531037654,
+      "min_fills": 179
+    },
+    {
+      "leaves": 7,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 195,
+          "fills": 110,
+          "wins": 52,
+          "fill_pct": 56.41025641025641,
+          "win_pct": 47.27272727272727,
+          "net_usdt": 572.916390151882,
+          "avg_win_loss": 1.4081257403510858,
+          "expectancy_r": 0.10438141310264011,
+          "profit_factor": 1.2624575603147667,
+          "funding_usdt": 12.895154685564425,
+          "exits": {
+            "stop": 37,
+            "timeout": 43,
+            "target": 30
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 196,
+          "fills": 91,
+          "wins": 32,
+          "fill_pct": 46.42857142857143,
+          "win_pct": 35.16483516483517,
+          "net_usdt": -1048.1471574503,
+          "avg_win_loss": 1.0446735896830672,
+          "expectancy_r": -0.23067915143308365,
+          "profit_factor": 0.5666026249128501,
+          "funding_usdt": 11.79519424013179,
+          "exits": {
+            "target": 13,
+            "stop": 45,
+            "timeout": 33
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 150,
+          "fills": 81,
+          "wins": 22,
+          "fill_pct": 54.0,
+          "win_pct": 27.160493827160494,
+          "net_usdt": -1524.3073375732024,
+          "avg_win_loss": 1.1279156126947019,
+          "expectancy_r": -0.38042719107455075,
+          "profit_factor": 0.4205787030387023,
+          "funding_usdt": 6.888784073922766,
+          "exits": {
+            "timeout": 18,
+            "stop": 51,
+            "target": 12
+          }
+        }
+      ],
+      "validation_pnl": -1999.5381048716204,
+      "min_fills": 81
+    },
+    {
+      "leaves": 7,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 77,
+          "fills": 44,
+          "wins": 20,
+          "fill_pct": 57.142857142857146,
+          "win_pct": 45.45454545454545,
+          "net_usdt": 62.42550237805381,
+          "avg_win_loss": 1.278241148383811,
+          "expectancy_r": 0.02928062301386835,
+          "profit_factor": 1.065200956986509,
+          "funding_usdt": 4.953512487636755,
+          "exits": {
+            "stop": 16,
+            "timeout": 16,
+            "target": 12
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 68,
+          "fills": 36,
+          "wins": 12,
+          "fill_pct": 52.94117647058823,
+          "win_pct": 33.333333333333336,
+          "net_usdt": -391.6713786590594,
+          "avg_win_loss": 1.2441122422496873,
+          "expectancy_r": -0.21754334278532803,
+          "profit_factor": 0.6220561211248439,
+          "funding_usdt": 4.759753532815471,
+          "exits": {
+            "stop": 19,
+            "timeout": 12,
+            "target": 5
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 43,
+          "fills": 21,
+          "wins": 9,
+          "fill_pct": 48.83720930232558,
+          "win_pct": 42.857142857142854,
+          "net_usdt": -15.19399030413373,
+          "avg_win_loss": 1.2921078942095934,
+          "expectancy_r": -0.014761952243439869,
+          "profit_factor": 0.9690809206571952,
+          "funding_usdt": 2.46264593566153,
+          "exits": {
+            "stop": 9,
+            "target": 5,
+            "timeout": 7
+          }
+        }
+      ],
+      "validation_pnl": -344.4398665851393,
+      "min_fills": 21
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 426,
+          "fills": 218,
+          "wins": 93,
+          "fill_pct": 51.17370892018779,
+          "win_pct": 42.6605504587156,
+          "net_usdt": -353.0548191988586,
+          "avg_win_loss": 1.2499801774649095,
+          "expectancy_r": -0.032820382763048724,
+          "profit_factor": 0.9299852520338928,
+          "funding_usdt": 8.33614136995684,
+          "exits": {
+            "stop": 92,
+            "timeout": 76,
+            "target": 50
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 427,
+          "fills": 202,
+          "wins": 82,
+          "fill_pct": 47.30679156908665,
+          "win_pct": 40.59405940594059,
+          "net_usdt": -1143.1687606914352,
+          "avg_win_loss": 1.1280175133955759,
+          "expectancy_r": -0.11343513738268271,
+          "profit_factor": 0.7708119674869767,
+          "funding_usdt": 8.649685115195965,
+          "exits": {
+            "target": 40,
+            "stop": 88,
+            "timeout": 74
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 351,
+          "fills": 191,
+          "wins": 80,
+          "fill_pct": 54.41595441595442,
+          "win_pct": 41.8848167539267,
+          "net_usdt": -515.2012654519988,
+          "avg_win_loss": 1.2414678386567737,
+          "expectancy_r": -0.0533696996873115,
+          "profit_factor": 0.8947515954283053,
+          "funding_usdt": 9.84723237282956,
+          "exits": {
+            "timeout": 51,
+            "target": 49,
+            "stop": 91
+          }
+        }
+      ],
+      "validation_pnl": -2011.4248453422924,
+      "min_fills": 191
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 286,
+          "fills": 160,
+          "wins": 80,
+          "fill_pct": 55.94405594405595,
+          "win_pct": 50.0,
+          "net_usdt": 398.2078054603129,
+          "avg_win_loss": 1.1177727307474525,
+          "expectancy_r": 0.05074762319289936,
+          "profit_factor": 1.1177727307474525,
+          "funding_usdt": 9.121960225491861,
+          "exits": {
+            "stop": 60,
+            "timeout": 61,
+            "target": 39
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 280,
+          "fills": 129,
+          "wins": 45,
+          "fill_pct": 46.07142857142857,
+          "win_pct": 34.883720930232556,
+          "net_usdt": -1608.6147211166744,
+          "avg_win_loss": 1.0360114137947363,
+          "expectancy_r": -0.25220962870264474,
+          "profit_factor": 0.5550061145328944,
+          "funding_usdt": 6.80389713019815,
+          "exits": {
+            "stop": 68,
+            "timeout": 41,
+            "target": 20
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 229,
+          "fills": 118,
+          "wins": 40,
+          "fill_pct": 51.52838427947598,
+          "win_pct": 33.898305084745765,
+          "net_usdt": -1213.1495447329173,
+          "avg_win_loss": 1.2120939857026403,
+          "expectancy_r": -0.2071863174267608,
+          "profit_factor": 0.6215866593346873,
+          "funding_usdt": 9.518341181049786,
+          "exits": {
+            "timeout": 38,
+            "target": 20,
+            "stop": 60
+          }
+        }
+      ],
+      "validation_pnl": -2423.556460389279,
+      "min_fills": 118
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 163,
+          "fills": 102,
+          "wins": 51,
+          "fill_pct": 62.576687116564415,
+          "win_pct": 50.0,
+          "net_usdt": 647.3706657217365,
+          "avg_win_loss": 1.3206628085624423,
+          "expectancy_r": 0.12244295127565842,
+          "profit_factor": 1.3206628085624421,
+          "funding_usdt": 4.9199801109371455,
+          "exits": {
+            "stop": 35,
+            "timeout": 39,
+            "target": 28
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 149,
+          "fills": 69,
+          "wins": 25,
+          "fill_pct": 46.308724832214764,
+          "win_pct": 36.231884057971016,
+          "net_usdt": -464.3200522876454,
+          "avg_win_loss": 1.3196015452501422,
+          "expectancy_r": -0.13748059197043594,
+          "profit_factor": 0.7497736052557628,
+          "funding_usdt": 5.266296061428208,
+          "exits": {
+            "stop": 35,
+            "timeout": 19,
+            "target": 15
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 118,
+          "fills": 59,
+          "wins": 20,
+          "fill_pct": 50.0,
+          "win_pct": 33.898305084745765,
+          "net_usdt": -873.6942936757996,
+          "avg_win_loss": 0.9479455049549717,
+          "expectancy_r": -0.29701340351517613,
+          "profit_factor": 0.4861258999769085,
+          "funding_usdt": 5.785118780462711,
+          "exits": {
+            "stop": 32,
+            "timeout": 19,
+            "target": 8
+          }
+        }
+      ],
+      "validation_pnl": -690.6436802417086,
+      "min_fills": 59
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 427,
+          "fills": 224,
+          "wins": 94,
+          "fill_pct": 52.459016393442624,
+          "win_pct": 41.964285714285715,
+          "net_usdt": -681.4618596051715,
+          "avg_win_loss": 1.202010075365218,
+          "expectancy_r": -0.06133916043063642,
+          "profit_factor": 0.8691457468025421,
+          "funding_usdt": 0.8964458202286678,
+          "exits": {
+            "stop": 92,
+            "timeout": 81,
+            "target": 51
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 442,
+          "fills": 206,
+          "wins": 82,
+          "fill_pct": 46.60633484162896,
+          "win_pct": 39.80582524271845,
+          "net_usdt": -1383.360189622689,
+          "avg_win_loss": 1.1038322025908605,
+          "expectancy_r": -0.13451598520941987,
+          "profit_factor": 0.7299535533262141,
+          "funding_usdt": 9.554406075501428,
+          "exits": {
+            "timeout": 78,
+            "target": 33,
+            "stop": 95
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 376,
+          "fills": 205,
+          "wins": 79,
+          "fill_pct": 54.52127659574468,
+          "win_pct": 38.53658536585366,
+          "net_usdt": -1497.9270486685011,
+          "avg_win_loss": 1.1565272867957417,
+          "expectancy_r": -0.1464423015743544,
+          "profit_factor": 0.7251242512449492,
+          "funding_usdt": 10.375765466188405,
+          "exits": {
+            "timeout": 63,
+            "target": 43,
+            "stop": 99
+          }
+        }
+      ],
+      "validation_pnl": -3562.7490978963615,
+      "min_fills": 205
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 352,
+          "fills": 194,
+          "wins": 89,
+          "fill_pct": 55.11363636363637,
+          "win_pct": 45.876288659793815,
+          "net_usdt": 13.937659728757133,
+          "avg_win_loss": 1.1836337848264518,
+          "expectancy_r": 0.0006055813938078042,
+          "profit_factor": 1.003270541424326,
+          "funding_usdt": 0.300759861002275,
+          "exits": {
+            "stop": 74,
+            "timeout": 74,
+            "target": 46
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 352,
+          "fills": 160,
+          "wins": 68,
+          "fill_pct": 45.45454545454545,
+          "win_pct": 42.5,
+          "net_usdt": -380.7938335276666,
+          "avg_win_loss": 1.2172598492812705,
+          "expectancy_r": -0.04705557730508769,
+          "profit_factor": 0.899713801642678,
+          "funding_usdt": 6.466083968956494,
+          "exits": {
+            "target": 34,
+            "stop": 68,
+            "timeout": 58
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 273,
+          "fills": 154,
+          "wins": 58,
+          "fill_pct": 56.41025641025641,
+          "win_pct": 37.66233766233766,
+          "net_usdt": -1057.6165256419265,
+          "avg_win_loss": 1.2215871631865058,
+          "expectancy_r": -0.1389479426769719,
+          "profit_factor": 0.7380422444251806,
+          "funding_usdt": 10.407440153679358,
+          "exits": {
+            "timeout": 47,
+            "target": 32,
+            "stop": 75
+          }
+        }
+      ],
+      "validation_pnl": -1424.4726994408359,
+      "min_fills": 154
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 276,
+          "fills": 153,
+          "wins": 71,
+          "fill_pct": 55.43478260869565,
+          "win_pct": 46.40522875816993,
+          "net_usdt": -244.97411814965395,
+          "avg_win_loss": 1.072391947708548,
+          "expectancy_r": -0.031719286622898295,
+          "profit_factor": 0.9285344913086206,
+          "funding_usdt": 5.698335824716696,
+          "exits": {
+            "stop": 61,
+            "timeout": 59,
+            "target": 33
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 215,
+          "fills": 98,
+          "wins": 40,
+          "fill_pct": 45.58139534883721,
+          "win_pct": 40.816326530612244,
+          "net_usdt": -278.87639575447463,
+          "avg_win_loss": 1.2829889309466294,
+          "expectancy_r": -0.0575978581340392,
+          "profit_factor": 0.8848199523769859,
+          "funding_usdt": 5.871391738424077,
+          "exits": {
+            "stop": 45,
+            "timeout": 33,
+            "target": 20
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 188,
+          "fills": 99,
+          "wins": 36,
+          "fill_pct": 52.659574468085104,
+          "win_pct": 36.36363636363637,
+          "net_usdt": -937.6921212515992,
+          "avg_win_loss": 1.151301541526435,
+          "expectancy_r": -0.1888784844604864,
+          "profit_factor": 0.6578865951579629,
+          "funding_usdt": 6.99057729197907,
+          "exits": {
+            "timeout": 31,
+            "stop": 51,
+            "target": 17
+          }
+        }
+      ],
+      "validation_pnl": -1461.5426351557278,
+      "min_fills": 98
+    }
+  ],
+  "options_flow": [
+    {
+      "leaves": 7,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 410,
+          "fills": 217,
+          "wins": 80,
+          "fill_pct": 52.926829268292686,
+          "win_pct": 36.866359447004605,
+          "net_usdt": -1719.454078740569,
+          "avg_win_loss": 1.1538829621629394,
+          "expectancy_r": -0.15928196105777753,
+          "profit_factor": 0.673800269876169,
+          "funding_usdt": 2.930182662412182,
+          "exits": {
+            "stop": 94,
+            "timeout": 87,
+            "target": 36
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 389,
+          "fills": 204,
+          "wins": 92,
+          "fill_pct": 52.44215938303342,
+          "win_pct": 45.09803921568628,
+          "net_usdt": -322.09797364408206,
+          "avg_win_loss": 1.1365741360608679,
+          "expectancy_r": -0.032091449906383365,
+          "profit_factor": 0.9336144689071417,
+          "funding_usdt": 12.250642355997266,
+          "exits": {
+            "target": 41,
+            "stop": 90,
+            "timeout": 73
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 349,
+          "fills": 176,
+          "wins": 85,
+          "fill_pct": 50.429799426934096,
+          "win_pct": 48.29545454545455,
+          "net_usdt": 756.4530318884166,
+          "avg_win_loss": 1.2926956161120478,
+          "expectancy_r": 0.08681633310019533,
+          "profit_factor": 1.207462938126638,
+          "funding_usdt": -0.019950791039825028,
+          "exits": {
+            "target": 46,
+            "timeout": 67,
+            "stop": 63
+          }
+        }
+      ],
+      "validation_pnl": -1285.0990204962345,
+      "min_fills": 176
+    },
+    {
+      "leaves": 7,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 354,
+          "fills": 177,
+          "wins": 65,
+          "fill_pct": 50.0,
+          "win_pct": 36.72316384180791,
+          "net_usdt": -1685.3951471799835,
+          "avg_win_loss": 1.099529663072724,
+          "expectancy_r": -0.19132309786044674,
+          "profit_factor": 0.6381198937475632,
+          "funding_usdt": 3.2404344808673082,
+          "exits": {
+            "timeout": 60,
+            "stop": 86,
+            "target": 31
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 288,
+          "fills": 117,
+          "wins": 33,
+          "fill_pct": 40.625,
+          "win_pct": 28.205128205128204,
+          "net_usdt": -2013.265864239251,
+          "avg_win_loss": 1.1360487710217084,
+          "expectancy_r": -0.348711916257867,
+          "profit_factor": 0.44630487432995686,
+          "funding_usdt": 8.18959897768809,
+          "exits": {
+            "target": 14,
+            "timeout": 35,
+            "stop": 68
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 228,
+          "fills": 115,
+          "wins": 42,
+          "fill_pct": 50.43859649122807,
+          "win_pct": 36.52173913043478,
+          "net_usdt": -345.3178755078151,
+          "avg_win_loss": 1.524768080717935,
+          "expectancy_r": -0.057975903493130684,
+          "profit_factor": 0.8772638272623734,
+          "funding_usdt": 4.706046878130815,
+          "exits": {
+            "stop": 49,
+            "target": 29,
+            "timeout": 37
+          }
+        }
+      ],
+      "validation_pnl": -4043.9788869270496,
+      "min_fills": 115
+    },
+    {
+      "leaves": 7,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 248,
+          "fills": 122,
+          "wins": 54,
+          "fill_pct": 49.193548387096776,
+          "win_pct": 44.26229508196721,
+          "net_usdt": -248.60602030681562,
+          "avg_win_loss": 1.1530221392113553,
+          "expectancy_r": -0.03918421215724347,
+          "profit_factor": 0.9156352281972526,
+          "funding_usdt": 3.9421452226147307,
+          "exits": {
+            "timeout": 40,
+            "stop": 55,
+            "target": 27
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 164,
+          "fills": 70,
+          "wins": 19,
+          "fill_pct": 42.68292682926829,
+          "win_pct": 27.142857142857142,
+          "net_usdt": -1250.8582981450616,
+          "avg_win_loss": 1.1757193725726376,
+          "expectancy_r": -0.36056208850437776,
+          "profit_factor": 0.43801309958588464,
+          "funding_usdt": 6.474766560245037,
+          "exits": {
+            "timeout": 18,
+            "stop": 41,
+            "target": 11
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 127,
+          "fills": 53,
+          "wins": 16,
+          "fill_pct": 41.732283464566926,
+          "win_pct": 30.18867924528302,
+          "net_usdt": -518.0593787463191,
+          "avg_win_loss": 1.5140281390767345,
+          "expectancy_r": -0.1943561095591412,
+          "profit_factor": 0.6547148709521015,
+          "funding_usdt": 1.3293399842781974,
+          "exits": {
+            "stop": 27,
+            "target": 11,
+            "timeout": 15
+          }
+        }
+      ],
+      "validation_pnl": -2017.5236971981963,
+      "min_fills": 53
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 445,
+          "fills": 223,
+          "wins": 86,
+          "fill_pct": 50.1123595505618,
+          "win_pct": 38.56502242152467,
+          "net_usdt": -1678.6778312617676,
+          "avg_win_loss": 1.1094605863833087,
+          "expectancy_r": -0.15057352086457032,
+          "profit_factor": 0.6964497111603252,
+          "funding_usdt": 2.272178352286485,
+          "exits": {
+            "timeout": 79,
+            "stop": 103,
+            "target": 41
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 409,
+          "fills": 213,
+          "wins": 80,
+          "fill_pct": 52.07823960880196,
+          "win_pct": 37.55868544600939,
+          "net_usdt": -1755.0882071156734,
+          "avg_win_loss": 1.1268613286541849,
+          "expectancy_r": -0.16568183037307027,
+          "profit_factor": 0.6778113255062765,
+          "funding_usdt": 5.361634675698248,
+          "exits": {
+            "stop": 97,
+            "target": 35,
+            "timeout": 81
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 349,
+          "fills": 192,
+          "wins": 83,
+          "fill_pct": 55.01432664756447,
+          "win_pct": 43.229166666666664,
+          "net_usdt": -20.57206711615056,
+          "avg_win_loss": 1.3072078451742366,
+          "expectancy_r": -0.002092555829806994,
+          "profit_factor": 0.9953967995363453,
+          "funding_usdt": 4.524633755779129,
+          "exits": {
+            "target": 47,
+            "timeout": 66,
+            "stop": 79
+          }
+        }
+      ],
+      "validation_pnl": -3454.3381054935917,
+      "min_fills": 192
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 410,
+          "fills": 196,
+          "wins": 77,
+          "fill_pct": 47.80487804878049,
+          "win_pct": 39.285714285714285,
+          "net_usdt": -1346.4670580129784,
+          "avg_win_loss": 1.125377609391536,
+          "expectancy_r": -0.13708075121372804,
+          "profit_factor": 0.7281855119592293,
+          "funding_usdt": 4.650082203603458,
+          "exits": {
+            "timeout": 65,
+            "stop": 93,
+            "target": 38
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 320,
+          "fills": 179,
+          "wins": 70,
+          "fill_pct": 55.9375,
+          "win_pct": 39.10614525139665,
+          "net_usdt": -981.4720073664395,
+          "avg_win_loss": 1.2306052507071925,
+          "expectancy_r": -0.10871827171621519,
+          "profit_factor": 0.7902969499954448,
+          "funding_usdt": 7.29177816935802,
+          "exits": {
+            "target": 38,
+            "timeout": 57,
+            "stop": 84
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 301,
+          "fills": 159,
+          "wins": 86,
+          "fill_pct": 52.82392026578073,
+          "win_pct": 54.088050314465406,
+          "net_usdt": 1673.6572242415043,
+          "avg_win_loss": 1.3354916649434352,
+          "expectancy_r": 0.20884642964551534,
+          "profit_factor": 1.5733189477415812,
+          "funding_usdt": 3.1895925015437747,
+          "exits": {
+            "timeout": 61,
+            "target": 49,
+            "stop": 49
+          }
+        }
+      ],
+      "validation_pnl": -654.2818411379136,
+      "min_fills": 159
+    },
+    {
+      "leaves": 15,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 350,
+          "fills": 173,
+          "wins": 68,
+          "fill_pct": 49.42857142857143,
+          "win_pct": 39.30635838150289,
+          "net_usdt": -1271.1383924848742,
+          "avg_win_loss": 1.1177858458393457,
+          "expectancy_r": -0.14929438963852595,
+          "profit_factor": 0.7238994049245286,
+          "funding_usdt": 3.5404081766081488,
+          "exits": {
+            "timeout": 49,
+            "stop": 88,
+            "target": 36
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 252,
+          "fills": 127,
+          "wins": 44,
+          "fill_pct": 50.3968253968254,
+          "win_pct": 34.645669291338585,
+          "net_usdt": -1490.1204718879555,
+          "avg_win_loss": 1.1191826963183946,
+          "expectancy_r": -0.23674304132709806,
+          "profit_factor": 0.5933016703374622,
+          "funding_usdt": 7.179346960282447,
+          "exits": {
+            "target": 24,
+            "timeout": 36,
+            "stop": 67
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 202,
+          "fills": 103,
+          "wins": 42,
+          "fill_pct": 50.99009900990099,
+          "win_pct": 40.77669902912621,
+          "net_usdt": 268.46234198238506,
+          "avg_win_loss": 1.6222336658381276,
+          "expectancy_r": 0.05335662751540301,
+          "profit_factor": 1.1169477699213337,
+          "funding_usdt": 4.059662435931086,
+          "exits": {
+            "stop": 39,
+            "target": 30,
+            "timeout": 34
+          }
+        }
+      ],
+      "validation_pnl": -2492.796522390445,
+      "min_fills": 103
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.0,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 433,
+          "fills": 229,
+          "wins": 95,
+          "fill_pct": 52.88683602771363,
+          "win_pct": 41.48471615720524,
+          "net_usdt": -868.0640141856812,
+          "avg_win_loss": 1.1844672285802327,
+          "expectancy_r": -0.07403906872823586,
+          "profit_factor": 0.8397342292173292,
+          "funding_usdt": 2.7656758584163357,
+          "exits": {
+            "timeout": 82,
+            "stop": 99,
+            "target": 48
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 437,
+          "fills": 216,
+          "wins": 84,
+          "fill_pct": 49.4279176201373,
+          "win_pct": 38.888888888888886,
+          "net_usdt": -1535.0452755559074,
+          "avg_win_loss": 1.1356667941122414,
+          "expectancy_r": -0.1432489606912713,
+          "profit_factor": 0.7226970507986991,
+          "funding_usdt": 3.2032736873324668,
+          "exits": {
+            "stop": 103,
+            "target": 37,
+            "timeout": 76
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 392,
+          "fills": 200,
+          "wins": 82,
+          "fill_pct": 51.02040816326531,
+          "win_pct": 41.0,
+          "net_usdt": -920.3112193332275,
+          "avg_win_loss": 1.1780979340746325,
+          "expectancy_r": -0.09275898622258315,
+          "profit_factor": 0.8186782253738972,
+          "funding_usdt": 7.896610938660911,
+          "exits": {
+            "target": 46,
+            "timeout": 60,
+            "stop": 94
+          }
+        }
+      ],
+      "validation_pnl": -3323.4205090748164,
+      "min_fills": 200
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.05,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 415,
+          "fills": 217,
+          "wins": 91,
+          "fill_pct": 52.28915662650602,
+          "win_pct": 41.935483870967744,
+          "net_usdt": -1114.5364290363289,
+          "avg_win_loss": 1.1000647441223994,
+          "expectancy_r": -0.10143359952456592,
+          "profit_factor": 0.7944912040883996,
+          "funding_usdt": 1.9961470029514368,
+          "exits": {
+            "timeout": 71,
+            "stop": 101,
+            "target": 45
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 370,
+          "fills": 199,
+          "wins": 76,
+          "fill_pct": 53.78378378378378,
+          "win_pct": 38.19095477386934,
+          "net_usdt": -1796.9499770967038,
+          "avg_win_loss": 1.068702146981237,
+          "expectancy_r": -0.1836000862971083,
+          "profit_factor": 0.660336285939626,
+          "funding_usdt": 0.5413092939769636,
+          "exits": {
+            "stop": 98,
+            "timeout": 69,
+            "target": 32
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 339,
+          "fills": 172,
+          "wins": 76,
+          "fill_pct": 50.73746312684366,
+          "win_pct": 44.18604651162791,
+          "net_usdt": 24.4944277910804,
+          "avg_win_loss": 1.270619886329505,
+          "expectancy_r": 0.0038711049319309723,
+          "profit_factor": 1.0059074100108583,
+          "funding_usdt": 7.159183495970524,
+          "exits": {
+            "target": 46,
+            "stop": 76,
+            "timeout": 50
+          }
+        }
+      ],
+      "validation_pnl": -2886.9919783419523,
+      "min_fills": 172
+    },
+    {
+      "leaves": 31,
+      "cutoff": 0.1,
+      "folds": [
+        {
+          "month": "2025-12-01",
+          "train_orders": 16944,
+          "eligible_coin_hours": 4308,
+          "orders": 388,
+          "fills": 200,
+          "wins": 83,
+          "fill_pct": 51.54639175257732,
+          "win_pct": 41.5,
+          "net_usdt": -1422.9257724430831,
+          "avg_win_loss": 1.0277594228473803,
+          "expectancy_r": -0.14246446052775819,
+          "profit_factor": 0.729094291421646,
+          "funding_usdt": -1.517928939232039,
+          "exits": {
+            "timeout": 61,
+            "stop": 99,
+            "target": 40
+          }
+        },
+        {
+          "month": "2026-01-01",
+          "train_orders": 25860,
+          "eligible_coin_hours": 4266,
+          "orders": 297,
+          "fills": 163,
+          "wins": 62,
+          "fill_pct": 54.88215488215488,
+          "win_pct": 38.03680981595092,
+          "net_usdt": -1390.09715976715,
+          "avg_win_loss": 1.0913623546074067,
+          "expectancy_r": -0.17144033042880208,
+          "profit_factor": 0.6699452077788041,
+          "funding_usdt": 7.237352741130419,
+          "exits": {
+            "target": 27,
+            "timeout": 59,
+            "stop": 77
+          }
+        },
+        {
+          "month": "2026-02-01",
+          "train_orders": 34692,
+          "eligible_coin_hours": 3882,
+          "orders": 262,
+          "fills": 134,
+          "wins": 61,
+          "fill_pct": 51.14503816793893,
+          "win_pct": 45.52238805970149,
+          "net_usdt": 571.2355856959485,
+          "avg_win_loss": 1.4228897099175908,
+          "expectancy_r": 0.08583032562353204,
+          "profit_factor": 1.1889900315749733,
+          "funding_usdt": 5.901408257141056,
+          "exits": {
+            "target": 41,
+            "stop": 52,
+            "timeout": 41
+          }
+        }
+      ],
+      "validation_pnl": -2241.7873465142848,
+      "min_fills": 134
+    }
+  ]
+}
