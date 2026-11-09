@@ -1,0 +1,6 @@
+__pycache__/
+market.csv
+market.csv.tmp
+trades.csv
+.env
+.venv/
