@@ -16,16 +16,16 @@ END = int(datetime(2026, 1, 1, tzinfo=timezone.utc).timestamp())
 DATA = Path("data/kucoin-2025-q4")
 
 
-def check_period(rows):
+def check_period(rows, first=START, last=END):
     validate(rows)
-    if len(rows) != (END - START) // 3600 or rows[0].time != START:
+    if len(rows) != (last - first) // 3600 or rows[0].time != first:
         raise ValueError("Incomplete hourly history for the comparison period")
 
 
-def download(coin, path):
+def download(coin, path, first=START, last=END):
     bars = []
-    for start in range(START, END, 1000 * 3600):
-        end = min(start + 1000 * 3600, END)
+    for start in range(first, last, 1000 * 3600):
+        end = min(start + 1000 * 3600, last)
         url = (f"https://api.kucoin.com/api/v1/market/candles?symbol={coin}-USDT"
                f"&type=1hour&startAt={start}&endAt={end - 1}")
         with urlopen(url, timeout=30) as response:
@@ -36,7 +36,7 @@ def download(coin, path):
             bars.append(Candle(int(stamp), float(opening), float(high), float(low),
                                float(close), float(volume)))
     bars.sort()
-    check_period(bars)
+    check_period(bars, first, last)
     temp = path.with_suffix(".tmp")
     with temp.open("w", newline="") as file:
         writer = csv.writer(file)

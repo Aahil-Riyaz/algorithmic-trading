@@ -4,6 +4,25 @@ Can a 20-hour breakout pay for its trading costs across BTC, ETH, SOL, HYPE, AAV
 
 ## Run the experiment
 
+### Train the limit-entry model
+
+Run `python train_limits.py` for the six-coin research run. At each hourly close the strategy posts a simulated buy half an ATR below the close. ATR here is the mean true range of the last 14 completed hours. The entry expires after two hours. Each coin allows one pending order or open position at a time.
+
+The stop sits one ATR below the limit with a minimum distance of 0.5%. Position size risks 0.5% of that coin's cash on an ordinary stop. The target pays 1.5 times this risk after the assumed 0.10% fee per side and 0.02% slippage on market exits. The simulator requires a trade through the limit, assumes a full fill at the limit and ignores favorable entry gaps. It checks the stop immediately and allows target fills starting the following hour. A gap through the stop can increase the loss. Positions time out after 24 candles. Hourly data cannot verify queue priority or partial fills.
+
+The model learns how often filled trades made money at different levels of volatility and six-hour momentum. It pools the six coins and smooths sparse groups toward the training win rate. Three expanding validation folds in October–December 2025 compare three bin counts and four entry thresholds. Selection maximizes total validation profit with at least 20 fills per fold. Each split excludes new orders in the last 24 hours so every possible outcome resolves inside its own window. Training considers overlapping hypothetical setups, while the trading replay enforces one active order per coin.
+
+January 2026 was held out for the first evaluation. Six independent accounts started with 10,000 simulated USDT each.
+
+| January replay | Orders | Fills | Winners | Win rate | Net P&L | Return |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Every eligible limit setup | 967 | 524 | 161 | 30.73% | −5,761.11 USDT | −9.60% |
+| Trained filter | 288 | 144 | 45 | 31.25% | −1,522.84 USDT | −2.54% |
+
+The selected model used six bins per feature and a 0.35 score threshold. Its average winner was 1.49 times its average loser. Its three validation folds also lost money in aggregate. The frozen model, validation scores and both January order ledgers are written to `data/limit-run/`. Ledger times are UTC Unix seconds. Future revisions need a later evaluation period because the January results are now visible.
+
+### Reproduce the breakout comparison
+
 Run the six-coin comparison from the repository folder with Python 3.10 or newer.
 
 ```sh
