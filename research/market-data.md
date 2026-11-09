@@ -33,6 +33,8 @@ The two options underlyings provide market context for all six perpetuals. For e
 
 ## Capture what is happening now
 
+[See a timestamped capture of all six coins and both options markets](live-sample.md).
+
 Run `python flow_live.py` for a fresh six-coin sample, or `python flow_live.py --count 60 --interval 60` for a bounded session. These commands need no credentials. They save the exchange timestamps, local receipt times, raw top-1,000 bid and ask levels, visible USDT depth bands, rolling 15- and 60-minute aggressive buy/sell volumes, and rolling and six-hour-anchored Deribit option samples. The terminal shows the taker-buy share over the last 15 completed minutes. [Binance market data](https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/rest-api/market-data)
 
 The original CryExc layout remains the live visual companion. The local recorder stores numerical observations under `data/forward-flow/`. A band is complete only when the returned ladder reaches both edges. A truncated band keeps its observed quantities and a missing imbalance value. Use `python flow_live.py --export-hourly` to write comparable 1%/2% observations from the final three minutes of each hour. `perp_market.load_market(..., depth_folder=...)` can read those daily exports for a later period with completed candles and funding outcomes. Capture files are timestamped and kept outside the historical scorecard. No live or paper account returns have been measured by the recorder.

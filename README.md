@@ -10,7 +10,7 @@ Can price, visible liquidity and options flow predict a profitable limit entry o
 | Reproduce the two-sided model | [Data, training, frozen model selection and execution](research/flow-v1/README.md) |
 | Check individual trades | [All 518 submitted orders](research/flow-v1/orders.csv) and [results by coin and side](research/flow-v1/holdout.json) |
 | Read a live heatmap | [Original shared CryExc layout](https://cryexc.josedonato.com/app?layout=Pq4IMXG9) and [free tools and panel guide](research/market-data.md) |
-| Capture current market flow | Run `python flow_live.py` to record displayed bids/asks, aggressive buy/sell volume and actual BTC/ETH call/put trades. |
+| Capture current market flow | Run `python flow_live.py` to record displayed bids/asks, aggressive buy/sell volume and BTC/ETH call/put premium flow. [Example snapshot](research/live-sample.md) |
 
 <a id="run-the-experiment"></a>
 
