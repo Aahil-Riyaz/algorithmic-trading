@@ -225,6 +225,10 @@ def funding_file(job):
 
 def prepare(kind, stage):
     first, last = (FIRST, HOLDOUT) if stage == "train" else (HOLDOUT, LAST)
+    prepare_range(kind, first, last)
+
+
+def prepare_range(kind, first, last):
     days = dates(first, last)
     task = {"candles": candle_file, "funding": funding_file, "depth": depth_file,
             "options": options_file}[kind]
@@ -235,7 +239,7 @@ def prepare(kind, stage):
     with ThreadPoolExecutor(max_workers=2 if kind == "options" else 6) as pool:
         for n, _ in enumerate(pool.map(task, jobs), 1):
             if n % 100 == 0 or n == len(jobs):
-                print(f"{stage} {kind}: {n}/{len(jobs)}", flush=True)
+                print(f"{first} {kind}: {n}/{len(jobs)}", flush=True)
 
 
 if __name__ == "__main__":
