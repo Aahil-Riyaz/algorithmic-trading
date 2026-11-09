@@ -4,3 +4,5 @@ market.csv.tmp
 trades.csv
 .env
 .venv/
+data/
+coin-trades.csv

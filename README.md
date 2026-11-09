@@ -1,10 +1,29 @@
 # Algorithmic Trading
 
-Can a Bitcoin breakout pay for its own trading costs? This is a Python research project for testing that question. The first experiment replays BTC/USDT spot trades on hourly candles. It uses public data and simulated USDT.
+Can a 20-hour breakout pay for its trading costs across BTC, ETH, SOL, HYPE, AAVE and XRP? This Python project replays spot trades with public hourly candles and simulated USDT.
 
 ## Run the experiment
 
-From the repository folder with Python 3.10 or newer:
+Run the six-coin comparison from the repository folder with Python 3.10 or newer.
+
+```sh
+python compare.py
+```
+
+The first run downloads 2,208 hourly candles per coin from KuCoin for October through December 2025. Later runs use the cached files. Use `python compare.py --refresh` to download again. The comparison checks timestamp continuity and candle prices, runs each coin with its own 10,000 USDT per period, and saves the fills in coin-trades.csv. All six use the same strategy, costs and chronological 60/20/20 split. [KuCoin candle data](https://www.kucoin.com/docs-new/rest/spot-trading/market-data/get-klines)
+
+The held-out period starts December 13 at 14:00 UTC and ends December 31 at 23:59 UTC.
+
+| Coin | Trades | Win rate | Net return | Buy and hold |
+| --- | ---: | ---: | ---: | ---: |
+| BTC | 10 | 10.0% | -3.71% | -3.13% |
+| ETH | 9 | 11.1% | -3.23% | -4.67% |
+| SOL | 10 | 20.0% | -2.52% | -6.60% |
+| HYPE | 8 | 12.5% | -2.74% | -12.67% |
+| AAVE | 6 | 16.7% | -1.76% | -26.45% |
+| XRP | 8 | 12.5% | -2.74% | -9.64% |
+
+### Reproduce the original Bitcoin experiment
 
 ```sh
 python prices.py
