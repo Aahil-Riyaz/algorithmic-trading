@@ -1,4 +1,4 @@
-# Candle Lab
+# Algorithmic Trading
 
 Can a Bitcoin breakout pay for its own trading costs? This is a Python research project for testing that question. The first experiment replays BTC/USDT spot trades on hourly candles. It uses public data and simulated USDT.
 
