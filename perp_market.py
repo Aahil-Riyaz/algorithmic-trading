@@ -49,7 +49,7 @@ def aggregate(bars):
     return hours
 
 
-def load_market(coin, first, last):
+def load_market(coin, first, last, depth_folder=None):
     """Calendar-month boundaries are required by the archive layout."""
     bars, funding, depth, options = [], [], {}, {}
     first_ms = epoch(first) * 1000
@@ -80,7 +80,15 @@ def load_market(coin, first, last):
             rows = json.loads(read(ROOT / "funding" / coin / f"{day:%Y-%m}.json"))
             funding.extend(Funding(r["fundingTime"], float(r["fundingRate"]), float(r["markPrice"]))
                            for r in rows)
-        books = json.loads(read(ROOT / "depth-1-2pct" / coin / f"{day}.json"))["samples"]
+        if depth_folder is None:
+            book_path = ROOT / "depth-1-2pct" / coin / f"{day}.json"
+            books = json.loads(read(book_path))["samples"]
+        else:
+            book_path = depth_folder / coin / f"{day}.json"
+            raw_books = book_path.read_bytes() if book_path.exists() else b'{"samples":{}}'
+            fingerprint.update(f"forward/{coin}/{day}".encode())
+            fingerprint.update(hashlib.sha256(raw_books).digest())
+            books = json.loads(raw_books)["samples"]
         depth.update({int(k): v for k, v in books.items()})
         for currency in ("BTC", "ETH"):
             for sample in json.loads(read(ROOT / "options" / currency / f"{day}.json")):
