@@ -1,0 +1,49 @@
+# Audit of the five-minute long-limit study
+
+Reviewed revision a7369f6. The unit of analysis is a submitted order on one of six USDT perpetuals. The August and September accounts reset monthly.
+
+## Decision
+
+Keep the strategy in research. The gated arm earned 247.77 USDT across 161 orders and 24 fills on 20 UTC exit days. Its largest three winning fills earned 225.48 USDT. SOL contributed 214.83 USDT on four fills. BTC and ETH had none. The assessment measures a sparse altcoin strategy under simulated execution.
+
+The average win was 45.67 USDT and the average loss 39.16. Historical net expectancy was 10.32 USDT per fill or 1.54 per submission. The implied break-even win rate at that payoff is 46.2%, itself estimated from only 24 fills. All three best exit days together earned 249.26 USDT, slightly more than the entire result.
+
+The 95% Wilson interval for 14/24 is 38.83%–75.53% under independent Bernoulli sampling. The two-sided exact binomial p-value against 50% is 0.541. A 20,000-replicate circular seven-day block bootstrap over 61 UTC days, including inactive days and keeping coins together, gave a descriptive 95% range of −81 to +584 USDT for total gated P&L. For the paired difference versus control the range was −1,598 to +3,127 USDT. These are resampled historical exit-day cash flows. Only about nine weekly blocks are available. The bootstrap omits strategy-selection and execution uncertainty.
+
+For a 95% proportion interval, plan roughly 97 independent fills for ±10 points and 385 for ±5 using the conservative normal planning approximation. About 221 independent fills gives approximately 80% power for a predeclared one-sided 5% test of 58.3% versus 50%. For a minimum worthwhile net edge of 5 USDT per fill, the observed 49.23 USDT standard deviation implies about 600 independent fills at the same power and size. Scale that last calculation to a fixed notional or R before changing sizing. Dependence, uncertain variance and testing several candidates raise the requirement. Freeze a sample and calendar endpoint before observing new outcomes.
+
+## Timing and selection
+
+- The five-minute features use completed bars, earlier funding events and book snapshots before cutoff. Labels start on the following five-minute bar. The seven-day ATR reference excludes current ATR. No direct future candle in the feature path was apparent on inspection.
+- Purging uses realized label end times and past-only training. The pre-validation gap provides protection. In these two adjacent folds the post-validation embargo does no additional work: the day after August is already outside September's training window. Hundreds of training labels may still share one future price path. Purging across folds does not remove within-fold duplication. Test inverse-concurrency weighting or train on event-triggered setups.
+- Archived event time does not establish when the client received a book or price. A common five-minute bucket on KuCoin and Binance can contain last trades many seconds apart. A stale high spot print can manufacture the apparent perp discount. Compare synchronized receipt-time bid/ask quotes, bound their ages and include spread, spot venue premium and a same-venue or index control where available.
+- Both gates and model scores were evaluated in the same historical research program. Earlier changes, failed ideas and informal threshold choices consume testing degrees of freedom. No evidence establishes that liquidation events caused the avoided losses. Count missing observations by reason, coin and volatility. Explicitly test the current exclusion of zero aggressive sells, which can systematically drop one-sided flow.
+
+## Execution
+
+Strict trade-through, stop-first ambiguity, adverse gap stops, delayed activation and conditional funding are useful conservative assumptions. A low below the entry still causes a full fill of any requested size. At activation the gate is already five minutes old. Seven of the 24 fills opened below the proposed buy limit, contributing +47.22 USDT. This is a marketability flag from a trade price. Only the live ask and order acknowledgement could classify the actual order. A post-only order can reject and a marketable limit can pay taker fees.
+
+Model submission, exchange acknowledgement, queue ahead, executed volume at the price, partial fills, cancellation acknowledgement and residual exposure. Hidden liquidity and cancellations ahead are uncertain with market-by-price data. Replay optimistic and conservative queue bounds and validate against prospective observations. Measure signed mid-price markouts at 1s, 5s, 30s and 5m after fill. A cascade often increases fill probability precisely when the position has the worst subsequent return. Stress correlated missed winners, gap-through stops and depth-dependent exit impact. The ledger currently lacks prices, quantities, exit reason, fee legs and path equity, so it cannot independently verify the reported dollars or open-position drawdown.
+
+## Prioritized changes
+
+| Order | Files | Change and acceptance test |
+| --- | --- | --- |
+| 1 | flow_live.py, regime_data.py, perp_market.py, train_limits.py | Capture sequence IDs, event and receipt times, best quotes, spot quote ages and missing-data reason. Persist every candidate, feature vector, score, threshold, decision, order and fill details. Truncating or perturbing future inputs must leave prior decisions identical. Reconcile net P&L from price, size, fees and funding. |
+| 2 | perp_orders.py, flow_replay.py | Add partial-quantity and cancel/replace state, post-only policy and explicit latency. Replay rejected, marketable and passive orders separately. Reconcile every quantity and residual bracket. Record a continuous marked equity series with cross-coin exposure and peak-to-trough drawdown. |
+| 3 | purged_cv.py, train_limits.py | Nested chronological tuning and calibration with global calendar splits across all coins. Keep one later period sealed. Evaluate cash, gates alone, model alone, combined, and an activity-matched baseline. Compare paired daily net returns, net R per order, turnover and drawdown under common cost and queue stresses. |
+| 4 | train_limits.py, regime_filters.py | Retain the existing stop/target/time triple barriers. Use the primary rule for eligibility and side and a secondary take/skip model. Train a fill model on all submitted orders and a conditional net-payoff model on fills. Benchmark a regularized pooled model with coin identity and liquidity interactions against per-asset models. Measure per-asset calibration, Brier score and reliability on unseen folds. |
+| 5 | flow_live.py, flow_data.py, flow_features.py | First collect quote updates and trades for event-based order flow imbalance, size-weighted top-of-book microprice and signed cumulative volume delta. Next add lagged OI changes, observed liquidation prints, funding estimates and synchronized basis. Then test lagged BTC/ETH returns and flow for altcoin lead-lag. Lastly test options skew at matched delta/tenor, DVOL and scenario-based GEX. Dealer inventory direction is unknown. Ablate one family at a time with availability timestamps. |
+| 6 | flow_replay.py, new risk.py | Enforce one portfolio-level gross, leverage and stressed-loss budget, with shared crypto-factor and venue caps. Model funding at settlement and liquidation using mark prices and maintenance tiers. Implement a drawdown halt that cancels pending entries, reconciles open positions and requires a specified rearm condition. Exercise gap, disconnect and stale-book cases in tests. |
+
+Estimate expected net value per submission as fill probability times expected net payoff conditional on fill, less any incremental submission/cancellation cost. Partial fills require the joint expectation over quantity and price. A 0.50 win-probability cutoff ignores payoff asymmetry and tail losses. Choose a positive margin over estimated costs on training/validation data. Use a small fixed risk budget in research. Fractional Kelly can wait until robust lower-bound expectancy is positive and joint return covariance is measurable. At current uncertainty a lower-bound sizing rule can allocate zero.
+
+## Diagnostics to build from those logs
+
+1. Depth by distance from mid and time, with trades overlaid and missing coverage masked. Compare it with observed liquidation intensity by venue and price band. Keep modeled liquidation zones in a separate layer.
+2. Predicted fill probability versus offset in ticks and queue ahead, faceted by volatility. Display actual fill fraction, sample count and subsequent adverse markout in each cell.
+3. UTC hour by weekday for net R per submission and number of opportunities. Twenty-four fills across 168 cells cannot support an exclusion schedule.
+4. Parameter-sweep robustness across ATR cap, discount and depth threshold. Use development folds only, show turnover and downside alongside expectancy, and count the entire sweep as trials.
+5. Feature attribution stability by asset and fold. Track SHAP magnitude ranks and direction against a training-only reference distribution. Correlated features can exchange credit. Check incremental performance by dropping the entire feature family.
+
+When enough disjoint time blocks exist, use combinatorial purged cross-validation as a robustness diagnostic alongside forward-only deployment tests. Purge labels against every held-out block and embargo adjacent observations. Some combinatorial paths train on later blocks, so they do not recreate live deployment. Record every candidate's aligned daily returns before estimating the deflated Sharpe ratio (selection, skewness and kurtosis) or probability of backtest overfitting (how often in-sample winners rank poorly out of sample). Two folds and the selected strategy's trade ledger cannot support credible estimates.
