@@ -4,6 +4,7 @@ import hashlib
 import io
 import json
 import math
+from calendar import monthrange
 from dataclasses import dataclass
 from typing import NamedTuple
 from zipfile import ZipFile
@@ -39,6 +40,18 @@ class Market:
     fingerprint: str
 
 
+def checked_bar(b):
+    if (not all(math.isfinite(v) for v in b[1:]) or b.low <= 0
+            or not b.low <= min(b.open, b.close) <= max(b.open, b.close) <= b.high
+            or b.volume < 0 or not 0 <= b.buy_quote <= b.quote + 1e-6):
+        raise ValueError(f"Invalid candle at {b.time}")
+    return b
+
+
+def bars_from_rest(rows):
+    return [checked_bar(Bar(r[0]//1000, *[float(r[j]) for j in (1,2,3,4,5,7,10)])) for r in rows]
+
+
 def aggregate(bars):
     hours = []
     for i in range(0, len(bars), 12):
@@ -49,7 +62,7 @@ def aggregate(bars):
     return hours
 
 
-def load_market(coin, first, last, depth_folder=None, include_options=True):
+def load_market(coin, first, last, depth_folder=None, include_options=True, candle_repairs=()):
     """Calendar-month boundaries are required by the archive layout."""
     bars, funding, depth, options = [], [], {}, {}
     first_ms = epoch(first) * 1000
@@ -66,17 +79,23 @@ def load_market(coin, first, last, depth_folder=None, include_options=True):
             raw = read(ROOT / "candles" / coin / f"{day:%Y-%m}.zip")
             with ZipFile(io.BytesIO(raw)) as zipped:
                 with zipped.open(zipped.namelist()[0]) as file:
-                    for r in csv.DictReader(io.TextIOWrapper(file, encoding="ascii")):
+                    rows = list(csv.DictReader(io.TextIOWrapper(file, encoding="ascii")))
+                    if candle_repairs:
+                        existing = {int(r["open_time"]) for r in rows}
+                        month_days = monthrange(day.year, day.month)[1]
+                        for r in candle_repairs:
+                            stamp = int(r["open_time"])
+                            if stamp not in existing and 0 <= stamp - epoch(day)*1000 < month_days*86_400_000:
+                                rows.append(r)
+                                fingerprint.update(json.dumps(r, sort_keys=True).encode())
+                        rows.sort(key=lambda r: int(r["open_time"]))
+                    for r in rows:
                         stamp = int(r["open_time"])
                         if stamp != first_ms + len(bars) * 300_000:
                             raise ValueError(f"{coin} missing or duplicate five-minute candle at {stamp}")
                         b = Bar(stamp // 1000, *[float(r[k]) for k in
                                 ("open", "high", "low", "close", "volume", "quote_volume", "taker_buy_quote_volume")])
-                        if (not all(math.isfinite(v) for v in b[1:]) or b.low <= 0
-                                or not b.low <= min(b.open, b.close) <= max(b.open, b.close) <= b.high
-                                or b.volume < 0 or not 0 <= b.buy_quote <= b.quote + 1e-6):
-                            raise ValueError(f"{coin} invalid candle at {stamp}")
-                        bars.append(b)
+                        bars.append(checked_bar(b))
             rows = json.loads(read(ROOT / "funding" / coin / f"{day:%Y-%m}.json"))
             funding.extend(Funding(r["fundingTime"], float(r["fundingRate"]), float(r["markPrice"]))
                            for r in rows)

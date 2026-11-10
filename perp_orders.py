@@ -62,10 +62,10 @@ def funding_payments(market, side, fill, end):
         yield j, cash
 
 
-def resolve(market, o, start, entry_bars=ENTRY_BARS):
+def resolve(market, o, start, entry_bars=ENTRY_BARS, allow_open=False):
     """start is the activation bar, five minutes after the feature cutoff."""
     bars = market.bars
-    if start + entry_bars + HOLD_BARS - 1 > len(bars):
+    if start + entry_bars > len(bars) or (not allow_open and start + entry_bars + HOLD_BARS - 1 > len(bars)):
         raise ValueError("Incomplete execution horizon")
     long = o.side == 1
     for fill in range(start, start + entry_bars):
@@ -74,7 +74,7 @@ def resolve(market, o, start, entry_bars=ENTRY_BARS):
             break
     else:
         return Exit(None, start + entry_bars - 1, None, "expired", 0.0)
-    for j in range(fill, fill + HOLD_BARS):
+    for j in range(fill, min(len(bars), fill + HOLD_BARS)):
         b = bars[j]
         gap_target = b.open > o.target if long else b.open < o.target
         target = b.high > o.target if long else b.low < o.target
@@ -90,6 +90,8 @@ def resolve(market, o, start, entry_bars=ENTRY_BARS):
             price, reason = o.target, "target"
             break
     else:
+        if j+1 < fill+HOLD_BARS:
+            return Exit(fill, j, None, "open", 0.)
         price, reason = b.close * (1 - o.side * SLIP), "timeout"
     carry = sum(cash for _, cash in funding_payments(market, o.side, fill, j))
     return Exit(fill, j, price, reason, carry)

@@ -1,0 +1,373 @@
+{
+  "BTC": {
+    "train_rows": 23733,
+    "train_zero": 20498,
+    "coverage": {
+      "neutral": 7338,
+      "atr_expansion": 709,
+      "missing": 591
+    },
+    "market_sha256": "bac9c8c2188fbe61a1feae0810c3fe01f67ab4c4aebb35dd6b5661ca68a262a7",
+    "spot_sha256": "bc4a5f9a09bafcd19a3950c3ffee1687a51f062651c8f19c9f8c7a40dc5e69e1",
+    "model_sha256": "d11e4c2b92714b6c9ec81c63f07c7c0f714258d7d8db330d58440009648fd9e8",
+    "policies": {
+      "replace": {
+        "signals": 0,
+        "submitted": 0,
+        "fills": 0,
+        "wins": 0,
+        "net": 0,
+        "statuses": {}
+      },
+      "keep": {
+        "signals": 0,
+        "submitted": 0,
+        "fills": 0,
+        "wins": 0,
+        "net": 0,
+        "statuses": {}
+      },
+      "deeper": {
+        "signals": 0,
+        "submitted": 0,
+        "fills": 0,
+        "wins": 0,
+        "net": 0,
+        "statuses": {}
+      },
+      "benchmark": {
+        "signals": 0,
+        "submitted": 0,
+        "fills": 0,
+        "wins": 0,
+        "net": 0,
+        "statuses": {}
+      }
+    }
+  },
+  "ETH": {
+    "train_rows": 23733,
+    "train_zero": 20579,
+    "coverage": {
+      "neutral": 7279,
+      "atr_expansion": 767,
+      "missing": 591,
+      "eligible": 1
+    },
+    "market_sha256": "6eb2a0d6dd2b232ad1001e2395f6916754ffb5d79c35f53be295a7ca9490db8b",
+    "spot_sha256": "95a6e85f6984d617d792e0293e18df392911383cea07fad13d9193d8d87aef52",
+    "model_sha256": "2db9c0dded06b93b8237465adc4561a23b1e5c89e2ccf3134986d71d763736df",
+    "policies": {
+      "replace": {
+        "signals": 1,
+        "submitted": 1,
+        "fills": 1,
+        "wins": 1,
+        "net": 74.89824763038673,
+        "statuses": {
+          "filled": 1
+        }
+      },
+      "keep": {
+        "signals": 1,
+        "submitted": 1,
+        "fills": 1,
+        "wins": 1,
+        "net": 74.89824763038673,
+        "statuses": {
+          "filled": 1
+        }
+      },
+      "deeper": {
+        "signals": 1,
+        "submitted": 1,
+        "fills": 1,
+        "wins": 1,
+        "net": 74.89824763038673,
+        "statuses": {
+          "filled": 1
+        }
+      },
+      "benchmark": {
+        "signals": 0,
+        "submitted": 0,
+        "fills": 0,
+        "wins": 0,
+        "net": 0,
+        "statuses": {}
+      }
+    }
+  },
+  "SOL": {
+    "train_rows": 23733,
+    "train_zero": 20386,
+    "coverage": {
+      "neutral": 7534,
+      "thin_liquidity": 12,
+      "eligible": 27,
+      "above_vwap": 35,
+      "missing": 591,
+      "atr_expansion": 439
+    },
+    "market_sha256": "3784b701a4668b4a4261021e9c54b31e6322df8881c7cee0dce5f6b7ea50c4bd",
+    "spot_sha256": "5f08d95ba5c3110c4e18066f708b520d518acb83c6f4ed6bb8f3f3c8cf603a45",
+    "model_sha256": "f5b4f2c4b46320cd1f4bed0d04c7b9e98d4b51396ed17dd17eb4629aaf190042",
+    "policies": {
+      "replace": {
+        "signals": 10,
+        "submitted": 10,
+        "fills": 3,
+        "wins": 1,
+        "net": -49.68709146206182,
+        "statuses": {
+          "expired": 6,
+          "filled": 3,
+          "post_only_reject": 1
+        }
+      },
+      "keep": {
+        "signals": 10,
+        "submitted": 10,
+        "fills": 3,
+        "wins": 1,
+        "net": -49.68709146206182,
+        "statuses": {
+          "expired": 6,
+          "filled": 3,
+          "post_only_reject": 1
+        }
+      },
+      "deeper": {
+        "signals": 10,
+        "submitted": 10,
+        "fills": 1,
+        "wins": 0,
+        "net": -50.0,
+        "statuses": {
+          "expired": 8,
+          "post_only_reject": 1,
+          "filled": 1
+        }
+      },
+      "benchmark": {
+        "signals": 11,
+        "submitted": 10,
+        "fills": 1,
+        "wins": 0,
+        "net": -50.07241667990114,
+        "statuses": {
+          "expired": 9,
+          "filled": 1,
+          "position_busy": 1
+        }
+      }
+    }
+  },
+  "HYPE": {
+    "train_rows": 23733,
+    "train_zero": 20071,
+    "coverage": {
+      "atr_expansion": 644,
+      "neutral": 6498,
+      "thin_liquidity": 193,
+      "above_vwap": 270,
+      "eligible": 382,
+      "premium": 60,
+      "missing": 591
+    },
+    "market_sha256": "7da0db2c676d5a21976701c18de33a275da7da60e69ea22230961e80cc655e11",
+    "spot_sha256": "be7c1b1cfd984bbcd389eec5dce01b3d42f8a34d9040e5e4b125b5f69e4a40b2",
+    "model_sha256": "48c27c7b2689d54c5638c7f2c6c4ecce62abefe8b24ababac2a24ff0c1fe6a92",
+    "policies": {
+      "replace": {
+        "signals": 67,
+        "submitted": 50,
+        "fills": 9,
+        "wins": 1,
+        "net": -374.2143896280762,
+        "statuses": {
+          "expired": 32,
+          "filled": 9,
+          "position_busy": 17,
+          "post_only_reject": 2,
+          "replaced": 7
+        }
+      },
+      "keep": {
+        "signals": 67,
+        "submitted": 41,
+        "fills": 10,
+        "wins": 2,
+        "net": -302.1505275166324,
+        "statuses": {
+          "expired": 30,
+          "filled": 10,
+          "position_busy": 20,
+          "post_only_reject": 1,
+          "kept_first": 6
+        }
+      },
+      "deeper": {
+        "signals": 67,
+        "submitted": 55,
+        "fills": 7,
+        "wins": 1,
+        "net": -277.0548679250607,
+        "statuses": {
+          "expired": 39,
+          "filled": 7,
+          "position_busy": 12,
+          "post_only_reject": 2,
+          "replaced": 7
+        }
+      },
+      "benchmark": {
+        "signals": 44,
+        "submitted": 39,
+        "fills": 4,
+        "wins": 2,
+        "net": 49.06847417518897,
+        "statuses": {
+          "expired": 35,
+          "filled": 4,
+          "position_busy": 5
+        }
+      }
+    }
+  },
+  "AAVE": {
+    "train_rows": 23733,
+    "train_zero": 20241,
+    "coverage": {
+      "neutral": 7027,
+      "thin_liquidity": 95,
+      "above_vwap": 220,
+      "eligible": 321,
+      "atr_expansion": 374,
+      "missing": 591,
+      "premium": 10
+    },
+    "market_sha256": "062224860c25ea91d4bde7c95ece5999d22108228cc4a52f78aa13d68d63e0c5",
+    "spot_sha256": "d248f2c491c5c514646fb8ee11561877a1ec31b174b6fe73d38dae4ee0b27723",
+    "model_sha256": "1a90d896e4273b064732e2ccdb7601048a1b67da6604903ae3bede6f98ac4101",
+    "policies": {
+      "replace": {
+        "signals": 235,
+        "submitted": 173,
+        "fills": 15,
+        "wins": 7,
+        "net": -21.69073981799037,
+        "statuses": {
+          "expired": 125,
+          "replaced": 31,
+          "filled": 15,
+          "position_busy": 62,
+          "post_only_reject": 2
+        }
+      },
+      "keep": {
+        "signals": 235,
+        "submitted": 136,
+        "fills": 15,
+        "wins": 7,
+        "net": -22.479255955571276,
+        "statuses": {
+          "expired": 119,
+          "filled": 15,
+          "kept_first": 27,
+          "position_busy": 72,
+          "post_only_reject": 2
+        }
+      },
+      "deeper": {
+        "signals": 235,
+        "submitted": 176,
+        "fills": 14,
+        "wins": 7,
+        "net": 28.58432963970568,
+        "statuses": {
+          "expired": 129,
+          "replaced": 31,
+          "filled": 14,
+          "position_busy": 59,
+          "post_only_reject": 2
+        }
+      },
+      "benchmark": {
+        "signals": 25,
+        "submitted": 20,
+        "fills": 4,
+        "wins": 2,
+        "net": 83.630722852877,
+        "statuses": {
+          "expired": 16,
+          "filled": 4,
+          "position_busy": 5
+        }
+      }
+    }
+  },
+  "XRP": {
+    "train_rows": 23733,
+    "train_zero": 20278,
+    "coverage": {
+      "neutral": 7624,
+      "above_vwap": 35,
+      "eligible": 41,
+      "thin_liquidity": 17,
+      "missing": 591,
+      "atr_expansion": 330
+    },
+    "market_sha256": "31519d5b4019269553743aa8c93d77601dd05e8d00f8feeb0be90f3601f94671",
+    "spot_sha256": "da185d066d118787c99625059396559526c38479bd5b80741ff2dc884befa173",
+    "model_sha256": "66cc9139bbdaacd12451d41a901c67ada8804edb2530cbfcff79b828b226bb83",
+    "policies": {
+      "replace": {
+        "signals": 35,
+        "submitted": 28,
+        "fills": 5,
+        "wins": 3,
+        "net": 42.477761914752634,
+        "statuses": {
+          "expired": 23,
+          "filled": 5,
+          "position_busy": 7
+        }
+      },
+      "keep": {
+        "signals": 35,
+        "submitted": 28,
+        "fills": 5,
+        "wins": 3,
+        "net": 42.477761914752634,
+        "statuses": {
+          "expired": 23,
+          "filled": 5,
+          "position_busy": 7
+        }
+      },
+      "deeper": {
+        "signals": 35,
+        "submitted": 28,
+        "fills": 5,
+        "wins": 3,
+        "net": 42.477761914752634,
+        "statuses": {
+          "expired": 23,
+          "filled": 5,
+          "position_busy": 7
+        }
+      },
+      "benchmark": {
+        "signals": 8,
+        "submitted": 8,
+        "fills": 0,
+        "wins": 0,
+        "net": 0,
+        "statuses": {
+          "expired": 8
+        }
+      }
+    }
+  }
+}

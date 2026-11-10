@@ -2,11 +2,12 @@
 
 Can price, visible liquidity and options flow predict a profitable limit entry on **BTC, ETH, SOL, HYPE, AAVE and XRP**? This project tests ideas with public exchange data and keeps a record of each result.
 
-**Latest historical validation (August–September 2026).** Independent per-coin XGBoost models with five-minute entry filters won 14 of 24 fills (58.33%) and earned 247.77 simulated USDT across two monthly resets. Live profitability is unmeasured. [Filters, validation and reproduction](research/regime-limits.md)
+**Latest historical test (October 2026).** The expiring, replace-on-new-signal model won 13 of 33 fills (39.39%) and lost 328.22 simulated USDT. Keeping the first quote lost 256.94 USDT on the same signals. The previous classifier won 4 of 9 fills and earned 82.63 USDT in October. Live profitability is unmeasured. [Training, ledger, research and paper replay](research/october-quotes/README.md)
 
 | Start here | What to open |
 | --- | --- |
 | Compare the starting and current win rates | [Scorecard, same-period controls and stop-out study](research/scorecard.md) |
+| Score live depth and follow paper orders | Run `python train_quotes.py` once, then `python live_quotes.py --count 3` for three five-minute boundaries. [Depth heatmap and paper ledger instructions](research/october-quotes/README.md#live-depth-and-paper-orders) |
 | Reproduce the two-sided model | [Data, training, frozen model selection and execution](research/flow-v1/README.md) |
 | Check individual trades | [All 518 submitted orders](research/flow-v1/orders.csv) and [results by coin and side](research/flow-v1/holdout.json) |
 | Read a live heatmap | [Original shared CryExc layout](https://cryexc.josedonato.com/app?layout=Pq4IMXG9) and [free tools and panel guide](research/market-data.md) |
