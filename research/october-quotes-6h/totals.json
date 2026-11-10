@@ -1,0 +1,73 @@
+{
+  "replace": {
+    "signals": 260,
+    "submitted": 104,
+    "fills": 56,
+    "wins": 22,
+    "net": -337.8544054551309,
+    "statuses": {
+      "filled": 56,
+      "expired": 13,
+      "replaced": 35,
+      "position_busy": 156
+    },
+    "max_drawdown_pct": 1.168021510086077
+  },
+  "fifteen_minute_control": {
+    "signals": 260,
+    "submitted": 155,
+    "fills": 31,
+    "wins": 12,
+    "net": -223.71386514358068,
+    "statuses": {
+      "filled": 31,
+      "expired": 105,
+      "position_busy": 105,
+      "replaced": 18,
+      "post_only_reject": 1
+    },
+    "max_drawdown_pct": 0.7070014183914328
+  },
+  "keep": {
+    "signals": 260,
+    "submitted": 77,
+    "fills": 55,
+    "wins": 20,
+    "net": -412.3546366227252,
+    "statuses": {
+      "filled": 55,
+      "expired": 21,
+      "kept_first": 48,
+      "position_busy": 135,
+      "post_only_reject": 1
+    },
+    "max_drawdown_pct": 1.2943536225910954
+  },
+  "deeper": {
+    "signals": 260,
+    "submitted": 107,
+    "fills": 56,
+    "wins": 22,
+    "net": -337.06315101505453,
+    "statuses": {
+      "filled": 56,
+      "expired": 13,
+      "replaced": 38,
+      "position_busy": 153
+    },
+    "max_drawdown_pct": 1.2019440448296967
+  },
+  "benchmark": {
+    "signals": 88,
+    "submitted": 77,
+    "fills": 9,
+    "wins": 4,
+    "net": 82.6267803481648,
+    "statuses": {
+      "expired": 68,
+      "filled": 9,
+      "position_busy": 11
+    },
+    "max_drawdown_pct": 0.2982176419876483
+  }
+}

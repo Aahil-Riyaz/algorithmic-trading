@@ -2,7 +2,7 @@
 
 Can price, visible liquidity and options flow predict a profitable limit entry on **BTC, ETH, SOL, HYPE, AAVE and XRP**? This project tests ideas with public exchange data and keeps a record of each result.
 
-**Latest historical test (October 2026).** The expiring, replace-on-new-signal model won 13 of 33 fills (39.39%) and lost 328.22 simulated USDT. Keeping the first quote lost 256.94 USDT on the same signals. The previous classifier won 4 of 9 fills and earned 82.63 USDT in October. Live profitability is unmeasured. [Training, ledger, research and paper replay](research/october-quotes/README.md)
+**Six-hour limit entries.** A new quote expires six hours after activation. A newer qualifying signal for the same coin can replace it sooner. On the previously evaluated October 2026 data, six-hour entries won 22 of 56 fills and lost 337.85 simulated USDT. The same signals with 15-minute expiry won 12 of 31 and lost 223.71 USDT. [Configuration and order ledger](research/october-quotes-6h/README.md)
 
 | Start here | What to open |
 | --- | --- |

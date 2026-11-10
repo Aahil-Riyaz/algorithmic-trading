@@ -1,6 +1,6 @@
 # Win rate and profit history
 
-**Latest historical test.** October's expiring, replace-on-new-signal model won 13 of 33 fills (39.39%). It lost 328.22 simulated USDT. Live P&L is unmeasured. [Replacement controls, coverage and order ledger](october-quotes/README.md)
+**Latest retrospective comparison.** Six-hour entries won 22 of 56 fills (39.29%) and lost 337.85 simulated USDT on the previously examined October data. [Expiry comparison and order ledger](october-quotes-6h/README.md)
 
 | Experiment | Test market and dates (UTC) | Wins / fills | Net win rate | Net return |
 | --- | --- | ---: | ---: | ---: |
@@ -14,6 +14,7 @@
 | Per-coin regime filters | Binance perpetuals, September 2026 | 2 / 4 | 50.00% | +0.08% |
 | Earlier classifier replay | Binance perpetuals, October 2026 | 4 / 9 | 44.44% | +0.14% |
 | Expiring limits, replace pending quote | Binance perpetuals, October 2026 | 13 / 33 | 39.39% | −0.55% |
+| Six-hour limits, replace pending quote (retrospective) | Binance perpetuals, October 2026 | 22 / 56 | 39.29% | −0.56% |
 
 May and June each start with fresh balances. [Matched controls and monthly results](wave-plan.md)
 

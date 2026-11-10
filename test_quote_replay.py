@@ -8,7 +8,7 @@ from quote_replay import Proposal, replay_quotes
 
 class QuotesTest(unittest.TestCase):
     def setUp(self):
-        bars = [Bar(300*i, 101, 102, 100, 101, 1, 101, 50) for i in range(310)]
+        bars = [Bar(300*i, 101, 102, 100, 101, 1, 101, 50) for i in range(400)]
         self.m = SimpleNamespace(bars=bars, funding=[], funding_times=[])
         self.o = Order(1, 99, 95, 105, 4.3)
 
@@ -33,10 +33,16 @@ class QuotesTest(unittest.TestCase):
         self.assertEqual(old["exit_reason"], "timeout")
 
     def test_expiry_is_exclusive(self):
-        self.dip(5, 98)
-        old, new = self.replay(times=(1,4))
+        self.dip(74, 98)
+        old, new = self.replay(times=(1,73))
         self.assertEqual((old["status"], new["status"]), ("expired", "filled"))
         self.assertEqual(old["ended"], new["active"])
+        self.assertEqual(old["ended"]-old["active"], 6*3600)
+
+    def test_fills_in_last_five_minutes(self):
+        self.dip(73, 98)
+        row, = self.replay((1,))
+        self.assertEqual((row["status"], row["expires"]-row["fill"]), ("filled", 300))
 
     def test_rejected_replacement_cancels_old_quote(self):
         self.m.bars[3] = self.m.bars[3]._replace(open=98, low=97)
@@ -60,9 +66,9 @@ class QuotesTest(unittest.TestCase):
 
     def test_paper_pending_survives_restart_then_expires(self):
         bars = self.m.bars
-        self.m.bars = bars[:4]
+        self.m.bars = bars[:73]
         self.assertEqual(self.replay((1,), allow_open=True)[0]["status"], "working")
-        self.m.bars = bars[:5]
+        self.m.bars = bars[:74]
         self.assertEqual(self.replay((1,), allow_open=True)[0]["status"], "expired")
 
     def test_paper_open_position_has_no_realized_pnl_until_exit(self):

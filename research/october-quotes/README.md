@@ -1,5 +1,7 @@
 # Do newer limit quotes improve the trade?
 
+This is the archived 15-minute experiment. To reproduce it, use [the original revision](https://github.com/Aahil-Riyaz/algorithmic-trading/tree/dd97e77). New quotes on the main branch use a six-hour expiry.
+
 On October's six-coin replay, replacing a working quote lost 328.22 USDT on 262 submissions. Keeping the first quote lost 256.94 USDT. The result supports leaving the strategy in paper trading. [Rules fixed before scoring](../quote-plan.md) · [All signals, including cancellations and blocked submissions](signals.csv) · [Results by coin](results.json) · [Portfolio metrics](totals.json)
 
 | October 2026 historical simulation | Submissions | Wins / fills | Win rate | Net USDT | Return on 60,000 USDT | Five-minute max drawdown |

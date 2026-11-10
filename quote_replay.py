@@ -4,15 +4,17 @@ from dataclasses import dataclass
 from backtest import FEE, INITIAL
 from perp_orders import Order, resolve, trade_pnl
 
+QUOTE_TTL_BARS = 72  # six hours of five-minute bars, starting at activation
 
 @dataclass(frozen=True)
 class Proposal:
     decision: int  # index of the first bar after the feature window
     order: Order
     score: float
+    ttl_bars: int | None = None  # recorded lifetime for replaying existing paper orders
 
 
-def replay_quotes(market, proposals, ttl=3, replace=True, penetration_bps=0, legacy=False, allow_open=False):
+def replay_quotes(market, proposals, ttl=QUOTE_TTL_BARS, replace=True, penetration_bps=0, legacy=False, allow_open=False):
     """A new quote can cancel only the unfilled entry for this coin.
 
     Process expiration, activation/cancel, then trading inside the bar. In legacy
@@ -28,7 +30,9 @@ def replay_quotes(market, proposals, ttl=3, replace=True, penetration_bps=0, leg
         return rows
     bars = market.bars
     cash, busy, pending = INITIAL, -1, None
-    stop = max(quotes) + ttl + 1
+    if any(p.ttl_bars is not None and p.ttl_bars < 1 for p in proposals):
+        raise ValueError("Invalid recorded expiry")
+    stop = max(active + (p.ttl_bars or ttl) for active, p in quotes.items()) + 1
     if allow_open:
         stop = min(stop, len(bars))
     for j in range(min(quotes), stop):
@@ -38,8 +42,9 @@ def replay_quotes(market, proposals, ttl=3, replace=True, penetration_bps=0, leg
         p = quotes.get(j)
         if p:
             o = p.order
+            lifetime = p.ttl_bars or ttl
             row = dict(decision=bars[j-1].time, active=bars[j].time,
-                       expires=bars[j].time + ttl*300, side=o.side, score=p.score,
+                       expires=bars[j].time + lifetime*300, side=o.side, score=p.score,
                        entry=o.entry, stop=o.stop, target=o.target, status="",
                        ended="", replaced_by="", fill="", exit_reason="", exit_price="",
                        qty=0., fees=0., funding=0., pnl=0.)
@@ -55,7 +60,7 @@ def replay_quotes(market, proposals, ttl=3, replace=True, penetration_bps=0, leg
                 if not legacy and o.side * (o.entry - bars[j].open) >= 0:
                     row.update(status="post_only_reject", ended=bars[j].time)
                 else:
-                    pending = (o, j + ttl, row)
+                    pending = (o, j + lifetime, row)
                     if legacy:
                         busy = j   # no new decision inside its one-bar entry window
         if not pending:

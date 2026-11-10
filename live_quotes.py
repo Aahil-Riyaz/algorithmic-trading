@@ -15,7 +15,8 @@ from perp_market import Funding, Market, bars_from_rest
 from paper_quotes import run as update_paper
 from regime_data import rest_candles
 from regime_filters import NAMES, live_book, observation, rolling_atr
-from train_quotes import MODELS, TTL, setup
+from quote_replay import QUOTE_TTL_BARS
+from train_quotes import MODELS, setup
 
 
 def evaluate(coin, record, cutoff):
@@ -100,7 +101,7 @@ def run(latest=False):
         return coin, result
     with ThreadPoolExecutor(max_workers=2) as pool:
         results = dict(pool.map(score, batch["coins"].items()))
-    report = dict(cutoff=cutoff, activation=cutoff+300, expiry=cutoff+(1+TTL)*300, coins=results)
+    report = dict(cutoff=cutoff, activation=cutoff+300, expiry=cutoff+(1+QUOTE_TTL_BARS)*300, coins=results)
     path = FORWARD/"quote-scores"/f"{cutoff}-{time.time_ns()}.json"
     save_json(path, report)
     persist(FORWARD/"depth-heatmap.html", depth_heatmap(report).encode())

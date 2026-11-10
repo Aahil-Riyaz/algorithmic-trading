@@ -1,4 +1,4 @@
-"""Train the frozen October expiring-limit experiment, then replay all four policies."""
+"""Train six-hour limit quotes and replay the October historical comparison."""
 import csv
 from collections import Counter
 from datetime import date
@@ -14,15 +14,14 @@ from flow_data import ROOT, epoch
 from perp_market import load_market
 from backtest import INITIAL
 from perp_orders import HOLD_BARS, funding_payments, make_order, net_r, resolve, trade_pnl
-from quote_replay import Proposal, replay_quotes
+from quote_replay import QUOTE_TTL_BARS, Proposal, replay_quotes
 from regime_data import FIRST, LAST, october_repair, prepare, spots
 from regime_filters import observation, rolling_atr
 from train_limits import OUT as CLASSIFIERS
 
 END = date(2026, 11, 1)
-TTL = 3
-MODELS = Path("data/expiring-quotes")
-REPORT = Path("research/october-quotes")
+MODELS = Path("data/expiring-quotes-6h")
+REPORT = Path("research/october-quotes-6h")
 
 
 def setup(bars, i, atr):
@@ -36,10 +35,10 @@ def examples(market, spot):
     features, targets, evaluation = [], [], []
     coverage = Counter()
     cutoff = epoch(LAST)
-    for i in range(1, len(bars) - HOLD_BARS - TTL + 1):
+    for i in range(1, len(bars) - HOLD_BARS - QUOTE_TTL_BARS + 1):
         decision = bars[i].time
         # A full worst-case label horizon plus one clear day before October.
-        if decision < cutoff and decision + (TTL+HOLD_BARS)*300 > cutoff-86400:
+        if decision < cutoff and decision + (QUOTE_TTL_BARS+HOLD_BARS)*300 > cutoff-86400:
             continue
         reading = observation(market, spot, atr, baseline, i)
         if decision >= cutoff:
@@ -56,7 +55,7 @@ def examples(market, spot):
         else:
             label = 0.
             if o.entry < bars[i+1].open:
-                label = net_r(o, resolve(market, o, i+1, entry_bars=TTL))
+                label = net_r(o, resolve(market, o, i+1, entry_bars=QUOTE_TTL_BARS))
             features.append(reading.values)
             targets.append(label)
     return features, targets, evaluation, coverage
@@ -118,10 +117,11 @@ def run():
                 if prob >= .5:
                     benchmark.append(Proposal(i, o, float(prob)))
         policies = dict(replace=replay_quotes(m, signals),
+                        fifteen_minute_control=replay_quotes(m, signals, ttl=3),
                         keep=replay_quotes(m, signals, replace=False),
                         deeper=replay_quotes(m, signals, penetration_bps=2),
                         benchmark=replay_quotes(m, benchmark, ttl=1, replace=False, legacy=True))
-        report[coin] = dict(train_rows=len(y), train_zero=sum(int(v == 0) for v in y),
+        report[coin] = dict(entry_ttl_bars=QUOTE_TTL_BARS, train_rows=len(y), train_zero=sum(int(v == 0) for v in y),
                             coverage=coverage, market_sha256=m.fingerprint,
                             spot_sha256=sha256(json.dumps(sorted(spot.items())).encode()).hexdigest(),
                             model_sha256=sha256((MODELS/f"{coin}.json").read_bytes()).hexdigest(),

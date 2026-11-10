@@ -7,7 +7,7 @@ from flow_data import FUTURES, request_json, save_json
 from flow_live import FORWARD
 from perp_market import Funding, Market, bars_from_rest
 from perp_orders import HOLD_BARS, Order
-from quote_replay import Proposal, replay_quotes
+from quote_replay import QUOTE_TTL_BARS, Proposal, replay_quotes
 from regime_data import rest_candles
 
 
@@ -22,19 +22,24 @@ def decisions(paths):
                 continue
             key = coin,t
             if key not in earliest or r["scored_ms"] < earliest[key]["scored_ms"]:
-                earliest[key] = r
+                # Snapshots written before the six-hour model used a 15-minute expiry.
+                expiry = snapshot.get("expiry", t+300+15*60)
+                lifetime, remainder = divmod(expiry-t-300, 300)
+                if remainder or lifetime < 1:
+                    raise ValueError(f"Invalid quote expiry in {path}")
+                earliest[key] = dict(r, ttl_bars=lifetime)
     return earliest
 
 
 def paper_coin(coin, history, end):
     observed = [(t,r) for (c,t),r in sorted(history.items()) if c == coin and r["status"] == "qualifies"]
     closed = [(t,r) for t,r in observed if t+300 < end]
-    queued = [dict(decision=t, active=t+300, expires=t+1200, status="awaiting_activation_bar",
+    queued = [dict(decision=t, active=t+300, expires=t+(1+r.get("ttl_bars", QUOTE_TTL_BARS))*300, status="awaiting_activation_bar",
                    entry=r["entry"], stop=r["stop"], target=r["target"]) for t,r in observed if t+300 >= end]
     if not closed:
         return queued
     first = closed[0][0]
-    end = min(end, closed[-1][0] + (3+HOLD_BARS)*300)
+    end = min(end, max(t + (r.get("ttl_bars", QUOTE_TTL_BARS)+HOLD_BARS)*300 for t,r in closed))
     raw = rest_candles(coin, first, end)
     bars = bars_from_rest(raw)
     funding = []
@@ -47,7 +52,7 @@ def paper_coin(coin, history, end):
         raise ValueError(f"{coin} funding is out of sequence")
     market = Market(bars, [], funding, times, {}, {}, "")
     signals = [Proposal((t-first)//300, Order(1,r["entry"],r["stop"],r["target"],r["risk"]),
-                        r["expected_r"]) for t,r in closed]
+                        r["expected_r"], r.get("ttl_bars", QUOTE_TTL_BARS)) for t,r in closed]
     return replay_quotes(market, signals, allow_open=True) + queued
 
 
