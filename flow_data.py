@@ -141,7 +141,7 @@ def options_file(job):
     save_json(path, samples)
 
 
-def depth_samples(blob, day):
+def depth_samples(blob, day, interval=3600):
     """Keep the last complete snapshot in the final three minutes of each hour."""
     levels = {-1.0: "bid_near", 1.0: "ask_near", -2.0: "bid_wide", 2.0: "ask_wide"}
     books = defaultdict(dict)
@@ -150,7 +150,7 @@ def depth_samples(blob, day):
             if file.readline().strip() != b"timestamp,percentage,depth,notional":
                 raise ValueError("Unrecognized bookDepth format")
             for line in file:
-                if line[14:16] < b"57":
+                if interval == 3600 and line[14:16] < b"57":
                     continue
                 stamp, pct, _, notional = line.strip().split(b",")
                 band = float(pct)
@@ -167,13 +167,14 @@ def depth_samples(blob, day):
         if instant.date() != day:
             raise ValueError("Depth timestamp outside archive date")
         t = int(instant.timestamp())
-        result[(t // 3600 + 1) * 3600] = dict(observed=t, **book)
+        result[(t // interval + 1) * interval] = dict(observed=t, **book)
     return result
 
 
-def depth_file(job):
+def depth_file(job, interval=3600):
     coin, day = job
-    path = ROOT / "depth-1-2pct" / coin / f"{day}.json"
+    folder = "depth-1-2pct" if interval == 3600 else "depth-5m"
+    path = ROOT / folder / coin / f"{day}.json"
     if path.exists():
         return
     pair = coin + "USDT"
@@ -185,7 +186,7 @@ def depth_file(job):
             raise
         save_json(path, dict(url=url, status="missing", samples={}))
         return
-    save_json(path, dict(url=url, sha256=digest, samples=depth_samples(blob, day)))
+    save_json(path, dict(url=url, sha256=digest, samples=depth_samples(blob, day, interval)))
 
 
 def candle_file(job):

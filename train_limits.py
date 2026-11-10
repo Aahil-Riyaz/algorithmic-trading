@@ -1,155 +1,113 @@
-"""Train a small probability table on past fills, then replay the frozen filter."""
+"""Independent per-asset XGBoost training and five-minute long-limit replay."""
+import argparse
+from collections import Counter
 import csv
+from dataclasses import dataclass
+from datetime import date
 import json
-from bisect import bisect_right
-from collections import defaultdict
-from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
 from pathlib import Path
-from statistics import quantiles
 
-from backtest import FEE, INITIAL, SLIP
-from compare import COINS, DATA, END, START, check_period, download
-from prices import load
-from limit_orders import Outcome, Setup, resolve, setup, unit_pnl
+from compare import COINS
+from legacy_limits import Example, Model, replay  # original study's public imports
+from flow_data import ROOT, epoch
+from perp_market import load_market
+from perp_orders import HOLD_BARS, make_order, resolve, trade_pnl
+from purged_cv import purged_folds
+from regime_data import FIRST, LAST, prepare, spots
 
-
-FINAL = int(datetime(2026, 2, 1, tzinfo=timezone.utc).timestamp())
-HORIZON = 25   # latest exit inclusive is decision hour + 24
-OUT = Path("data/limit-run")
-
-
-def markets(first, last, folder):
-    folder.mkdir(parents=True, exist_ok=True)
-    data = {}
-    for coin in COINS:
-        path = folder / f"{coin}.csv"
-        if not path.exists():
-            download(coin, path, first, last)
-        data[coin] = load(path)
-        check_period(data[coin], first, last)
-    return data
+OUT = Path("data/regime-limits")
+HORIZON = (1 + HOLD_BARS)*300
+WINDOWS = [(epoch(date(2026,8,1)),epoch(date(2026,9,1))), (epoch(date(2026,9,1)),epoch(LAST))]
 
 
 @dataclass
-class Example:
-    coin: str
-    i: int
-    order: Setup
-    outcome: Outcome
+class Sample:
+    start: int
+    end: int
+    values: tuple
+    block: str | None
+    filled: bool
+    unit_pnl: float
+    entry: float
+    risk: float
 
 
-def examples(data, start, end):
-    rows = []
-    for coin, bars in data.items():
-        for i in range(max(24, start), end - HORIZON + 1):
-            order = setup(bars, i)
-            if order:
-                rows.append(Example(coin, i, order, resolve(order, bars, i)))
-    return rows
-
-
-def cell(cuts, features):
-    return ",".join(str(bisect_right(edges, val)) for edges, val in zip(cuts, features))
-
-
-@dataclass
-class Model:
-    cuts: list
-    rates: dict
-    prior: float
-
-    def score(self, order):
-        return self.rates.get(cell(self.cuts, order.features), self.prior)
-
-
-def fit(rows, bins):
-    fills = [r for r in rows if r.outcome.fill is not None]
-    cuts = [quantiles(col, n=bins, method="inclusive")
-            for col in zip(*(r.order.features for r in fills))]
-    counts = defaultdict(lambda: [0, 0])
-    for r in fills:
-        bucket = counts[cell(cuts, r.order.features)]
-        bucket[0] += unit_pnl(r.order, r.outcome) > 0
-        bucket[1] += 1
-    prior = sum(w for w, _ in counts.values()) / len(fills)
-    rates = {k: (w + 50 * prior) / (n + 50) for k, (w, n) in counts.items()}
-    return Model(cuts, rates, prior)
-
-
-def replay(rows, model, cutoff):
-    cash = dict.fromkeys(COINS, INITIAL)
-    available = dict.fromkeys(COINS, 0)
-    ledger = []
-    for r in rows:
-        if r.i < available[r.coin]:
+def examples(coin):
+    from regime_filters import observation, rolling_atr
+    m = load_market(coin,FIRST,LAST,ROOT/"depth-5m",include_options=False)
+    spot = spots(coin)
+    atr, baseline = rolling_atr(m.bars)
+    rows, counts = [], Counter()
+    for i in range(1,len(m.bars)-HOLD_BARS):
+        reading = observation(m,spot,atr,baseline,i)
+        if reading is None:
+            counts["warmup_or_missing"] += 1
             continue
-        score = model.score(r.order)
-        if score < cutoff:
+        counts[reading.block or "eligible"] += 1
+        swing = min(b.low for b in m.bars[i-144:i])
+        o = make_order(1,m.bars[i-1].close,atr[i],swing,0)
+        if o is None:
             continue
-        o, result = r.order, r.outcome
-        available[r.coin] = result.end + 1
-        pnl = 0
-        if result.fill is not None:
-            cost = o.limit * (1 + FEE)
-            risk = cost - o.stop * (1 - SLIP) * (1 - FEE)
-            qty = min(cash[r.coin] / cost, cash[r.coin] * 0.005 / risk)
-            pnl = qty * unit_pnl(o, result)
-            cash[r.coin] += pnl
-        ledger.append(dict(coin=r.coin, hour=r.i, fill=result.fill, end=result.end,
-                           limit=o.limit, stop=o.stop, target=o.target, exit=result.price,
-                           reason=result.reason, score=score, pnl=pnl))
-    return ledger
-
-
-def metrics(ledger):
-    pnl = [r["pnl"] for r in ledger if r["fill"] is not None]
-    wins = [p for p in pnl if p > 0]
-    return dict(orders=len(ledger), fills=len(pnl), wins=len(wins),
-                win_pct=100 * len(wins) / len(pnl) if pnl else None,
-                net_usdt=sum(pnl), return_pct=100 * sum(pnl) / (len(COINS) * INITIAL))
+        x = resolve(m,o,i+1,entry_bars=1)
+        pnl = trade_pnl(1,o.entry,x.price)+x.funding if x.fill is not None else 0.0
+        rows.append(Sample(m.bars[i].time,m.bars[x.end].time+300,reading.values,reading.block,
+                           x.fill is not None,pnl,o.entry,o.risk))
+    return rows,counts
 
 
 def run():
-    OUT.mkdir(parents=True, exist_ok=True)
-    training = markets(START, END, DATA)
-    n = len(training["BTC"])
-    whole = examples(training, 0, n)
-    candidates = defaultdict(list)
-    for fold in range(3):
-        start = n * (fold + 3) // 6
-        end = n * (fold + 4) // 6
-        past = [r for r in whole if r.i + HORIZON <= start]
-        future = [r for r in whole if start <= r.i and r.i + HORIZON <= end]
-        for bins in (2, 4, 6):
-            model = fit(past, bins)
-            for cutoff in (0.35, 0.40, 0.45, 0.50):
-                candidates[bins, cutoff].append(metrics(replay(future, model, cutoff)))
-    eligible = [key for key, folds in candidates.items() if min(f["fills"] for f in folds) >= 20]
-    if not eligible:
-        raise ValueError("No candidate reached 20 filled trades in every validation fold")
-    bins, cutoff = max(eligible, key=lambda k: sum(f["net_usdt"] for f in candidates[k]))
-    model = fit(whole, bins)
-    frozen = dict(bins=bins, cutoff=cutoff, **asdict(model))
-    (OUT / "model.json").write_text(json.dumps(frozen, indent=2))
-    (OUT / "validation.json").write_text(json.dumps({str(k): v for k, v in candidates.items()}, indent=2))
-    test = markets(END, FINAL, Path("data/kucoin-2026-01"))
-    combined = {coin: training[coin][-24:] + test[coin] for coin in COINS}
-    rows = examples(combined, 24, len(combined["BTC"]))
-    print("Frozen settings:", bins, cutoff)
-    for name, threshold in (("unfiltered", 0), ("model", cutoff)):
-        ledger = replay(rows, model, threshold)
-        print(name, json.dumps(metrics(ledger)))
-        with (OUT / f"{name}.csv").open("w", newline="") as file:
-            fields = ["coin","hour","fill","end","limit","stop","target","exit","reason","score","pnl"]
-            writer = csv.DictWriter(file, fieldnames=fields)
-            writer.writeheader()
-            for entry in ledger:
-                for key in ("hour", "fill", "end"):
-                    if entry[key] is not None:
-                        entry[key] = combined[entry["coin"]][entry[key]].time
-                writer.writerow(entry)
+    from xgboost import XGBClassifier
+    from regime_filters import NAMES
+    from backtest import INITIAL,FEE
+    prepare()
+    OUT.mkdir(parents=True,exist_ok=True)
+    report, ledger = {}, []
+    for coin in COINS:
+        rows, coverage = examples(coin)
+        folds = []
+        for n,(train,valid) in enumerate(purged_folds(rows,WINDOWS,HORIZON)):
+            past = [rows[i] for i in train if rows[i].filled]
+            if len({s.unit_pnl > 0 for s in past}) < 2:
+                raise ValueError(f"{coin}: insufficient two-class training history")
+            model = XGBClassifier(n_estimators=100,max_depth=3,learning_rate=0.04,
+                                  tree_method="hist",n_jobs=2,random_state=17)
+            model.fit([s.values for s in past],[int(s.unit_pnl>0) for s in past])
+            model.save_model(OUT/f"{coin}-fold{n+1}.json")
+            test = [rows[i] for i in valid]
+            probabilities = model.predict_proba([s.values for s in test])[:,1]
+            metrics = {}
+            for filtered in (False,True):
+                cash,free,wins,fills,orders = INITIAL,0,0,0,0
+                name = "filtered" if filtered else "control"
+                for s,p in zip(test,probabilities):
+                    if s.start < free or p < 0.5 or (filtered and s.block is not None):
+                        continue
+                    qty = min(cash*0.005/s.risk,cash/(s.entry*(1+FEE)))
+                    pnl = qty*s.unit_pnl
+                    cash += pnl
+                    free = s.end
+                    wins += int(pnl>0)
+                    fills += s.filled
+                    orders += 1
+                    ledger.append(dict(coin=coin,fold=n+1,variant=name,start=s.start,end=s.end,
+                                       probability=float(p),filled=s.filled,pnl=pnl,gate=s.block or "eligible"))
+                metrics[name] = dict(orders=orders,fills=fills,wins=wins,net=cash-INITIAL)
+            folds.append(dict(train_fills=len(past),train_win_rate=sum(s.unit_pnl>0 for s in past)/len(past),
+                              validation_samples=len(test),**metrics))
+        report[coin] = dict(features=NAMES,coverage=coverage,folds=folds)
+        print(coin,metrics,flush=True)
+    (OUT/"results.json").write_text(json.dumps(report,indent=2))
+    with (OUT/"orders.csv").open("w",newline="") as file:
+        writer=csv.DictWriter(file,fieldnames=["coin","fold","variant","start","end","probability","filled","pnl","gate"])
+        writer.writeheader()
+        writer.writerows(ledger)
 
 
 if __name__ == "__main__":
-    run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--legacy",action="store_true",help="reproduce the pooled January baseline")
+    if parser.parse_args().legacy:
+        from legacy_limits import run as old_run
+        old_run()
+    else:
+        run()

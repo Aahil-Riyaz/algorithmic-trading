@@ -1,6 +1,6 @@
 # Win rate and profit history
 
-**Latest wave candidate: 4 wins from 19 fills (21.05%) and −483.71 simulated USDT across May and June.** The existing frozen model won 119 of 255 over those months and lost 27.98 USDT. The candidate stays experimental. Live win rate and live P&L are unmeasured.
+**Latest historical validation.** Five-minute long filters won 14 of 24 fills (58.33%) across two monthly resets. Live P&L is unmeasured. [Matched control and coverage](regime-limits.md)
 
 | Experiment | Test market and dates (UTC) | Wins / fills | Net win rate | Net return |
 | --- | --- | ---: | ---: | ---: |
@@ -10,6 +10,8 @@
 | Two-sided limits with options and flow | Binance perpetuals, March–April 2026 | 118 / 284 | 41.55% | −1.76% |
 | Monthly refit with wave filter | Binance perpetuals, May 2026 | 1 / 7 | 14.29% | −0.40% |
 | Monthly refit with wave filter | Binance perpetuals, June 2026 | 3 / 12 | 25.00% | −0.41% |
+| Per-coin regime filters | Binance perpetuals, August 2026 | 12 / 20 | 60.00% | +0.33% |
+| Per-coin regime filters | Binance perpetuals, September 2026 | 2 / 4 | 50.00% | +0.08% |
 
 May and June each start with fresh balances. [Matched controls and monthly results](wave-plan.md)
 

@@ -2,7 +2,7 @@
 
 Can price, visible liquidity and options flow predict a profitable limit entry on **BTC, ETH, SOL, HYPE, AAVE and XRP**? This project tests ideas with public exchange data and keeps a record of each result.
 
-**Latest experiment (May–June 2026).** An Elliott-wave-inspired pullback filter won 4 of 19 filled trades (21.05%) and lost 483.71 simulated USDT across two monthly replays. The original frozen options model came closest to break-even at −27.98 USDT. Live P&L is unmeasured. [Wave study and monthly results](research/wave-plan.md)
+**Latest historical validation (August–September 2026).** Independent per-coin XGBoost models with five-minute entry filters won 14 of 24 fills (58.33%) and earned 247.77 simulated USDT across two monthly resets. Live profitability is unmeasured. [Filters, validation and reproduction](research/regime-limits.md)
 
 | Start here | What to open |
 | --- | --- |
@@ -18,7 +18,7 @@ Can price, visible liquidity and options flow predict a profitable limit entry o
 
 ### Train the limit-entry model
 
-Run `python train_limits.py` for the six-coin research run. At each hourly close the strategy posts a simulated buy half an ATR below the close. ATR here is the mean true range of the last 14 completed hours. The entry expires after two hours. Each coin allows one pending order or open position at a time.
+Run `python train_limits.py --legacy` for the six-coin research run. At each hourly close the strategy posts a simulated buy half an ATR below the close. ATR here is the mean true range of the last 14 completed hours. The entry expires after two hours. Each coin allows one pending order or open position at a time.
 
 The stop sits one ATR below the limit with a minimum distance of 0.5%. Position size risks 0.5% of that coin's cash on an ordinary stop. The target pays 1.5 times this risk after the assumed 0.10% fee per side and 0.02% slippage on market exits. The simulator requires a trade through the limit, assumes a full fill at the limit and ignores favorable entry gaps. It checks the stop immediately and allows target fills starting the following hour. A gap through the stop can increase the loss. Positions time out after 24 candles. Hourly data cannot verify queue priority or partial fills.
 

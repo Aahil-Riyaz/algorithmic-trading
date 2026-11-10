@@ -49,7 +49,7 @@ def aggregate(bars):
     return hours
 
 
-def load_market(coin, first, last, depth_folder=None):
+def load_market(coin, first, last, depth_folder=None, include_options=True):
     """Calendar-month boundaries are required by the archive layout."""
     bars, funding, depth, options = [], [], {}, {}
     first_ms = epoch(first) * 1000
@@ -90,7 +90,7 @@ def load_market(coin, first, last, depth_folder=None):
             fingerprint.update(hashlib.sha256(raw_books).digest())
             books = json.loads(raw_books)["samples"]
         depth.update({int(k): v for k, v in books.items()})
-        for currency in ("BTC", "ETH"):
+        for currency in (("BTC", "ETH") if include_options else ()):
             for sample in json.loads(read(ROOT / "options" / currency / f"{day}.json")):
                 options.setdefault(sample["asof"], {})[currency] = sample
     if len(bars) * 300 != epoch(last) - epoch(first):

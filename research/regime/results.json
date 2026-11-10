@@ -1,0 +1,351 @@
+{
+  "BTC": {
+    "features": [
+      "vwap_deviation_bps",
+      "atr_expansion",
+      "basis_bps",
+      "relative_turnover",
+      "bid_ask_ratio",
+      "aggressive_buy_sell_ratio",
+      "funding_4h_sum_bps",
+      "funding_4h_events",
+      "last_funding_bps",
+      "atr_fraction"
+    ],
+    "coverage": {
+      "warmup_or_missing": 2184,
+      "neutral": 22173,
+      "atr_expansion": 1848,
+      "thin_liquidity": 2
+    },
+    "folds": [
+      {
+        "train_fills": 398,
+        "train_win_rate": 0.3869346733668342,
+        "validation_samples": 8640,
+        "control": {
+          "orders": 325,
+          "fills": 18,
+          "wins": 10,
+          "net": 81.57350982509342
+        },
+        "filtered": {
+          "orders": 0,
+          "fills": 0,
+          "wins": 0,
+          "net": 0
+        }
+      },
+      {
+        "train_fills": 1000,
+        "train_win_rate": 0.445,
+        "validation_samples": 8352,
+        "control": {
+          "orders": 538,
+          "fills": 21,
+          "wins": 11,
+          "net": -10.911487447874606
+        },
+        "filtered": {
+          "orders": 0,
+          "fills": 0,
+          "wins": 0,
+          "net": 0
+        }
+      }
+    ]
+  },
+  "ETH": {
+    "features": [
+      "vwap_deviation_bps",
+      "atr_expansion",
+      "basis_bps",
+      "relative_turnover",
+      "bid_ask_ratio",
+      "aggressive_buy_sell_ratio",
+      "funding_4h_sum_bps",
+      "funding_4h_events",
+      "last_funding_bps",
+      "atr_fraction"
+    ],
+    "coverage": {
+      "warmup_or_missing": 2184,
+      "neutral": 22383,
+      "atr_expansion": 1630,
+      "above_vwap": 3,
+      "eligible": 5,
+      "thin_liquidity": 2
+    },
+    "folds": [
+      {
+        "train_fills": 384,
+        "train_win_rate": 0.4739583333333333,
+        "validation_samples": 8640,
+        "control": {
+          "orders": 602,
+          "fills": 25,
+          "wins": 12,
+          "net": -146.2198848695025
+        },
+        "filtered": {
+          "orders": 0,
+          "fills": 0,
+          "wins": 0,
+          "net": 0
+        }
+      },
+      {
+        "train_fills": 992,
+        "train_win_rate": 0.48185483870967744,
+        "validation_samples": 8352,
+        "control": {
+          "orders": 485,
+          "fills": 26,
+          "wins": 11,
+          "net": -166.84850620779616
+        },
+        "filtered": {
+          "orders": 0,
+          "fills": 0,
+          "wins": 0,
+          "net": 0
+        }
+      }
+    ]
+  },
+  "SOL": {
+    "features": [
+      "vwap_deviation_bps",
+      "atr_expansion",
+      "basis_bps",
+      "relative_turnover",
+      "bid_ask_ratio",
+      "aggressive_buy_sell_ratio",
+      "funding_4h_sum_bps",
+      "funding_4h_events",
+      "last_funding_bps",
+      "atr_fraction"
+    ],
+    "coverage": {
+      "warmup_or_missing": 2184,
+      "neutral": 21847,
+      "above_vwap": 71,
+      "eligible": 130,
+      "thin_liquidity": 49,
+      "atr_expansion": 1924,
+      "premium": 2
+    },
+    "folds": [
+      {
+        "train_fills": 373,
+        "train_win_rate": 0.4128686327077748,
+        "validation_samples": 8640,
+        "control": {
+          "orders": 211,
+          "fills": 25,
+          "wins": 12,
+          "net": 105.29352725987883
+        },
+        "filtered": {
+          "orders": 12,
+          "fills": 3,
+          "wins": 3,
+          "net": 139.85354005651425
+        }
+      },
+      {
+        "train_fills": 915,
+        "train_win_rate": 0.4568306010928962,
+        "validation_samples": 8352,
+        "control": {
+          "orders": 518,
+          "fills": 30,
+          "wins": 11,
+          "net": -247.20449021675086
+        },
+        "filtered": {
+          "orders": 30,
+          "fills": 1,
+          "wins": 1,
+          "net": 74.9798782411035
+        }
+      }
+    ]
+  },
+  "HYPE": {
+    "features": [
+      "vwap_deviation_bps",
+      "atr_expansion",
+      "basis_bps",
+      "relative_turnover",
+      "bid_ask_ratio",
+      "aggressive_buy_sell_ratio",
+      "funding_4h_sum_bps",
+      "funding_4h_events",
+      "last_funding_bps",
+      "atr_fraction"
+    ],
+    "coverage": {
+      "warmup_or_missing": 2184,
+      "neutral": 22211,
+      "eligible": 290,
+      "above_vwap": 193,
+      "thin_liquidity": 70,
+      "atr_expansion": 1247,
+      "premium": 12
+    },
+    "folds": [
+      {
+        "train_fills": 446,
+        "train_win_rate": 0.3609865470852018,
+        "validation_samples": 8640,
+        "control": {
+          "orders": 339,
+          "fills": 16,
+          "wins": 10,
+          "net": 216.25645845865802
+        },
+        "filtered": {
+          "orders": 13,
+          "fills": 1,
+          "wins": 1,
+          "net": 3.0780556237641576
+        }
+      },
+      {
+        "train_fills": 1018,
+        "train_win_rate": 0.46954813359528486,
+        "validation_samples": 8352,
+        "control": {
+          "orders": 445,
+          "fills": 31,
+          "wins": 13,
+          "net": -43.794468917247286
+        },
+        "filtered": {
+          "orders": 9,
+          "fills": 1,
+          "wins": 0,
+          "net": -50.0
+        }
+      }
+    ]
+  },
+  "AAVE": {
+    "features": [
+      "vwap_deviation_bps",
+      "atr_expansion",
+      "basis_bps",
+      "relative_turnover",
+      "bid_ask_ratio",
+      "aggressive_buy_sell_ratio",
+      "funding_4h_sum_bps",
+      "funding_4h_events",
+      "last_funding_bps",
+      "atr_fraction"
+    ],
+    "coverage": {
+      "warmup_or_missing": 2184,
+      "neutral": 19970,
+      "eligible": 709,
+      "above_vwap": 582,
+      "thin_liquidity": 321,
+      "atr_expansion": 2438,
+      "premium": 3
+    },
+    "folds": [
+      {
+        "train_fills": 395,
+        "train_win_rate": 0.4278481012658228,
+        "validation_samples": 8640,
+        "control": {
+          "orders": 812,
+          "fills": 33,
+          "wins": 14,
+          "net": -82.67459138072081
+        },
+        "filtered": {
+          "orders": 73,
+          "fills": 13,
+          "wins": 7,
+          "net": 109.8203127472716
+        }
+      },
+      {
+        "train_fills": 934,
+        "train_win_rate": 0.4079229122055675,
+        "validation_samples": 8352,
+        "control": {
+          "orders": 216,
+          "fills": 20,
+          "wins": 8,
+          "net": -2.3071204253319593
+        },
+        "filtered": {
+          "orders": 8,
+          "fills": 1,
+          "wins": 0,
+          "net": -50.0
+        }
+      }
+    ]
+  },
+  "XRP": {
+    "features": [
+      "vwap_deviation_bps",
+      "atr_expansion",
+      "basis_bps",
+      "relative_turnover",
+      "bid_ask_ratio",
+      "aggressive_buy_sell_ratio",
+      "funding_4h_sum_bps",
+      "funding_4h_events",
+      "last_funding_bps",
+      "atr_fraction"
+    ],
+    "coverage": {
+      "warmup_or_missing": 2184,
+      "neutral": 21584,
+      "above_vwap": 67,
+      "thin_liquidity": 33,
+      "eligible": 90,
+      "atr_expansion": 2249
+    },
+    "folds": [
+      {
+        "train_fills": 386,
+        "train_win_rate": 0.3963730569948187,
+        "validation_samples": 8640,
+        "control": {
+          "orders": 465,
+          "fills": 25,
+          "wins": 11,
+          "net": 2.2299233231260587
+        },
+        "filtered": {
+          "orders": 10,
+          "fills": 3,
+          "wins": 1,
+          "net": -54.962643493787255
+        }
+      },
+      {
+        "train_fills": 982,
+        "train_win_rate": 0.37372708757637474,
+        "validation_samples": 8352,
+        "control": {
+          "orders": 315,
+          "fills": 14,
+          "wins": 3,
+          "net": -361.50633652704346
+        },
+        "filtered": {
+          "orders": 6,
+          "fills": 1,
+          "wins": 1,
+          "net": 75.0
+        }
+      }
+    ]
+  }
+}
