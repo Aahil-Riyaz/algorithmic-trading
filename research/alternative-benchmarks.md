@@ -1,0 +1,23 @@
+# Alternative strategies on the 2025 Wave universe
+
+All four alternatives lost money in these historical simulations. Cash earned zero. Funding/basis carry lost less than the full Aahil Wave model but entered only once. This sample provides no evidence for a durable alternative edge.
+
+| Calendar 2025 strategy | Gross price P&L | Fees | Slippage | Funding | Net on 10,000 USDT | Return |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Spot/perp carry | +0.76 | 6.44 | 1.29 | +3.14 | −3.82 | −0.04% |
+| Dollar-neutral cross-sectional momentum | +691.20 | 1,946.49 | 389.30 | −95.56 | −1,740.15 | −17.40% |
+| Fade observed forced flow | −177.35 | 461.90 | 92.38 | 0.00 | −731.63 | −7.32% |
+| Two-sided maker quote proxy | +173.31 | 9,162.18 | 916.24 | 0.00 | −9,905.11 | −99.05% |
+
+The Wave model with all main feature families lost 382.16 USDT across four separately funded 10,000 USDT coin accounts (−0.96%). This percentage comparison shares dates, named contracts, contemporaneously eligible members and the repo's 10 bp fee per leg. It does not equalize turnover, capital deployment, tail risk or duration. The alternatives target at most 1× gross entry notional per tranche and compound realized basket equity. Historical equity can move between rebalances. The portfolio drawdowns in the generated results only sample basket endpoints. [Wave model and matched random-entry comparison](aahil-wave/results.json)
+
+## Fixed strategy definitions
+
+- **Carry.** Once per seven days within each calendar month, require a positive last settled funding rate and a positive same-venue perp premium at the signal boundary. Buy spot and short equal units of the perpetual five minutes later. Reserve an equal capital sleeve per eligible coin. Flatten before the next tranche or the month end and include all funding settlements while holding. Only one coin-week qualified. Four crossed legs consumed more than the combined basis and funding P&L. There is no assumption of receiving a predicted future rate, borrowing spot, or reinvesting collateral yield.
+- **Momentum.** Each midnight rank eligible coins using the preceding seven-day return of closed five-minute bars. At 00:05 UTC go 50% long the winner and 50% short the loser. Rebalance net quantity changes, including hedge adjustments, contract exits on membership changes, and year-end liquidation. Charge fees and adverse slippage only on turnover. Dollar neutrality at rebalance does not establish beta neutrality. Simulated execution uses the next five-minute close.
+- **Liquidation fade.** Each covered hour require a signed liquidation imbalance of at least 0.1% of executed hour notional, at least a 0.5% underlying price move and matching flow and price direction. Fade the move five minutes after the boundary and exit at the next hourly boundary. Only first-of-month Binance published liquidation samples were available. Across 864 covered coin-hours this generated 72 legs. There is no reliable annual estimate of an always-on cascade strategy.
+- **Market making.** Once an hour quote both sides using half the capital sleeve on each side, offset by the greater of 5 bp and one eighth of the preceding hour's range. Activate after five minutes for one five-minute bar. Reject a marketable quote at activation. Require strict trade-through for full fills. Mark out each fill at the hour-end close, with 2 bp adverse exit slippage. The test produced 13,328 filled legs from 52,560 quotes, of which 13,454 were rejected. This simplified maker benchmark lacks queue/partial fills, tick-level cancel latency, a fee rebate, and intrahour inventory management. Its severe fee loss describes these particular rules and costs.
+
+The momentum ledger records daily held/internally closed legs with unadjusted mark prices and assigns execution friction to net turnover. Other strategies report round trips with executed price assumptions. For the carry basket, both legs assume the next close can execute together with modeled slippage. A free first-day liquidation snapshot undercounts events from Binance's throttled stream. Fee assumptions here deliberately match the in-repo research model; actual fees require account records. The same coin can return very different results with another fee tier. No variant was selected by realized return.
+
+Run `python wave_inputs.py`, `python wave_context.py`, then `python wave_alternatives.py`. The detailed ledger and reconciliation totals are written to `data/alternative-audit/legs.csv` and `totals.json`. Input coverage, membership and data provenance are shared with the Wave model. [Research protocol](aahil-wave-protocol.md)

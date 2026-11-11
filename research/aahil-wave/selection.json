@@ -1,0 +1,21 @@
+{
+  "days": 365,
+  "variants": [
+    "price",
+    "wave",
+    "cvd",
+    "carry",
+    "lead",
+    "random"
+  ],
+  "winner": "price",
+  "daily_sharpe": -0.0266050190784484,
+  "assumed_independent_trials": 6,
+  "null_max_daily_sharpe": 0.041886585549002396,
+  "deflated_sharpe_probability": 0.09127800265674635,
+  "sharpe_partitions": 0,
+  "sharpe_pbo": null,
+  "mean_daily_r_partitions": 70,
+  "mean_daily_r_pbo": 0.34285714285714286,
+  "limitations": "Fixed-risk daily exit P&L omits intratrade marks. Recorded variants only. DSR assumes independent trials and observations; overlapping and informal searches are unmeasured."
+}

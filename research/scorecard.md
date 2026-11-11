@@ -1,5 +1,7 @@
 # Win rate and profit history
 
+**Aahil Wave, historical walk-forward.** Across four independently funded 10,000 USDT coin accounts, the pooled model lost 382.16 USDT in 2025. [Model specification](aahil-wave-protocol.md) · [Order ledger](aahil-wave/wave-orders.csv) · [Full audit](aahil-wave-audit.md)
+
 **Latest retrospective comparison.** Six-hour entries won 22 of 56 fills (39.29%) and lost 337.85 simulated USDT on the previously examined October data. [Expiry comparison and order ledger](october-quotes-6h/README.md)
 
 | Experiment | Test market and dates (UTC) | Wins / fills | Net win rate | Net return |
@@ -15,6 +17,7 @@
 | Earlier classifier replay | Binance perpetuals, October 2026 | 4 / 9 | 44.44% | +0.14% |
 | Expiring limits, replace pending quote | Binance perpetuals, October 2026 | 13 / 33 | 39.39% | −0.55% |
 | Six-hour limits, replace pending quote (retrospective) | Binance perpetuals, October 2026 | 22 / 56 | 39.29% | −0.56% |
+| Aahil Wave pooled model, quarterly walk-forward | Binance USDT perpetuals, January–December 2025 | 12 / 34 | 35.29% | −0.96% |
 
 May and June each start with fresh balances. [Matched controls and monthly results](wave-plan.md)
 

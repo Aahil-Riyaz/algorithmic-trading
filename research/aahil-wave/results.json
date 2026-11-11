@@ -1,0 +1,75 @@
+{
+  "price": {
+    "statuses": {
+      "filled": 3,
+      "post_only_reject": 1
+    },
+    "wins": 1,
+    "fills": 3,
+    "net_r": -0.9061602572444866,
+    "net_usdt": -45.60049598216669
+  },
+  "wave": {
+    "statuses": {
+      "filled": 30,
+      "post_only_reject": 18,
+      "position_busy": 6,
+      "replaced": 3
+    },
+    "wins": 8,
+    "fills": 30,
+    "net_r": -11.045862343666814,
+    "net_usdt": -547.1674113096179
+  },
+  "cvd": {
+    "statuses": {
+      "filled": 28,
+      "post_only_reject": 15,
+      "position_busy": 6,
+      "replaced": 3
+    },
+    "wins": 7,
+    "fills": 28,
+    "net_r": -12.056592768276381,
+    "net_usdt": -597.1760401959427
+  },
+  "carry": {
+    "statuses": {
+      "post_only_reject": 18,
+      "filled": 36,
+      "position_busy": 7,
+      "expired": 1,
+      "replaced": 5
+    },
+    "wins": 11,
+    "fills": 36,
+    "net_r": -12.717729281022883,
+    "net_usdt": -633.1229395376411
+  },
+  "lead": {
+    "statuses": {
+      "post_only_reject": 20,
+      "filled": 34,
+      "position_busy": 6,
+      "expired": 1,
+      "replaced": 4
+    },
+    "wins": 12,
+    "fills": 34,
+    "net_r": -7.6145825077531315,
+    "net_usdt": -382.1600660003486
+  },
+  "random": {
+    "statuses": {
+      "filled": 36,
+      "replaced": 8,
+      "position_busy": 7,
+      "post_only_reject": 12,
+      "expired": 2
+    },
+    "wins": 10,
+    "fills": 36,
+    "net_r": -15.076348196039584,
+    "net_usdt": -744.381172132043
+  }
+}
