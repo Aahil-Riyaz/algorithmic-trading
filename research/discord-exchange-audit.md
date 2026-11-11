@@ -1,5 +1,13 @@
 # Can exchange prices reproduce the alerts?
 
+## Completed eight-hour entry windows
+
+The follow-up through **November 11, 2026 at 05:00 UTC** resolves all four orders that were still pending at the initial cutoff below. In the strict price-only replay the two alerts with no copied outcome expired. Two reported invalidations (SOL and AVAX) subsequently filled and stopped when the cancellation was ignored. Across all 54 signals there were **22 fills (40.7%), 8 TP, 14 SL and 32 expiries**. The price-only rule disagreed with 41/52 reported terminal outcomes. It would have filled eight reported invalidations.
+
+Mean net R per price-only fill was **−0.262 maker/maker, −0.372 maker/taker-stop and −0.604 taker/taker**. The middle scenario lost 8.17R total, or 0.151R per signal. The matched random timing baseline averaged a median −0.191R per signal across 100 draws, with central range −0.370 to +0.023R. The observed result lies inside that range. The best-fitting retrospective cancellation and break-even rules still matched 51/52 reported categories and lost 1.61R on the same 14 reported closures under mixed costs. The friend's actual outcomes for the two unresolved Discord posts remain unknown.
+
+Reproduce with `python discord_replay.py --signals data/discord-audit/signals.csv --out data/discord-audit-followup --through 2026-11-11T05:00:00+00:00`. Open the [local full-window CSV](../data/discord-audit-followup/rebuilt.csv) after running the script. The earlier CSV and cutoff-specific statistics below remain available for comparison.
+
 **Verdict for the pasted sample.** Positive fee-adjusted expectancy did not reproduce under any of the three specified execution-cost scenarios. The friend's long-run return is unknown. The evidence is a hand-copied selection, public contract prices and retrospective rule hypotheses. It contains no exchange order acknowledgments, fill records, individual fee tier, complete signal population or source code.
 
 ## One contradictory trade
