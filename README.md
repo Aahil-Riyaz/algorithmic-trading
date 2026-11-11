@@ -1,5 +1,7 @@
 # Algorithmic Trading
 
+**RSI and Bollinger Bands.** In the 2025 historical comparison, adding both indicators raised the observed win rate from 12/34 (35.3%) to 5/11 (45.5%). The combined model lost 38.41 simulated USDT after costs. [Matched comparison and order ledger](research/indicator-test/README.md)
+
 **Aahil Wave research and paper bot.** In quarterly 2025 forward validation, the pooled wave model earned −7.61R across 34 fills (12 profitable), including fees, slippage and funding. The closest exchange reconstruction of a friend's 14 reported closures also lost money under mixed execution costs. [Audit, code map, paper-bot setup and go-live criteria](research/aahil-wave-audit.md) · [Trade-by-trade reconstruction method](research/discord-exchange-audit.md)
 
 Can price, visible liquidity and options flow predict a profitable limit entry on **BTC, ETH, SOL, HYPE, AAVE and XRP**? This project tests ideas with public exchange data and keeps a record of each result.

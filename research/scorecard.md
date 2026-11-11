@@ -18,6 +18,11 @@
 | Expiring limits, replace pending quote | Binance perpetuals, October 2026 | 13 / 33 | 39.39% | −0.55% |
 | Six-hour limits, replace pending quote (retrospective) | Binance perpetuals, October 2026 | 22 / 56 | 39.29% | −0.56% |
 | Aahil Wave pooled model, quarterly walk-forward | Binance USDT perpetuals, January–December 2025 | 12 / 34 | 35.29% | −0.96% |
+| Aahil Wave plus RSI | Binance USDT perpetuals, same 2025 folds | 14 / 40 | 35.00% | −1.31% |
+| Aahil Wave plus Bollinger Bands | Binance USDT perpetuals, same 2025 folds | 3 / 7 | 42.86% | −0.12% |
+| Aahil Wave plus both indicators | Binance USDT perpetuals, same 2025 folds | 5 / 11 | 45.45% | −0.10% |
+
+The three indicator rows use the same original model, four funded coin sleeves and order rules. [Configuration and ledgers](indicator-test/README.md)
 
 May and June each start with fresh balances. [Matched controls and monthly results](wave-plan.md)
 
