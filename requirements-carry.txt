@@ -1,0 +1,3 @@
+-r requirements-flow.txt
+aiohttp>=3.12,<4
+matplotlib>=3.8,<4

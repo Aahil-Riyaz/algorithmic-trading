@@ -1,0 +1,458 @@
+{
+  "cross_venue_spot": [
+    {
+      "start": "2026-11-11T06:20:36.088878+00:00",
+      "end": "2026-11-11T07:43:10.170452+00:00",
+      "rounds": 24,
+      "accepted": 47,
+      "rejected": {
+        "stale": 62,
+        "skew": 34,
+        "insufficient_depth": 1
+      },
+      "positive_gross": 17,
+      "positive_net": 0,
+      "median_net_bps": -20.365287837010403,
+      "best": {
+        "round": 14,
+        "age_upper_ms": 1750.9410400390625,
+        "skew_upper_ms": 1263.1715087890625,
+        "coin": "BTC",
+        "buy": "gate",
+        "sell": "kucoin",
+        "qty": 0.013538,
+        "buy_cost": 999.9965541999999,
+        "proceeds": 1000.0913201999999,
+        "gross_bps": 0.9476632654585767,
+        "fees": 2.0000878743999997,
+        "net_usdt": -1.90532187439995,
+        "net_bps": -19.05328439780688,
+        "break_even_fee_per_leg_bps": 0.4738091821514503
+      },
+      "worst": {
+        "round": 14,
+        "age_upper_ms": 1782.1307373046875,
+        "skew_upper_ms": 1178.1715087890625,
+        "coin": "SOL",
+        "buy": "kucoin",
+        "sell": "gate",
+        "qty": 12.064,
+        "buy_cost": 999.98496,
+        "proceeds": 999.74368,
+        "gross_bps": -2.412836289057394,
+        "fees": 1.99972864,
+        "net_usdt": -2.2410086399999605,
+        "net_bps": -22.410423452768335,
+        "break_even_fee_per_leg_bps": -1.2065637065635098
+      }
+    },
+    {
+      "start": "2026-11-11T19:48:16.679172+00:00",
+      "end": "2026-11-11T19:50:48.084589+00:00",
+      "rounds": 24,
+      "accepted": 33,
+      "rejected": {
+        "stale": 80,
+        "skew": 18,
+        "missing_or_repeated": 12,
+        "insufficient_depth": 1
+      },
+      "positive_gross": 9,
+      "positive_net": 0,
+      "median_net_bps": -20.528721474587307,
+      "best": {
+        "round": 20,
+        "age_upper_ms": 1027.682373046875,
+        "skew_upper_ms": 513.79248046875,
+        "coin": "BTC",
+        "buy": "kucoin",
+        "sell": "gate",
+        "qty": 0.013435,
+        "buy_cost": 999.9522714999999,
+        "proceeds": 1000.0342250000001,
+        "gross_bps": 0.8195741170449242,
+        "fees": 1.9999864965,
+        "net_usdt": -1.9180329964998322,
+        "net_bps": -19.18124545707212,
+        "break_even_fee_per_leg_bps": 0.4097702666672373
+      },
+      "worst": {
+        "round": 2,
+        "age_upper_ms": 1586.660400390625,
+        "skew_upper_ms": 1098.09033203125,
+        "coin": "SOL",
+        "buy": "gate",
+        "sell": "kucoin",
+        "qty": 11.809,
+        "buy_cost": 999.98612,
+        "proceeds": 999.7499399999999,
+        "gross_bps": -2.3618327822400573,
+        "fees": 1.99973606,
+        "net_usdt": -2.235916060000104,
+        "net_bps": -22.35947094945782,
+        "break_even_fee_per_leg_bps": -1.1810558639428845
+      }
+    },
+    {
+      "start": "2026-11-12T09:14:38.600404+00:00",
+      "end": "2026-11-12T09:15:24.669339+00:00",
+      "rounds": 12,
+      "accepted": 36,
+      "rejected": {
+        "stale": 26,
+        "skew": 10
+      },
+      "positive_gross": 9,
+      "positive_net": 0,
+      "median_net_bps": -20.224560493045075,
+      "best": {
+        "round": 5,
+        "age_upper_ms": 1756.822509765625,
+        "skew_upper_ms": 1324.738037109375,
+        "coin": "BTC",
+        "buy": "gate",
+        "sell": "kucoin",
+        "qty": 0.013635,
+        "buy_cost": 999.985446,
+        "proceeds": 1000.134005563,
+        "gross_bps": 1.485617251672833,
+        "fees": 2.000119451563,
+        "net_usdt": -1.8515598885630649,
+        "net_bps": -18.515868365578843,
+        "break_even_fee_per_leg_bps": 0.7427534534692058
+      },
+      "worst": {
+        "round": 11,
+        "age_upper_ms": 1192.71142578125,
+        "skew_upper_ms": 484.738037109375,
+        "coin": "SOL",
+        "buy": "kucoin",
+        "sell": "gate",
+        "qty": 12.087,
+        "buy_cost": 999.9575100000001,
+        "proceeds": 999.7157699999999,
+        "gross_bps": -2.4175027196921945,
+        "fees": 1.9996732799999999,
+        "net_usdt": -2.241413280000163,
+        "net_bps": -22.4150852169725,
+        "break_even_fee_per_leg_bps": -1.2088974854940477
+      }
+    }
+  ],
+  "spot_and_delivery": [
+    {
+      "start": "2026-11-11T19:55:28.721929+00:00",
+      "end": "2026-11-11T19:56:17.006321+00:00",
+      "sleeve": 5000.0,
+      "rounds": 24,
+      "rejected": {
+        "waiting_for_books": 4,
+        "stale": 88
+      },
+      "contracts": {
+        "BTCUSDT_261225": {
+          "accepted": 1,
+          "clear": 0,
+          "median_conditional_net": 5.809837365210021,
+          "best": {
+            "round": 2,
+            "age_ms": 1879.7052001953125,
+            "skew_ms": 1040.4869384765625,
+            "qty": 0.026,
+            "spot_ask": 74389.64,
+            "futures_bid_vwap": 74881.23461538462,
+            "days": 43.50309067957843,
+            "premium_bps": 66.08374706271144,
+            "fees_usdt": 5.808587958789999,
+            "slippage_usdt": 1.163034676,
+            "conditional_net_usdt": 5.809837365210021,
+            "conditional_annual_simple_pct": 0.9749149337093526,
+            "capital_charge": 23.837309961412835,
+            "buffer": 0.96706532,
+            "excess_usdt": -18.994537916202813,
+            "net_if_exit_lags_index_25bps": 0.9803121900649041
+          }
+        },
+        "ETHUSDT_261225": {
+          "accepted": 1,
+          "clear": 0,
+          "median_conditional_net": 2.7207097767767725,
+          "best": {
+            "round": 2,
+            "age_ms": 2034.7052001953125,
+            "skew_ms": 1196.4869384765625,
+            "qty": 0.958,
+            "spot_ask": 2076.71,
+            "futures_bid_vwap": 2087.0331628392482,
+            "days": 43.50309067957843,
+            "premium_bps": 49.70921717162337,
+            "fees_usdt": 5.973209397223001,
+            "slippage_usdt": 1.1956708259999997,
+            "conditional_net_usdt": 2.7207097767767725,
+            "conditional_annual_simple_pct": 0.45654644440685305,
+            "capital_charge": 23.837309961412835,
+            "buffer": 0.9947440900000001,
+            "excess_usdt": -22.111344274636064,
+            "net_if_exit_lags_index_25bps": -2.247043203427106
+          }
+        },
+        "BTCUSDT_270326": {
+          "accepted": 1,
+          "clear": 0,
+          "median_conditional_net": 32.48895157498989,
+          "best": {
+            "round": 2,
+            "age_ms": 1865.7052001953125,
+            "skew_ms": 1026.4869384765625,
+            "qty": 0.026,
+            "spot_ask": 74389.64,
+            "futures_bid_vwap": 75908.07307692307,
+            "days": 134.50309067957843,
+            "premium_bps": 204.11889033514245,
+            "fees_usdt": 5.821934189009999,
+            "slippage_usdt": 1.1683742359999998,
+            "conditional_net_usdt": 32.48895157498989,
+            "conditional_annual_simple_pct": 1.7633003472197206,
+            "capital_charge": 73.70032366004298,
+            "buffer": 0.96706532,
+            "excess_usdt": -42.178437405053096,
+            "net_if_exit_lags_index_25bps": 27.659426399844776
+          }
+        },
+        "ETHUSDT_270326": {
+          "accepted": 1,
+          "clear": 0,
+          "median_conditional_net": 24.594002965027872,
+          "best": {
+            "round": 2,
+            "age_ms": 2008.7052001953125,
+            "skew_ms": 1170.4869384765625,
+            "qty": 0.947,
+            "spot_ask": 2076.71,
+            "futures_bid_vwap": 2110.1798099260823,
+            "days": 134.50309067957843,
+            "premium_bps": 161.16747126985584,
+            "fees_usdt": 5.915581230972,
+            "slippage_usdt": 1.186325804,
+            "conditional_net_usdt": 24.594002965027872,
+            "conditional_annual_simple_pct": 1.334811123949603,
+            "capital_charge": 73.70032366004298,
+            "buffer": 0.9833221850000001,
+            "excess_usdt": -50.08964288001511,
+            "net_if_exit_lags_index_25bps": 19.6832909898159
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-11-11T19:57:07.219756+00:00",
+      "end": "2026-11-11T19:57:55.503305+00:00",
+      "sleeve": 5000.0,
+      "rounds": 24,
+      "rejected": {
+        "waiting_for_books": 4,
+        "stale": 2,
+        "insufficient_depth": 1,
+        "insufficient_displayed_spot_ask": 2,
+        "skew": 1
+      },
+      "contracts": {
+        "BTCUSDT_261225": {
+          "accepted": 22,
+          "clear": 0,
+          "median_conditional_net": 5.989506175280139,
+          "best": {
+            "round": 23,
+            "age_ms": 790.9449462890625,
+            "skew_ms": 377.6549072265625,
+            "qty": 0.026,
+            "spot_ask": 74400.0,
+            "futures_bid_vwap": 74908.43846153848,
+            "days": 43.50146187286659,
+            "premium_bps": 68.33850289495658,
+            "fees_usdt": 5.80961493806,
+            "slippage_usdt": 1.16328388,
+            "conditional_net_usdt": 6.246501181940401,
+            "conditional_annual_simple_pct": 1.0482281896969292,
+            "capital_charge": 23.836417464584436,
+            "buffer": 0.9672000000000001,
+            "excess_usdt": -18.55711628264403,
+            "net_if_exit_lags_index_25bps": 1.416303414740401
+          }
+        },
+        "ETHUSDT_261225": {
+          "accepted": 22,
+          "clear": 0,
+          "median_conditional_net": 2.993881733535985,
+          "best": {
+            "round": 23,
+            "age_ms": 789.9449462890625,
+            "skew_ms": 762.6549072265625,
+            "qty": 0.957,
+            "spot_ask": 2077.65,
+            "futures_bid_vwap": 2088.4157053291533,
+            "days": 43.50146187286659,
+            "premium_bps": 51.81674165115975,
+            "fees_usdt": 5.9698846786169995,
+            "slippage_usdt": 1.1950471860000003,
+            "conditional_net_usdt": 3.137848135382618,
+            "conditional_annual_simple_pct": 0.5265637153812659,
+            "capital_charge": 23.836417464584436,
+            "buffer": 0.994155525,
+            "excess_usdt": -21.692724854201817,
+            "net_if_exit_lags_index_25bps": -1.8269655506228926
+          }
+        },
+        "BTCUSDT_270326": {
+          "accepted": 21,
+          "clear": 0,
+          "median_conditional_net": 32.65483004368021,
+          "best": {
+            "round": 23,
+            "age_ms": 790.9449462890625,
+            "skew_ms": 265.6549072265625,
+            "qty": 0.026,
+            "spot_ask": 74400.0,
+            "futures_bid_vwap": 75935.89615384614,
+            "days": 134.5014618728666,
+            "premium_bps": 206.43765508684737,
+            "fees_usdt": 5.82296921667,
+            "slippage_usdt": 1.16862666,
+            "conditional_net_usdt": 32.94170412332975,
+            "conditional_annual_simple_pct": 1.7878946202652306,
+            "capital_charge": 73.69943116321458,
+            "buffer": 0.9672000000000001,
+            "excess_usdt": -41.72492703988483,
+            "net_if_exit_lags_index_25bps": 28.11150635612975
+          }
+        },
+        "ETHUSDT_270326": {
+          "accepted": 21,
+          "clear": 0,
+          "median_conditional_net": 24.744371901595496,
+          "best": {
+            "round": 21,
+            "age_ms": 769.3656005859375,
+            "skew_ms": 404.6549072265625,
+            "qty": 0.947,
+            "spot_ask": 2076.88,
+            "futures_bid_vwap": 2110.6900633579726,
+            "days": 134.50150841892383,
+            "premium_bps": 162.79257038429023,
+            "fees_usdt": 5.916225262651,
+            "slippage_usdt": 1.186486842,
+            "conditional_net_usdt": 24.915417895348924,
+            "conditional_annual_simple_pct": 1.3522714560906512,
+            "capital_charge": 73.69945666790348,
+            "buffer": 0.98340268,
+            "excess_usdt": -49.76744145255455,
+            "net_if_exit_lags_index_25bps": 20.00430392802629
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-11-12T09:14:42.111879+00:00",
+      "end": "2026-11-12T09:15:06.252661+00:00",
+      "sleeve": 5000.0,
+      "rounds": 12,
+      "rejected": {
+        "repeated_or_out_of_sequence": 1
+      },
+      "contracts": {
+        "BTCUSDT_261225": {
+          "accepted": 12,
+          "clear": 0,
+          "median_conditional_net": 5.9686489582100455,
+          "best": {
+            "round": 10,
+            "age_ms": 1154.6453857421875,
+            "skew_ms": 981.44580078125,
+            "qty": 0.027,
+            "spot_ask": 73331.11,
+            "futures_bid_vwap": 73829.92222222223,
+            "days": 42.94788122595893,
+            "premium_bps": 68.02191078550837,
+            "fees_usdt": 5.94635453421,
+            "slippage_usdt": 1.1906575680000002,
+            "conditional_net_usdt": 6.330917897790211,
+            "conditional_annual_simple_pct": 1.0760880242430784,
+            "capital_charge": 23.533085603265164,
+            "buffer": 0.9899699849999999,
+            "excess_usdt": -18.19213769047495,
+            "net_if_exit_lags_index_25bps": 1.387006802730282
+          }
+        },
+        "ETHUSDT_261225": {
+          "accepted": 12,
+          "clear": 0,
+          "median_conditional_net": 3.025530112484952,
+          "best": {
+            "round": 3,
+            "age_ms": 1067.0992431640625,
+            "skew_ms": 397.44580078125,
+            "qty": 0.973,
+            "spot_ask": 2042.97,
+            "futures_bid_vwap": 2053.717440904419,
+            "days": 42.948044276261506,
+            "premium_bps": 52.60694432330938,
+            "fees_usdt": 5.968458233292999,
+            "slippage_usdt": 1.1947773380000002,
+            "conditional_net_usdt": 3.2940244287068197,
+            "conditional_annual_simple_pct": 0.5598946060240242,
+            "capital_charge": 23.533174945896718,
+            "buffer": 0.993904905,
+            "excess_usdt": -21.2330554221899,
+            "net_if_exit_lags_index_25bps": -1.6695376607680097
+          }
+        },
+        "BTCUSDT_270326": {
+          "accepted": 11,
+          "clear": 0,
+          "median_conditional_net": 32.6079357486999,
+          "best": {
+            "round": 10,
+            "age_ms": 1154.6453857421875,
+            "skew_ms": 768.44580078125,
+            "qty": 0.026,
+            "spot_ask": 73331.11,
+            "futures_bid_vwap": 74864.3,
+            "days": 133.94788122595892,
+            "premium_bps": 209.07770249216222,
+            "fees_usdt": 5.739563402819999,
+            "slippage_usdt": 1.1519379040000002,
+            "conditional_net_usdt": 32.97143869318006,
+            "conditional_annual_simple_pct": 1.7969041410531008,
+            "capital_charge": 73.39609930189529,
+            "buffer": 0.9533044299999999,
+            "excess_usdt": -41.37796503871523,
+            "net_if_exit_lags_index_25bps": 28.21063541645568
+          }
+        },
+        "ETHUSDT_270326": {
+          "accepted": 12,
+          "clear": 0,
+          "median_conditional_net": 24.522130941555417,
+          "best": {
+            "round": 8,
+            "age_ms": 1139.3221435546875,
+            "skew_ms": 222.37451171875,
+            "qty": 0.963,
+            "spot_ask": 2042.2,
+            "futures_bid_vwap": 2075.47,
+            "days": 133.94792774948402,
+            "premium_bps": 162.91254529428926,
+            "fees_usdt": 5.915735437239,
+            "slippage_usdt": 1.1863909620000002,
+            "conditional_net_usdt": 24.93688360076076,
+            "conditional_annual_simple_pct": 1.3590299853388719,
+            "capital_charge": 73.39612479423782,
+            "buffer": 0.9833193000000001,
+            "excess_usdt": -49.44256049347706,
+            "net_if_exit_lags_index_25bps": 20.02618603324157
+          }
+        }
+      }
+    }
+  ]
+}

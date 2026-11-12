@@ -72,3 +72,18 @@ Wider stops reduced both counts in this sample. Position sizing reduced the numb
 - [Held-out results](flow-v1/holdout.json) · [Full model order ledger](flow-v1/orders.csv) · [Training and replay instructions](flow-v1/README.md)
 
 Append a dated row after each new frozen evaluation. Reserve genuinely later dates for changes made after viewing a holdout. Keep prospective paper and live fills in their own rows when they exist.
+
+## Historical market-neutral carry
+
+Each period starts with 10,000 USDT. Counts below use completed two-leg hedges or continuous funding episodes. An unchanged hedge across multiple funding payments is one episode. Percentages are cumulative period returns on the whole account.
+
+| Strategy and market | 2024–25 wins / hedges, win rate | Net return | Jan–Sep 2026 wins / hedges, win rate | Net return |
+| --- | ---: | ---: | ---: | ---: |
+| Binance spot + dated future, seven-day premium gate | 0 / 0, — | 0.00% | 0 / 0, — | 0.00% |
+| Same, enter all fillable seven-day pairs | 1 / 16, 6.25% | −1.17% | 0 / 6, 0% including two bounded losses | −0.40% to −0.38% |
+| Binance spot + dated future, 84-day premium gate | 6 / 6, 100% across three expiries | +3.51% | 0 / 0, — | 0.00% |
+| Same, enter all fillable 84-day pairs | 16 / 16, 100% across eight expiries | +5.80% | 3 / 5, 60% including one bounded loss | +0.13% to +0.14% |
+| Binance spot + perpetual, trailing funding gate | 9 / 9, 100% | +1.87% | 0 / 0, — | 0.00% |
+| Same, passive hedge with monthly rebalancing | 3 / 3, 100% | +5.20% | 2 / 3, 66.67% | +0.17% |
+
+The dollar ranges reflect missing September 2026 published settlements. The exchange index windows determine the loss signs under the stated model. Both legs use simulated execution. The November spot-route and futures-premium observations are quote checks and have no realized win rate or P&L. [Study, controls and timestamped observations](carry/README.md) · [Dated hedge ledger](carry/dated-orders.csv) · [Funding episodes](carry/perp-episodes.csv)
