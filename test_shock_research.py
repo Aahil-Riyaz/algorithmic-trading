@@ -12,7 +12,7 @@ from perp_orders import Order
 from shock_research import (
     EMBARGO_SECONDS, MAX_LIFETIME_SECONDS, SCENARIOS, _risk_sized_trades,
     atr_regime, chronological_split, indicators, net_pnl, order_geometry,
-    random_time_side_baseline,
+    random_time_side_baseline, resolve_shock,
 )
 from shock_signal import ceil_to_step, floor_to_step, fmt, live_model_gate, risk_card
 
@@ -39,6 +39,15 @@ class ShockResearchTest(unittest.TestCase):
                                    reason="stop", funding=0.)
             self.assertAlmostEqual(net_pnl(order, stop, "maker_taker_stop") / order.risk,
                                    -1.0, places=8)
+
+    def test_same_candle_gap_to_target_and_stop_resolves_stop_first(self):
+        rows = [Bar(i * 300, 100., 101., 99., 100., 10., 1000., 550.) for i in range(361)]
+        rows[1] = Bar(300, 106., 107., 94., 100., 10., 1000., 550.)
+        market = SimpleNamespace(bars=rows, funding=[], funding_times=[])
+        order = Order(1, 100., 95., 105., 5.)
+        result = resolve_shock(market, order, 0)
+        self.assertEqual(result.fill, 0)
+        self.assertEqual(result.reason, "stop")
 
     def test_shock_and_partial_hour_atr_are_prefix_invariant(self):
         rng = np.random.default_rng(22)

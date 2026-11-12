@@ -18,7 +18,7 @@ from xgboost import XGBClassifier
 from backtest import FEE as BASE_TAKER_FEE, SLIP
 from flow_data import ROOT
 from perp_market import load_market
-from perp_orders import HOLD_BARS, Order, resolve
+from perp_orders import Exit, HOLD_BARS, Order, funding_payments
 
 
 COINS = ("BTC", "ETH", "SOL", "AVAX")
@@ -208,6 +208,40 @@ def net_pnl(order, outcome, scenario):
             - fee_in * order.entry - fee_out * outcome.price + outcome.funding)
 
 
+def resolve_shock(market, order, start, entry_bars=ENTRY_BARS, allow_open=False):
+    """Strict trade-through; any same-bar stop/target touch resolves to the stop."""
+    bars = market.bars
+    if start + entry_bars > len(bars) or (
+            not allow_open and start + entry_bars + HOLD_BARS - 1 > len(bars)):
+        raise ValueError("Incomplete shock-order execution horizon")
+    long = order.side == 1
+    for fill in range(start, start + entry_bars):
+        b = bars[fill]
+        if (long and b.low < order.entry) or (not long and b.high > order.entry):
+            break
+    else:
+        return Exit(None, start + entry_bars - 1, None, "expired", 0.0)
+
+    for j in range(fill, min(len(bars), fill + HOLD_BARS)):
+        b = bars[j]
+        stop = b.low <= order.stop if long else b.high >= order.stop
+        target = b.high > order.target if long else b.low < order.target
+        if stop:
+            price = min(b.open, order.stop) if long else max(b.open, order.stop)
+            price *= 1 - order.side * SLIP
+            reason = "stop"
+            break
+        if j > fill and target:
+            price, reason = order.target, "target"
+            break
+    else:
+        if j + 1 < fill + HOLD_BARS:
+            return Exit(fill, j, None, "open", 0.0)
+        price, reason = b.close * (1 - order.side * SLIP), "timeout"
+    carry = sum(cash for _, cash in funding_payments(market, order.side, fill, j))
+    return Exit(fill, j, price, reason, carry)
+
+
 SCENARIOS = ("maker_maker_best_case", "maker_taker_stop", "taker_taker")
 
 
@@ -323,8 +357,8 @@ def event_rows(markets):
             fade_order = setup["order"]
             continuation_order = setup["continuation_order"]
             start = signal_i + 1
-            fade_outcome = resolve(market, fade_order, start, entry_bars=ENTRY_BARS)
-            continuation_outcome = resolve(market, continuation_order, start, entry_bars=ENTRY_BARS)
+            fade_outcome = resolve_shock(market, fade_order, start, entry_bars=ENTRY_BARS)
+            continuation_outcome = resolve_shock(market, continuation_order, start, entry_bars=ENTRY_BARS)
             end_time = bars[fade_outcome.end].time + 300
             candidate = dict(
                 coin=coin, time=row["time"], event_time=row["event_time"],
