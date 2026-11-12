@@ -1,5 +1,17 @@
 # Win rate and profit history
 
+## Sudden-move reversal, BTC/ETH/SOL/AVAX perpetuals
+
+| Evaluation | Submitted | Fills | Profitable fills | Net win rate | Mean net R / fill | Net P&L on 10,000 USDT |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Pooled model, expanding quarterly walk-forward, Jan 2025–Sep 2026 | 77 | 74 | 29 | 39.19% | −0.122R | −56.71 USDT |
+| Fade every qualifying event control, same test windows | 412 | 381 | 162 | 42.52% | −0.013R | −34.21 USDT |
+| Continue every qualifying event control, same test windows | 412 | 377 | 154 | 40.85% | −0.026R | −60.52 USDT |
+
+The model's seven-day joint-market block-bootstrap 95% interval was **−0.386R to +0.182R per fill** and **−190.18 to +69.24 USDT**. Cost sensitivity on the identical model submissions and sizes was **−40.30 USDT** for an unrealistic maker/maker best case, **−56.71 USDT** with maker entry and taker stop/time exits, and **−84.35 USDT** at 10 bp taker fees on both sides. The 74 fills comprised 19 targets, 42 stops and 13 time exits. Twenty-nine were net profitable after costs, including positive time exits. Three additional orders expired unfilled.
+
+The final paper fit used 515 training candidates and 130 later calibration candidates. The research model lost in two of the three quarters where it placed orders; its one positive quarter was 2026 Q3, with 11 wins in 21 fills. A post-hoc random-time/random-side control matched the model's 77 submitted orders by coin and quarter. Across 2,000 assignments the maker-entry/taker-stop mean was **+0.011R per fill**; the 2.5th–97.5th randomization range was −0.218R to +0.262R. This is a diagnostic, not a confidence interval or an independent test. **No positive fee-adjusted edge is established.** [Protocol, order ledger, model freeze and live read-only setup](shock/README.md)
+
 **Aahil Wave, historical walk-forward.** Across four independently funded 10,000 USDT coin accounts, the pooled model lost 382.16 USDT in 2025. [Model specification](aahil-wave-protocol.md) · [Order ledger](aahil-wave/wave-orders.csv) · [Full audit](aahil-wave-audit.md)
 
 **Latest retrospective comparison.** Six-hour entries won 22 of 56 fills (39.29%) and lost 337.85 simulated USDT on the previously examined October data. [Expiry comparison and order ledger](october-quotes-6h/README.md)

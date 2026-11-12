@@ -1,0 +1,34 @@
+{
+  "asof_utc": "2026-11-12T13:47:02.403000Z",
+  "mode": "READ-ONLY PAPER RESEARCH",
+  "model_sha256": "f8b9a53eefe9bb9743d2684030469380384a99e5ad0a68ebc1b926c908ad2a99",
+  "data_source": "Binance public USDT-perpetual and spot candles/funding",
+  "no_api_key": true,
+  "orders_submitted": 0,
+  "cards": [
+    {
+      "symbol": "BTCUSDT",
+      "decision": "WAIT",
+      "reason": "no fresh 3-sigma 15-minute shock at the latest confirmed bar",
+      "latest_candle_utc": "2026-11-12T13:45:00Z"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "decision": "WAIT",
+      "reason": "no fresh 3-sigma 15-minute shock at the latest confirmed bar",
+      "latest_candle_utc": "2026-11-12T13:45:00Z"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "decision": "WAIT",
+      "reason": "no fresh 3-sigma 15-minute shock at the latest confirmed bar",
+      "latest_candle_utc": "2026-11-12T13:45:00Z"
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "decision": "WAIT",
+      "reason": "no fresh 3-sigma 15-minute shock at the latest confirmed bar",
+      "latest_candle_utc": "2026-11-12T13:45:00Z"
+    }
+  ]
+}

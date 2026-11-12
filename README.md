@@ -1,5 +1,7 @@
 # Algorithmic Trading
 
+**Sudden-move reversal model.** The 2025–September 2026 walk-forward selected 77 setups and filled 74 under an optimistic candle trade-through proxy. It won 29 (39.2%) after costs and lost **9.04R / 56.71 USDT** on a 10,000 USDT simulated account. The 95% block-bootstrap interval for net R per fill was −0.386R to +0.182R. The model also lost under best-case maker fees, so the current read-only scanner returns **WAIT**. [Rules, full ledger, fee cases, random control and paper setup](research/shock/README.md)
+
 **Arbitrage research.** Buying spot and shorting an 84-day BTC or ETH future when the premium cleared costs earned 350.84 simulated USDT on 10,000 over 2024–25, across three expiries. No trade qualified in January–September 2026. Zero of 116 sampled cross-exchange spot routes covered the modeled fees. [Carry results, live quote checks and code](research/carry/README.md)
 
 **RSI and Bollinger Bands.** In the 2025 historical comparison, adding both indicators raised the observed win rate from 12/34 (35.3%) to 5/11 (45.5%). The combined model lost 38.41 simulated USDT after costs. [Matched comparison and order ledger](research/indicator-test/README.md)

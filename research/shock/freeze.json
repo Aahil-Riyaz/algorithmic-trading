@@ -1,0 +1,49 @@
+{
+  "calibration_rows": 130,
+  "coins": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "AVAX"
+  ],
+  "data": {
+    "AVAX": "65f1ae0fbb4af01370b046054fab9399c527306cb1b531aba0c2bccb251eca9a",
+    "BTC": "033f34e9d44c9c5078c38d3301befa52584fc9c42ce7e13f5a29f14cd463e722",
+    "ETH": "50893d88953c12a91a7f88ff407167dcaae51f5d1ed28eeeb877b2c035b6fb1d",
+    "SOL": "f1013987be150ff1469f172389ba3d52abf113d76e825466548d99e59952110b"
+  },
+  "data_end_exclusive": "2026-10-01",
+  "data_start": "2023-12-01",
+  "expected_value_hurdle_r": 0.05,
+  "features": [
+    "side",
+    "shock_z",
+    "pre_shock_1h",
+    "pre_shock_24h",
+    "confirm_atr",
+    "atr_regime",
+    "shock_volume_expansion",
+    "shock_taker_imbalance",
+    "confirm_taker_imbalance",
+    "btc_ret_1h",
+    "funding_cost_to_fade",
+    "is_BTC",
+    "is_ETH",
+    "is_SOL",
+    "is_AVAX"
+  ],
+  "model_sha256": "f8b9a53eefe9bb9743d2684030469380384a99e5ad0a68ebc1b926c908ad2a99",
+  "protocol": "research/shock-plan.md",
+  "protocol_sha256": "56bb518805f607a815baa5d5b968df2abfe477d89d43285514747ac3287a4192",
+  "training_rows": 515,
+  "xgb": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.05,
+    "max_depth": 2,
+    "min_child_weight": 10,
+    "n_estimators": 60,
+    "random_state": 421,
+    "reg_lambda": 5,
+    "subsample": 0.8
+  }
+}

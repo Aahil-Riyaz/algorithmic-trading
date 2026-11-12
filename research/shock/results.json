@@ -1,0 +1,1886 @@
+{
+  "by_coin_side": {
+    "continue_every_confirmed_event/AVAX/LONG": {
+      "fills": 45,
+      "mean_net_r": 0.012887194778596268,
+      "signals": 48,
+      "total_net_r": 0.5799237650368327,
+      "win_rate": 0.4222222222222222,
+      "wins": 19
+    },
+    "continue_every_confirmed_event/AVAX/SHORT": {
+      "fills": 32,
+      "mean_net_r": 0.11081978615556445,
+      "signals": 38,
+      "total_net_r": 3.5462331569780616,
+      "win_rate": 0.4375,
+      "wins": 14
+    },
+    "continue_every_confirmed_event/BTC/LONG": {
+      "fills": 44,
+      "mean_net_r": 0.01005001933753246,
+      "signals": 45,
+      "total_net_r": 0.44220085085142785,
+      "win_rate": 0.45454545454545453,
+      "wins": 20
+    },
+    "continue_every_confirmed_event/BTC/SHORT": {
+      "fills": 49,
+      "mean_net_r": -0.020366083974250687,
+      "signals": 56,
+      "total_net_r": -0.9979381147382841,
+      "win_rate": 0.4489795918367347,
+      "wins": 22
+    },
+    "continue_every_confirmed_event/ETH/LONG": {
+      "fills": 64,
+      "mean_net_r": -0.23562965908446862,
+      "signals": 71,
+      "total_net_r": -15.080298181405992,
+      "win_rate": 0.3125,
+      "wins": 20
+    },
+    "continue_every_confirmed_event/ETH/SHORT": {
+      "fills": 50,
+      "mean_net_r": -0.10268028490957665,
+      "signals": 53,
+      "total_net_r": -5.134014245478832,
+      "win_rate": 0.38,
+      "wins": 19
+    },
+    "continue_every_confirmed_event/SOL/LONG": {
+      "fills": 49,
+      "mean_net_r": 0.08232709902094121,
+      "signals": 53,
+      "total_net_r": 4.034027852026118,
+      "win_rate": 0.40816326530612246,
+      "wins": 20
+    },
+    "continue_every_confirmed_event/SOL/SHORT": {
+      "fills": 44,
+      "mean_net_r": 0.06608505555199407,
+      "signals": 48,
+      "total_net_r": 2.9077424442877384,
+      "win_rate": 0.45454545454545453,
+      "wins": 20
+    },
+    "fade_every_confirmed_event/AVAX/LONG": {
+      "fills": 33,
+      "mean_net_r": -0.3279207937630252,
+      "signals": 38,
+      "total_net_r": -10.821386194179833,
+      "win_rate": 0.30303030303030304,
+      "wins": 10
+    },
+    "fade_every_confirmed_event/AVAX/SHORT": {
+      "fills": 46,
+      "mean_net_r": 0.09803215682743174,
+      "signals": 48,
+      "total_net_r": 4.50947921406186,
+      "win_rate": 0.43478260869565216,
+      "wins": 20
+    },
+    "fade_every_confirmed_event/BTC/LONG": {
+      "fills": 54,
+      "mean_net_r": 0.05422646411157515,
+      "signals": 56,
+      "total_net_r": 2.9282290620250584,
+      "win_rate": 0.46296296296296297,
+      "wins": 25
+    },
+    "fade_every_confirmed_event/BTC/SHORT": {
+      "fills": 42,
+      "mean_net_r": -0.030870217474193877,
+      "signals": 45,
+      "total_net_r": -1.2965491339161423,
+      "win_rate": 0.42857142857142855,
+      "wins": 18
+    },
+    "fade_every_confirmed_event/ETH/LONG": {
+      "fills": 47,
+      "mean_net_r": 0.040467619207458776,
+      "signals": 53,
+      "total_net_r": 1.9019781027505644,
+      "win_rate": 0.425531914893617,
+      "wins": 20
+    },
+    "fade_every_confirmed_event/ETH/SHORT": {
+      "fills": 68,
+      "mean_net_r": 0.09929342652206329,
+      "signals": 71,
+      "total_net_r": 6.7519530035003035,
+      "win_rate": 0.4852941176470588,
+      "wins": 33
+    },
+    "fade_every_confirmed_event/SOL/LONG": {
+      "fills": 40,
+      "mean_net_r": -0.22712536402944794,
+      "signals": 48,
+      "total_net_r": -9.085014561177918,
+      "win_rate": 0.325,
+      "wins": 13
+    },
+    "fade_every_confirmed_event/SOL/SHORT": {
+      "fills": 51,
+      "mean_net_r": -0.0003166584944481612,
+      "signals": 53,
+      "total_net_r": -0.016149583216855584,
+      "win_rate": 0.45098039215686275,
+      "wins": 23
+    },
+    "model/AVAX/LONG": {
+      "fills": 9,
+      "mean_net_r": -0.33665534768715294,
+      "signals": 9,
+      "total_net_r": -3.0298981291843754,
+      "win_rate": 0.2222222222222222,
+      "wins": 2
+    },
+    "model/AVAX/SHORT": {
+      "fills": 15,
+      "mean_net_r": -0.13423181322822572,
+      "signals": 15,
+      "total_net_r": -2.0134771984233852,
+      "win_rate": 0.3333333333333333,
+      "wins": 5
+    },
+    "model/BTC/LONG": {
+      "fills": 8,
+      "mean_net_r": 0.17376558334569747,
+      "signals": 9,
+      "total_net_r": 1.3901246667655798,
+      "win_rate": 0.625,
+      "wins": 5
+    },
+    "model/BTC/SHORT": {
+      "fills": 11,
+      "mean_net_r": 0.09521801697883542,
+      "signals": 11,
+      "total_net_r": 1.0473981867671893,
+      "win_rate": 0.6363636363636364,
+      "wins": 7
+    },
+    "model/ETH/LONG": {
+      "fills": 4,
+      "mean_net_r": 0.2471921942579754,
+      "signals": 5,
+      "total_net_r": 0.9887687770319018,
+      "win_rate": 0.5,
+      "wins": 2
+    },
+    "model/ETH/SHORT": {
+      "fills": 7,
+      "mean_net_r": -0.2851139365458758,
+      "signals": 8,
+      "total_net_r": -1.9957975558211305,
+      "win_rate": 0.2857142857142857,
+      "wins": 2
+    },
+    "model/SOL/LONG": {
+      "fills": 10,
+      "mean_net_r": -0.20654117052116178,
+      "signals": 10,
+      "total_net_r": -2.0654117052116177,
+      "win_rate": 0.3,
+      "wins": 3
+    },
+    "model/SOL/SHORT": {
+      "fills": 10,
+      "mean_net_r": -0.33614182818754224,
+      "signals": 10,
+      "total_net_r": -3.361418281875422,
+      "win_rate": 0.3,
+      "wins": 3
+    }
+  },
+  "dates": {
+    "end_exclusive": "2026-10-01",
+    "start": "2023-12-01"
+  },
+  "eligible_candidates": 648,
+  "exploratory_random_control": {
+    "maker_maker_best_case": {
+      "fills": {
+        "mean": 71.626,
+        "quantiles_2_5_50_97_5": [
+          68.0,
+          72.0,
+          75.0
+        ]
+      },
+      "net_r_per_fill": {
+        "mean": 0.04320666577513967,
+        "quantiles_2_5_50_97_5": [
+          -0.18206395534444475,
+          0.04530046224421737,
+          0.2921267054307294
+        ]
+      },
+      "net_usdt": {
+        "mean": 19.1733318719899,
+        "quantiles_2_5_50_97_5": [
+          -81.35972094495408,
+          19.760832884833675,
+          129.0438687187876
+        ]
+      },
+      "win_rate": {
+        "mean": 0.44593114976815024,
+        "quantiles_2_5_50_97_5": [
+          0.3423548138143932,
+          0.44594594594594594,
+          0.56
+        ]
+      }
+    },
+    "maker_taker_stop": {
+      "fills": {
+        "mean": 71.626,
+        "quantiles_2_5_50_97_5": [
+          68.0,
+          72.0,
+          75.0
+        ]
+      },
+      "net_r_per_fill": {
+        "mean": 0.010899285866775412,
+        "quantiles_2_5_50_97_5": [
+          -0.2182725550313429,
+          0.012888290783842092,
+          0.2624656469127049
+        ]
+      },
+      "net_usdt": {
+        "mean": 4.703537309419815,
+        "quantiles_2_5_50_97_5": [
+          -97.02610285414661,
+          5.485729505802173,
+          116.44678108141478
+        ]
+      },
+      "win_rate": {
+        "mean": 0.42559059308617414,
+        "quantiles_2_5_50_97_5": [
+          0.3194444444444444,
+          0.4246575342465753,
+          0.5428571428571428
+        ]
+      }
+    },
+    "matched_submitted_orders": 77,
+    "method": "random event time without replacement within quarter and coin; 50/50 fade or continuation",
+    "model_selected_by_group": {
+      "2025-Q2/AVAX": 10,
+      "2025-Q2/BTC": 9,
+      "2025-Q2/ETH": 11,
+      "2025-Q2/SOL": 8,
+      "2026-Q2/AVAX": 8,
+      "2026-Q2/BTC": 3,
+      "2026-Q2/ETH": 1,
+      "2026-Q2/SOL": 6,
+      "2026-Q3/AVAX": 6,
+      "2026-Q3/BTC": 8,
+      "2026-Q3/ETH": 1,
+      "2026-Q3/SOL": 6
+    },
+    "repetitions": 2000,
+    "seed": 8721,
+    "taker_taker": {
+      "fills": {
+        "mean": 71.626,
+        "quantiles_2_5_50_97_5": [
+          68.0,
+          72.0,
+          75.0
+        ]
+      },
+      "net_r_per_fill": {
+        "mean": -0.04955450383979951,
+        "quantiles_2_5_50_97_5": [
+          -0.27443162672676213,
+          -0.04838094010668763,
+          0.19778512170939827
+        ]
+      },
+      "net_usdt": {
+        "mean": -22.36535264907119,
+        "quantiles_2_5_50_97_5": [
+          -123.20640110908333,
+          -21.759579931164396,
+          87.0575726003092
+        ]
+      },
+      "win_rate": {
+        "mean": 0.42274257772263424,
+        "quantiles_2_5_50_97_5": [
+          0.3150684931506849,
+          0.4225352112676056,
+          0.5362589227774172
+        ]
+      }
+    }
+  },
+  "folds": {
+    "2025-Q1": {
+      "calibration_fills": 40,
+      "calibration_rows": 45,
+      "model_available": true,
+      "test_events": 45,
+      "training_rows": 179
+    },
+    "2025-Q2": {
+      "calibration_fills": 54,
+      "calibration_rows": 56,
+      "model_available": true,
+      "test_events": 46,
+      "training_rows": 219
+    },
+    "2025-Q3": {
+      "calibration_fills": 61,
+      "calibration_rows": 65,
+      "model_available": true,
+      "test_events": 59,
+      "training_rows": 260
+    },
+    "2025-Q4": {
+      "calibration_fills": 73,
+      "calibration_rows": 77,
+      "model_available": true,
+      "test_events": 56,
+      "training_rows": 307
+    },
+    "2026-Q1": {
+      "calibration_fills": 80,
+      "calibration_rows": 88,
+      "model_available": true,
+      "test_events": 64,
+      "training_rows": 350
+    },
+    "2026-Q2": {
+      "calibration_fills": 95,
+      "calibration_rows": 102,
+      "model_available": true,
+      "test_events": 71,
+      "training_rows": 398
+    },
+    "2026-Q3": {
+      "calibration_fills": 106,
+      "calibration_rows": 116,
+      "model_available": true,
+      "test_events": 71,
+      "training_rows": 458
+    }
+  },
+  "freeze": {
+    "calibration_rows": 130,
+    "coins": [
+      "BTC",
+      "ETH",
+      "SOL",
+      "AVAX"
+    ],
+    "data": {
+      "AVAX": "65f1ae0fbb4af01370b046054fab9399c527306cb1b531aba0c2bccb251eca9a",
+      "BTC": "033f34e9d44c9c5078c38d3301befa52584fc9c42ce7e13f5a29f14cd463e722",
+      "ETH": "50893d88953c12a91a7f88ff407167dcaae51f5d1ed28eeeb877b2c035b6fb1d",
+      "SOL": "f1013987be150ff1469f172389ba3d52abf113d76e825466548d99e59952110b"
+    },
+    "data_end_exclusive": "2026-10-01",
+    "data_start": "2023-12-01",
+    "expected_value_hurdle_r": 0.05,
+    "features": [
+      "side",
+      "shock_z",
+      "pre_shock_1h",
+      "pre_shock_24h",
+      "confirm_atr",
+      "atr_regime",
+      "shock_volume_expansion",
+      "shock_taker_imbalance",
+      "confirm_taker_imbalance",
+      "btc_ret_1h",
+      "funding_cost_to_fade",
+      "is_BTC",
+      "is_ETH",
+      "is_SOL",
+      "is_AVAX"
+    ],
+    "model_sha256": "f8b9a53eefe9bb9743d2684030469380384a99e5ad0a68ebc1b926c908ad2a99",
+    "protocol": "research/shock-plan.md",
+    "protocol_sha256": "56bb518805f607a815baa5d5b968df2abfe477d89d43285514747ac3287a4192",
+    "training_rows": 515,
+    "xgb": {
+      "colsample_bytree": 0.8,
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "min_child_weight": 10,
+      "n_estimators": 60,
+      "random_state": 421,
+      "reg_lambda": 5,
+      "subsample": 0.8
+    }
+  },
+  "pooled_oos": {
+    "continue_every_confirmed_event": {
+      "maker_maker_best_case": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.1345854877399571,
+            0.1532912504654429
+          ],
+          "net_usdt_95": [
+            -316.4473028367487,
+            364.72759364755916
+          ]
+        },
+        "expired": 35,
+        "fills": 377,
+        "mean_net_r": 0.006819622932553756,
+        "net_r_per_signal": 0.0062402860329436064,
+        "net_usdt": 15.954489518429568,
+        "signals": 412,
+        "stops": 188,
+        "targets": 109,
+        "timeouts": 80,
+        "total_net_r": 2.570997845572766,
+        "win_rate": 0.41909814323607425,
+        "wins": 158
+      },
+      "maker_taker_stop": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.16905551838524138,
+            0.12409124708593983
+          ],
+          "net_usdt_95": [
+            -400.3640258687904,
+            292.8816527580332
+          ]
+        },
+        "expired": 35,
+        "fills": 377,
+        "mean_net_r": -0.025735072871201397,
+        "net_r_per_signal": -0.023548840952531375,
+        "net_usdt": -60.52411148853058,
+        "signals": 412,
+        "stops": 188,
+        "targets": 109,
+        "timeouts": 80,
+        "total_net_r": -9.702122472442927,
+        "win_rate": 0.40848806366047746,
+        "wins": 154
+      },
+      "taker_taker": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.22587119406834502,
+            0.06315242081928207
+          ],
+          "net_usdt_95": [
+            -536.2744170255423,
+            148.76522873635463
+          ]
+        },
+        "expired": 35,
+        "fills": 377,
+        "mean_net_r": -0.08485506835260853,
+        "net_r_per_signal": -0.07764650672071217,
+        "net_usdt": -199.49116739696078,
+        "signals": 412,
+        "stops": 188,
+        "targets": 109,
+        "timeouts": 80,
+        "total_net_r": -31.990360768933414,
+        "win_rate": 0.40318302387267907,
+        "wins": 152
+      }
+    },
+    "fade_every_confirmed_event": {
+      "maker_maker_best_case": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.11208159435536526,
+            0.16440900157315153
+          ],
+          "net_usdt_95": [
+            -269.932723835182,
+            382.3491019104264
+          ]
+        },
+        "expired": 31,
+        "fills": 381,
+        "mean_net_r": 0.01950449806449578,
+        "net_r_per_signal": 0.018036926608186624,
+        "net_usdt": 44.05125998640707,
+        "signals": 412,
+        "stops": 195,
+        "targets": 117,
+        "timeouts": 69,
+        "total_net_r": 7.43121376257289,
+        "win_rate": 0.43832020997375326,
+        "wins": 167
+      },
+      "maker_taker_stop": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.14783245823284552,
+            0.13391605520775174
+          ],
+          "net_usdt_95": [
+            -355.3993508720328,
+            312.5196528529866
+          ]
+        },
+        "expired": 31,
+        "fills": 381,
+        "mean_net_r": -0.013457900499089133,
+        "net_r_per_signal": -0.012445291480953788,
+        "net_usdt": -34.21390370112392,
+        "signals": 412,
+        "stops": 195,
+        "targets": 117,
+        "timeouts": 69,
+        "total_net_r": -5.127460090152961,
+        "win_rate": 0.4251968503937008,
+        "wins": 162
+      },
+      "taker_taker": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.20771215176565855,
+            0.07077241481135352
+          ],
+          "net_usdt_95": [
+            -503.045009723969,
+            157.42204674112966
+          ]
+        },
+        "expired": 31,
+        "fills": 381,
+        "mean_net_r": -0.07581559263570373,
+        "net_r_per_signal": -0.07011102134515321,
+        "net_usdt": -182.118007151489,
+        "signals": 412,
+        "stops": 195,
+        "targets": 117,
+        "timeouts": 69,
+        "total_net_r": -28.88574079420312,
+        "win_rate": 0.4199475065616798,
+        "wins": 160
+      }
+    },
+    "model": {
+      "maker_maker_best_case": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.34543146342120795,
+            0.2126407662701344
+          ],
+          "net_usdt_95": [
+            -167.6477654718765,
+            80.82548348709858
+          ]
+        },
+        "expired": 3,
+        "fills": 74,
+        "mean_net_r": -0.08651773542676326,
+        "net_r_per_signal": -0.08314691456598028,
+        "net_usdt": -40.296002057617414,
+        "signals": 77,
+        "stops": 42,
+        "targets": 19,
+        "timeouts": 13,
+        "total_net_r": -6.402312421580481,
+        "win_rate": 0.40540540540540543,
+        "wins": 30
+      },
+      "maker_taker_stop": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.3857895709433166,
+            0.1817231350556662
+          ],
+          "net_usdt_95": [
+            -190.18090432383988,
+            69.24284762057833
+          ]
+        },
+        "expired": 3,
+        "fills": 74,
+        "mean_net_r": -0.12215825999934136,
+        "net_r_per_signal": -0.11739884727209428,
+        "net_usdt": -56.70911310136458,
+        "signals": 77,
+        "stops": 42,
+        "targets": 19,
+        "timeouts": 13,
+        "total_net_r": -9.03971123995126,
+        "win_rate": 0.3918918918918919,
+        "wins": 29
+      },
+      "taker_taker": {
+        "bootstrap": {
+          "block_days": 7,
+          "bootstrap_reps": 2000,
+          "includes_zero_return_days": true,
+          "net_r_per_fill_95": [
+            -0.44011639076339604,
+            0.1168723865001236
+          ],
+          "net_usdt_95": [
+            -217.92365284095365,
+            42.530804379277306
+          ]
+        },
+        "expired": 3,
+        "fills": 74,
+        "mean_net_r": -0.18223106105011883,
+        "net_r_per_signal": -0.17513114958063372,
+        "net_usdt": -84.35468357103177,
+        "signals": 77,
+        "stops": 42,
+        "targets": 19,
+        "timeouts": 13,
+        "total_net_r": -13.485098517708797,
+        "win_rate": 0.3918918918918919,
+        "wins": 29
+      }
+    }
+  },
+  "pooled_sizing": {
+    "continue_every_confirmed_event": {
+      "daily_halt_skips": 0,
+      "drawdown_kill_skips": 0,
+      "end_usdt": 9939.475888511464,
+      "max_drawdown": 0.01738154898415984,
+      "max_notional_per_sleeve": 1.0,
+      "net_usdt": -60.52411148853571,
+      "risk_cap_skips": 0,
+      "risk_per_coin_sleeve": 0.0025,
+      "sleeve_fraction": 0.25,
+      "start_usdt": 10000.0
+    },
+    "fade_every_confirmed_event": {
+      "daily_halt_skips": 0,
+      "drawdown_kill_skips": 0,
+      "end_usdt": 9965.786096298874,
+      "max_drawdown": 0.01990990712905962,
+      "max_notional_per_sleeve": 1.0,
+      "net_usdt": -34.21390370112567,
+      "risk_cap_skips": 0,
+      "risk_per_coin_sleeve": 0.0025,
+      "sleeve_fraction": 0.25,
+      "start_usdt": 10000.0
+    },
+    "model": {
+      "daily_halt_skips": 0,
+      "drawdown_kill_skips": 0,
+      "end_usdt": 9943.290886898632,
+      "max_drawdown": 0.008533684744401035,
+      "max_notional_per_sleeve": 1.0,
+      "net_usdt": -56.70911310136762,
+      "risk_cap_skips": 0,
+      "risk_per_coin_sleeve": 0.0025,
+      "sleeve_fraction": 0.25,
+      "start_usdt": 10000.0
+    }
+  },
+  "protocol": "shock-plan.md",
+  "quarterly": {
+    "2025-Q1": {
+      "calibration": {
+        "fill_brier": 0.029658148493111172,
+        "tp_brier_filled": 0.28483929406688163,
+        "trades_above_ev_hurdle": 0
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 5,
+        "fills": 40,
+        "mean_net_r": -0.24400454130402763,
+        "net_r_per_signal": -0.21689292560358006,
+        "net_usdt": -60.809778650257236,
+        "signals": 45,
+        "stops": 26,
+        "targets": 9,
+        "timeouts": 5,
+        "total_net_r": -9.760181652161103,
+        "win_rate": 0.325,
+        "wins": 13
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 5,
+        "fills": 40,
+        "mean_net_r": -0.27594432655318385,
+        "net_r_per_signal": -0.2452838458250523,
+        "net_usdt": -68.7739099619307,
+        "signals": 45,
+        "stops": 26,
+        "targets": 9,
+        "timeouts": 5,
+        "total_net_r": -11.037773062127354,
+        "win_rate": 0.325,
+        "wins": 13
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 9931.22609003807,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.009236786700900345,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -68.7739099619307,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 5,
+        "fills": 40,
+        "mean_net_r": -0.32789313750127574,
+        "net_r_per_signal": -0.2914605666678006,
+        "net_usdt": -81.72778883690422,
+        "signals": 45,
+        "stops": 26,
+        "targets": 9,
+        "timeouts": 5,
+        "total_net_r": -13.11572550005103,
+        "win_rate": 0.325,
+        "wins": 13
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 1,
+        "fills": 44,
+        "mean_net_r": 0.21780198105343684,
+        "net_r_per_signal": 0.2129619370300271,
+        "net_usdt": 59.78610330168771,
+        "signals": 45,
+        "stops": 20,
+        "targets": 19,
+        "timeouts": 5,
+        "total_net_r": 9.58328716635122,
+        "win_rate": 0.4772727272727273,
+        "wins": 21
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 1,
+        "fills": 44,
+        "mean_net_r": 0.19331591047989435,
+        "net_r_per_signal": 0.18902000135811892,
+        "net_usdt": 53.02554768699035,
+        "signals": 45,
+        "stops": 20,
+        "targets": 19,
+        "timeouts": 5,
+        "total_net_r": 8.505900061115351,
+        "win_rate": 0.4772727272727273,
+        "wins": 21
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 10053.025547686992,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.004364449447882283,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 53.02554768699035,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 1,
+        "fills": 44,
+        "mean_net_r": 0.12827498727614292,
+        "net_r_per_signal": 0.12542443200333975,
+        "net_usdt": 35.08908846888484,
+        "signals": 45,
+        "stops": 20,
+        "targets": 19,
+        "timeouts": 5,
+        "total_net_r": 5.644099440150288,
+        "win_rate": 0.4772727272727273,
+        "wins": 21
+      },
+      "model/maker_maker_best_case": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/maker_taker_stop": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/sizing": {
+        "cash": 10000.0,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 0.0,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      }
+    },
+    "2025-Q2": {
+      "calibration": {
+        "fill_brier": 0.061649794258061476,
+        "tp_brier_filled": 0.2071378646104356,
+        "trades_above_ev_hurdle": 38
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 3,
+        "fills": 43,
+        "mean_net_r": 0.4133934528502195,
+        "net_r_per_signal": 0.3864330102730313,
+        "net_usdt": 111.52236881801255,
+        "signals": 46,
+        "stops": 15,
+        "targets": 20,
+        "timeouts": 8,
+        "total_net_r": 17.77591847255944,
+        "win_rate": 0.5813953488372093,
+        "wins": 25
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 3,
+        "fills": 43,
+        "mean_net_r": 0.39084169737189883,
+        "net_r_per_signal": 0.3653520214563402,
+        "net_usdt": 105.44768829623816,
+        "signals": 46,
+        "stops": 15,
+        "targets": 20,
+        "timeouts": 8,
+        "total_net_r": 16.80619298699165,
+        "win_rate": 0.5348837209302325,
+        "wins": 23
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 10105.447688296234,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.004147141577246246,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 105.44768829623816,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 3,
+        "fills": 43,
+        "mean_net_r": 0.3278963089446852,
+        "net_r_per_signal": 0.30651176705698835,
+        "net_usdt": 88.49719692294852,
+        "signals": 46,
+        "stops": 15,
+        "targets": 20,
+        "timeouts": 8,
+        "total_net_r": 14.099541284621464,
+        "win_rate": 0.5348837209302325,
+        "wins": 23
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 3,
+        "fills": 43,
+        "mean_net_r": -0.29752189144987035,
+        "net_r_per_signal": -0.27811828983357445,
+        "net_usdt": -79.86619556995439,
+        "signals": 46,
+        "stops": 29,
+        "targets": 9,
+        "timeouts": 5,
+        "total_net_r": -12.793441332344425,
+        "win_rate": 0.32558139534883723,
+        "wins": 14
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 3,
+        "fills": 43,
+        "mean_net_r": -0.3347476830849014,
+        "net_r_per_signal": -0.31291631244892953,
+        "net_usdt": -89.84663935410096,
+        "signals": 46,
+        "stops": 29,
+        "targets": 9,
+        "timeouts": 5,
+        "total_net_r": -14.394150372650758,
+        "win_rate": 0.32558139534883723,
+        "wins": 14
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 9910.1533606459,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.009925473485059804,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -89.84663935410096,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 3,
+        "fills": 43,
+        "mean_net_r": -0.3915588435154623,
+        "net_r_per_signal": -0.36602239719923657,
+        "net_usdt": -105.07248853756005,
+        "signals": 46,
+        "stops": 29,
+        "targets": 9,
+        "timeouts": 5,
+        "total_net_r": -16.83703027116488,
+        "win_rate": 0.32558139534883723,
+        "wins": 14
+      },
+      "model/maker_maker_best_case": {
+        "expired": 3,
+        "fills": 35,
+        "mean_net_r": -0.2554937167003669,
+        "net_r_per_signal": -0.23532316011875895,
+        "net_usdt": -56.00154900488826,
+        "signals": 38,
+        "stops": 23,
+        "targets": 8,
+        "timeouts": 4,
+        "total_net_r": -8.94228008451284,
+        "win_rate": 0.34285714285714286,
+        "wins": 12
+      },
+      "model/maker_taker_stop": {
+        "expired": 3,
+        "fills": 35,
+        "mean_net_r": -0.29191691532779745,
+        "net_r_per_signal": -0.2688708430650766,
+        "net_usdt": -63.95987251098721,
+        "signals": 38,
+        "stops": 23,
+        "targets": 8,
+        "timeouts": 4,
+        "total_net_r": -10.21709203647291,
+        "win_rate": 0.34285714285714286,
+        "wins": 12
+      },
+      "model/sizing": {
+        "cash": 9936.04012748901,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.007322988578752302,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -63.95987251098721,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 3,
+        "fills": 35,
+        "mean_net_r": -0.3495766831213697,
+        "net_r_per_signal": -0.32197852392757725,
+        "net_usdt": -76.54936131277218,
+        "signals": 38,
+        "stops": 23,
+        "targets": 8,
+        "timeouts": 4,
+        "total_net_r": -12.235183909247937,
+        "win_rate": 0.34285714285714286,
+        "wins": 12
+      }
+    },
+    "2025-Q3": {
+      "calibration": {
+        "fill_brier": 0.06368087779343412,
+        "tp_brier_filled": 0.20665146237857937,
+        "trades_above_ev_hurdle": 0
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 5,
+        "fills": 54,
+        "mean_net_r": -0.08177554345986199,
+        "net_r_per_signal": -0.07484541265817879,
+        "net_usdt": -27.579168101338563,
+        "signals": 59,
+        "stops": 31,
+        "targets": 15,
+        "timeouts": 8,
+        "total_net_r": -4.415879346832549,
+        "win_rate": 0.3888888888888889,
+        "wins": 21
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 5,
+        "fills": 54,
+        "mean_net_r": -0.11614297557313977,
+        "net_r_per_signal": -0.1063003505245686,
+        "net_usdt": -39.14584676848959,
+        "signals": 59,
+        "stops": 31,
+        "targets": 15,
+        "timeouts": 8,
+        "total_net_r": -6.271720680949548,
+        "win_rate": 0.37037037037037035,
+        "wins": 20
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 9960.854153231512,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.008090559294243231,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -39.14584676848959,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 5,
+        "fills": 54,
+        "mean_net_r": -0.17696115617445968,
+        "net_r_per_signal": -0.16196444802408175,
+        "net_usdt": -59.611630507585225,
+        "signals": 59,
+        "stops": 31,
+        "targets": 15,
+        "timeouts": 8,
+        "total_net_r": -9.555902433420822,
+        "win_rate": 0.37037037037037035,
+        "wins": 20
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 4,
+        "fills": 55,
+        "mean_net_r": -0.024943761018928805,
+        "net_r_per_signal": -0.023252658576967535,
+        "net_usdt": -8.984700716647525,
+        "signals": 59,
+        "stops": 29,
+        "targets": 16,
+        "timeouts": 10,
+        "total_net_r": -1.3719068560410845,
+        "win_rate": 0.41818181818181815,
+        "wins": 23
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 4,
+        "fills": 55,
+        "mean_net_r": -0.059283886349584584,
+        "net_r_per_signal": -0.05526463981740937,
+        "net_usdt": -20.797132048169793,
+        "signals": 59,
+        "stops": 29,
+        "targets": 16,
+        "timeouts": 10,
+        "total_net_r": -3.2606137492271525,
+        "win_rate": 0.4,
+        "wins": 22
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 9979.202867951828,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.007665450128135874,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -20.797132048169793,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 4,
+        "fills": 55,
+        "mean_net_r": -0.121717553046633,
+        "net_r_per_signal": -0.113465515551946,
+        "net_usdt": -42.25238923210537,
+        "signals": 59,
+        "stops": 29,
+        "targets": 16,
+        "timeouts": 10,
+        "total_net_r": -6.694465417564814,
+        "win_rate": 0.38181818181818183,
+        "wins": 21
+      },
+      "model/maker_maker_best_case": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/maker_taker_stop": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/sizing": {
+        "cash": 10000.0,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 0.0,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      }
+    },
+    "2025-Q4": {
+      "calibration": {
+        "fill_brier": 0.08269193706900412,
+        "tp_brier_filled": 0.22865229117992222,
+        "trades_above_ev_hurdle": 0
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 5,
+        "fills": 51,
+        "mean_net_r": 0.11985629732761051,
+        "net_r_per_signal": 0.10915484220907387,
+        "net_usdt": 37.85843613718989,
+        "signals": 56,
+        "stops": 24,
+        "targets": 18,
+        "timeouts": 9,
+        "total_net_r": 6.112671163708137,
+        "win_rate": 0.45098039215686275,
+        "wins": 23
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 5,
+        "fills": 51,
+        "mean_net_r": 0.09083480238657762,
+        "net_r_per_signal": 0.08272455217349033,
+        "net_usdt": 28.565267507799746,
+        "signals": 56,
+        "stops": 24,
+        "targets": 18,
+        "timeouts": 9,
+        "total_net_r": 4.632574921715459,
+        "win_rate": 0.45098039215686275,
+        "wins": 23
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 10028.565267507796,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.005483575864694289,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 28.565267507799746,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 5,
+        "fills": 51,
+        "mean_net_r": 0.029731936815944663,
+        "net_r_per_signal": 0.02707729960023531,
+        "net_usdt": 9.027612838059337,
+        "signals": 56,
+        "stops": 24,
+        "targets": 18,
+        "timeouts": 9,
+        "total_net_r": 1.5163287776131773,
+        "win_rate": 0.43137254901960786,
+        "wins": 22
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 5,
+        "fills": 51,
+        "mean_net_r": 0.009268765179913955,
+        "net_r_per_signal": 0.008441196860278792,
+        "net_usdt": 2.7150650462493733,
+        "signals": 56,
+        "stops": 28,
+        "targets": 17,
+        "timeouts": 6,
+        "total_net_r": 0.47270702417561233,
+        "win_rate": 0.43137254901960786,
+        "wins": 22
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 5,
+        "fills": 51,
+        "mean_net_r": -0.022419673587269463,
+        "net_r_per_signal": -0.020417917016977514,
+        "net_usdt": -7.371782282993505,
+        "signals": 56,
+        "stops": 28,
+        "targets": 17,
+        "timeouts": 6,
+        "total_net_r": -1.1434033529507408,
+        "win_rate": 0.4117647058823529,
+        "wins": 21
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 9992.628217717003,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.006890994549767203,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -7.371782282993505,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 5,
+        "fills": 51,
+        "mean_net_r": -0.0864453775603019,
+        "net_r_per_signal": -0.07872704027813214,
+        "net_usdt": -27.732119921018338,
+        "signals": 56,
+        "stops": 28,
+        "targets": 17,
+        "timeouts": 6,
+        "total_net_r": -4.4087142555754,
+        "win_rate": 0.4117647058823529,
+        "wins": 21
+      },
+      "model/maker_maker_best_case": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/maker_taker_stop": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/sizing": {
+        "cash": 10000.0,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 0.0,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      }
+    },
+    "2026-Q1": {
+      "calibration": {
+        "fill_brier": 0.08636254144422062,
+        "tp_brier_filled": 0.21731602458520863,
+        "trades_above_ev_hurdle": 0
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 6,
+        "fills": 58,
+        "mean_net_r": -0.05360351898491704,
+        "net_r_per_signal": -0.04857818908008107,
+        "net_usdt": -19.830595568994966,
+        "signals": 64,
+        "stops": 32,
+        "targets": 16,
+        "timeouts": 10,
+        "total_net_r": -3.1090041011251883,
+        "win_rate": 0.39655172413793105,
+        "wins": 23
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 6,
+        "fills": 58,
+        "mean_net_r": -0.08709608447801419,
+        "net_r_per_signal": -0.07893082655820036,
+        "net_usdt": -31.97418754563425,
+        "signals": 64,
+        "stops": 32,
+        "targets": 16,
+        "timeouts": 10,
+        "total_net_r": -5.051572899724823,
+        "win_rate": 0.39655172413793105,
+        "wins": 23
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 9968.025812454369,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.004992842569396141,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -31.97418754563425,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 6,
+        "fills": 58,
+        "mean_net_r": -0.14441706226640078,
+        "net_r_per_signal": -0.1308779626789257,
+        "net_usdt": -52.74233980216125,
+        "signals": 64,
+        "stops": 32,
+        "targets": 16,
+        "timeouts": 10,
+        "total_net_r": -8.376189611451245,
+        "win_rate": 0.39655172413793105,
+        "wins": 23
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 6,
+        "fills": 58,
+        "mean_net_r": 0.03456553050402277,
+        "net_r_per_signal": 0.03132501201927065,
+        "net_usdt": 12.102270308819342,
+        "signals": 64,
+        "stops": 31,
+        "targets": 18,
+        "timeouts": 9,
+        "total_net_r": 2.0048007692333214,
+        "win_rate": 0.4482758620689655,
+        "wins": 26
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 6,
+        "fills": 58,
+        "mean_net_r": 0.001050356811649835,
+        "net_r_per_signal": 0.000951885860557662,
+        "net_usdt": -0.02297793885179822,
+        "signals": 64,
+        "stops": 31,
+        "targets": 18,
+        "timeouts": 9,
+        "total_net_r": 0.06092069507569037,
+        "win_rate": 0.4482758620689655,
+        "wins": 26
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 9999.977022061148,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0060185392237682425,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -0.02297793885179822,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 6,
+        "fills": 58,
+        "mean_net_r": -0.062462154253409466,
+        "net_r_per_signal": -0.05660632729215232,
+        "net_usdt": -22.97075615166178,
+        "signals": 64,
+        "stops": 31,
+        "targets": 18,
+        "timeouts": 9,
+        "total_net_r": -3.6228049466977486,
+        "win_rate": 0.4482758620689655,
+        "wins": 26
+      },
+      "model/maker_maker_best_case": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/maker_taker_stop": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      },
+      "model/sizing": {
+        "cash": 10000.0,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 0.0,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 0,
+        "fills": 0,
+        "mean_net_r": null,
+        "net_r_per_signal": null,
+        "net_usdt": 0.0,
+        "signals": 0,
+        "stops": 0,
+        "targets": 0,
+        "timeouts": 0,
+        "total_net_r": 0.0,
+        "win_rate": null,
+        "wins": 0
+      }
+    },
+    "2026-Q2": {
+      "calibration": {
+        "fill_brier": 0.0774278765468413,
+        "tp_brier_filled": 0.19755786507938092,
+        "trades_above_ev_hurdle": 18
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 7,
+        "fills": 64,
+        "mean_net_r": 0.0601510020042659,
+        "net_r_per_signal": 0.05422062152497209,
+        "net_usdt": 23.8015741493901,
+        "signals": 71,
+        "stops": 28,
+        "targets": 16,
+        "timeouts": 20,
+        "total_net_r": 3.849664128273018,
+        "win_rate": 0.453125,
+        "wins": 29
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 7,
+        "fills": 64,
+        "mean_net_r": 0.02494600211061486,
+        "net_r_per_signal": 0.022486537113793684,
+        "net_usdt": 9.724912420073933,
+        "signals": 71,
+        "stops": 28,
+        "targets": 16,
+        "timeouts": 20,
+        "total_net_r": 1.5965441350793514,
+        "win_rate": 0.4375,
+        "wins": 28
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 10009.724912420068,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.00830505715516134,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 9.724912420073933,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 7,
+        "fills": 64,
+        "mean_net_r": -0.03483081065325454,
+        "net_r_per_signal": -0.0313967870677224,
+        "net_usdt": -14.156266016959355,
+        "signals": 71,
+        "stops": 28,
+        "targets": 16,
+        "timeouts": 20,
+        "total_net_r": -2.2291718818082904,
+        "win_rate": 0.4375,
+        "wins": 28
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 6,
+        "fills": 65,
+        "mean_net_r": -0.06165213386220646,
+        "net_r_per_signal": -0.05644209438089322,
+        "net_usdt": -25.03498396416523,
+        "signals": 71,
+        "stops": 32,
+        "targets": 17,
+        "timeouts": 16,
+        "total_net_r": -4.007388701043419,
+        "win_rate": 0.4153846153846154,
+        "wins": 27
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 6,
+        "fills": 65,
+        "mean_net_r": -0.09682239543447511,
+        "net_r_per_signal": -0.08864022117240683,
+        "net_usdt": -39.317649089425046,
+        "signals": 71,
+        "stops": 32,
+        "targets": 17,
+        "timeouts": 16,
+        "total_net_r": -6.293455703240885,
+        "win_rate": 0.38461538461538464,
+        "wins": 25
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 9960.682350910569,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.007165851043076488,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -39.317649089425046,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 6,
+        "fills": 65,
+        "mean_net_r": -0.1568013518837997,
+        "net_r_per_signal": -0.1435505334147462,
+        "net_usdt": -63.69035210400693,
+        "signals": 71,
+        "stops": 32,
+        "targets": 17,
+        "timeouts": 16,
+        "total_net_r": -10.19208787244698,
+        "win_rate": 0.36923076923076925,
+        "wins": 24
+      },
+      "model/maker_maker_best_case": {
+        "expired": 0,
+        "fills": 18,
+        "mean_net_r": -0.10015570356672228,
+        "net_r_per_signal": -0.10015570356672228,
+        "net_usdt": -11.381007324601462,
+        "signals": 18,
+        "stops": 11,
+        "targets": 5,
+        "timeouts": 2,
+        "total_net_r": -1.802802664201001,
+        "win_rate": 0.3888888888888889,
+        "wins": 7
+      },
+      "model/maker_taker_stop": {
+        "expired": 0,
+        "fills": 18,
+        "mean_net_r": -0.13522026962946476,
+        "net_r_per_signal": -0.13522026962946476,
+        "net_usdt": -15.328097780432119,
+        "signals": 18,
+        "stops": 11,
+        "targets": 5,
+        "timeouts": 2,
+        "total_net_r": -2.4339648533303655,
+        "win_rate": 0.3333333333333333,
+        "wins": 6
+      },
+      "model/sizing": {
+        "cash": 9984.671902219567,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.003119886822489752,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -15.328097780432119,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 0,
+        "fills": 18,
+        "mean_net_r": -0.19690212486713332,
+        "net_r_per_signal": -0.19690212486713332,
+        "net_usdt": -22.26579864394612,
+        "signals": 18,
+        "stops": 11,
+        "targets": 5,
+        "timeouts": 2,
+        "total_net_r": -3.5442382476084,
+        "win_rate": 0.3333333333333333,
+        "wins": 6
+      }
+    },
+    "2026-Q3": {
+      "calibration": {
+        "fill_brier": 0.07841763444066599,
+        "tp_brier_filled": 0.22612575829769094,
+        "trades_above_ev_hurdle": 21
+      },
+      "continue_every_confirmed_event/maker_maker_best_case": {
+        "expired": 4,
+        "fills": 67,
+        "mean_net_r": -0.11764463908729836,
+        "net_r_per_signal": -0.11101677209646464,
+        "net_usdt": -49.32799944647292,
+        "signals": 71,
+        "stops": 32,
+        "targets": 15,
+        "timeouts": 20,
+        "total_net_r": -7.882190818848989,
+        "win_rate": 0.3582089552238806,
+        "wins": 24
+      },
+      "continue_every_confirmed_event/maker_taker_stop": {
+        "expired": 4,
+        "fills": 67,
+        "mean_net_r": -0.15487116228996514,
+        "net_r_per_signal": -0.14614602638630514,
+        "net_usdt": -64.82194254617531,
+        "signals": 71,
+        "stops": 32,
+        "targets": 15,
+        "timeouts": 20,
+        "total_net_r": -10.376367873427665,
+        "win_rate": 0.3582089552238806,
+        "wins": 24
+      },
+      "continue_every_confirmed_event/sizing": {
+        "cash": 9935.178057453826,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.010929871517793828,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": -64.82194254617531,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "continue_every_confirmed_event/taker_taker": {
+        "expired": 4,
+        "fills": 67,
+        "mean_net_r": -0.21386927469308456,
+        "net_r_per_signal": -0.20182030147093893,
+        "net_usdt": -89.37474709429121,
+        "signals": 71,
+        "stops": 32,
+        "targets": 15,
+        "timeouts": 20,
+        "total_net_r": -14.329241404436665,
+        "win_rate": 0.34328358208955223,
+        "wins": 23
+      },
+      "fade_every_confirmed_event/maker_maker_best_case": {
+        "expired": 6,
+        "fills": 65,
+        "mean_net_r": 0.20835624141910253,
+        "net_r_per_signal": 0.19074867172171356,
+        "net_usdt": 84.70170050541611,
+        "signals": 71,
+        "stops": 26,
+        "targets": 21,
+        "timeouts": 18,
+        "total_net_r": 13.543155692241664,
+        "win_rate": 0.5230769230769231,
+        "wins": 34
+      },
+      "fade_every_confirmed_event/maker_taker_stop": {
+        "expired": 6,
+        "fills": 65,
+        "mean_net_r": 0.1753437281803928,
+        "net_r_per_signal": 0.1605259483341624,
+        "net_usdt": 71.18518191346003,
+        "signals": 71,
+        "stops": 26,
+        "targets": 21,
+        "timeouts": 18,
+        "total_net_r": 11.39734233172553,
+        "win_rate": 0.5076923076923077,
+        "wins": 33
+      },
+      "fade_every_confirmed_event/sizing": {
+        "cash": 10071.185181913455,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0048313601742351045,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 71.18518191346003,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "fade_every_confirmed_event/taker_taker": {
+        "expired": 6,
+        "fills": 65,
+        "mean_net_r": 0.11115788506302168,
+        "net_r_per_signal": 0.1017642609731889,
+        "net_usdt": 44.95668643132463,
+        "signals": 71,
+        "stops": 26,
+        "targets": 21,
+        "timeouts": 18,
+        "total_net_r": 7.225262529096412,
+        "win_rate": 0.5076923076923077,
+        "wins": 33
+      },
+      "model/maker_maker_best_case": {
+        "expired": 0,
+        "fills": 21,
+        "mean_net_r": 0.20679858700635054,
+        "net_r_per_signal": 0.20679858700635048,
+        "net_usdt": 27.275365077504564,
+        "signals": 21,
+        "stops": 8,
+        "targets": 6,
+        "timeouts": 7,
+        "total_net_r": 4.34277032713336,
+        "win_rate": 0.5238095238095238,
+        "wins": 11
+      },
+      "model/maker_taker_stop": {
+        "expired": 0,
+        "fills": 21,
+        "mean_net_r": 0.1719688404691436,
+        "net_r_per_signal": 0.17196884046914357,
+        "net_usdt": 22.695113664158207,
+        "signals": 21,
+        "stops": 8,
+        "targets": 6,
+        "timeouts": 7,
+        "total_net_r": 3.611345649852015,
+        "win_rate": 0.5238095238095238,
+        "wins": 11
+      },
+      "model/sizing": {
+        "cash": 10022.69511366416,
+        "daily_halt_skips": 0,
+        "drawdown_kill_skips": 0,
+        "max_drawdown": 0.0018742369645113476,
+        "max_notional_per_sleeve": 1.0,
+        "net_usdt_after_risk_sizing": 22.695113664158207,
+        "risk_cap_skips": 0,
+        "risk_per_coin_sleeve": 0.0025,
+        "total_sleeve_fraction": 0.25
+      },
+      "model/taker_taker": {
+        "expired": 0,
+        "fills": 21,
+        "mean_net_r": 0.1092535066260732,
+        "net_r_per_signal": 0.10925350662607328,
+        "net_usdt": 14.447581403899695,
+        "signals": 21,
+        "stops": 8,
+        "targets": 6,
+        "timeouts": 7,
+        "total_net_r": 2.294323639147539,
+        "win_rate": 0.5238095238095238,
+        "wins": 11
+      }
+    }
+  },
+  "raw_shock_events": 6406,
+  "status_counts": {
+    "cooldown": 4862,
+    "eligible": 648,
+    "high_volatility": 56,
+    "incomplete_horizon": 3,
+    "missing_regime": 1,
+    "no_confirmation": 836
+  }
+}
