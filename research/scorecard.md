@@ -1,5 +1,24 @@
 # Win rate and profit history
 
+## Volatility-targeted trend, BTC and ETH spot, historical
+
+| Evaluation | Wins / episodes | Episode win rate | Net USDT on 10,000 | Sharpe | Max drawdown | Buy-and-hold Sharpe, max drawdown |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| BTCUSDT, Jun 2018–Oct 2026 | 26 / 101 | 25.7% | +95,847.37 | 1.14 | −41.9% | 0.76, −76.6% |
+| ETHUSDT, Jun 2018–Oct 2026 | 20 / 73 | 27.4% | +70,733.68 | 0.98 | −32.8% | 0.61, −86.5% |
+
+**Fails the pre-registered test.** The 95% bootstrap interval for the Sharpe gain over holding was −0.08 to +0.80 for BTC and −0.07 to +0.79 for ETH. Post-hoc checks found the same direction across 27 nearby parameter sets and on seven coins the rule was not designed on. A nine-coin basket had a Sharpe of 1.02 against 0.76 and a −28% worst drawdown against −79%, but its interval also crossed zero (−0.13 to +0.78). The low win rate is expected: a few long trends pay for many small exits. [Rules fixed before scoring](trend-plan.md) · [Results, robustness and daily ledger](trend/README.md)
+
+## Cross-sectional funding carry, Binance perpetuals against spot, historical
+
+| Evaluation | Months positive | Net USDT on 10,000 | CAGR | Max drawdown | 95% bootstrap annual return |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Top-10 by trailing funding, Jan 2021–Oct 2026 | 8 / 70 | −2,178.86 | −4.1% | −21.8% | −7.05% to −1.77% |
+| Equal-weight 40 control, same months | 5 / 70 | −3,725.12 | −7.7% | −37.3% | −9.93% to −5.63% |
+| Top-10, Jan 2024–Oct 2026 | 2 / 34 | −575.50 | −2.5% | −7.0% | −4.70% to −0.73% |
+
+**Fails.** Funding received (+1,551.87 USDT) was outweighed by forced closes when shorted coins spiked. The plan text conflicted on leverage; the stricter reading was scored, and the looser 1x reading also failed (2024-on −90 USDT, interval crossing zero). [Rules fixed before scoring](cross-carry-plan.md) · [Results, leverage sensitivity and coin-month ledger](cross-carry/README.md)
+
 ## Sudden-move reversal, BTC/ETH/SOL/AVAX perpetuals
 
 | Evaluation | Submitted | Fills | Profitable fills | Net win rate | Mean net R / fill | Net P&L on 10,000 USDT |

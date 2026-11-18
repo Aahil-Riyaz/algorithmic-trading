@@ -1,5 +1,9 @@
 # Algorithmic Trading
 
+**Volatility-targeted trend.** A slow spot rule that scales BTC or ETH exposure by recent volatility and three trend lookbacks had a Sharpe of 1.14 on BTC and 0.98 on ETH from June 2018 to October 2026, against 0.76 and 0.61 for holding. Worst drawdowns were −42% and −33%, against −77% and −87%. It still fails its pre-registered test because the 95% interval for the Sharpe gain dips just below zero. The same rule improved Sharpe on seven other coins and across 27 nearby settings. It is now the lead candidate for paper tracking. [Rules, results and robustness](research/trend/README.md)
+
+**Broad funding carry.** Hedging the ten highest-funding Binance perpetuals against spot lost 2,178.86 USDT on 10,000 from 2021 to October 2026, because forced closes on spiking coins outweighed the funding earned. [Results and coin-month ledger](research/cross-carry/README.md)
+
 **Sudden-move reversal model.** The 2025–September 2026 walk-forward selected 77 setups and filled 74 under an optimistic candle trade-through proxy. It won 29 (39.2%) after costs and lost **9.04R / 56.71 USDT** on a 10,000 USDT simulated account. The 95% block-bootstrap interval for net R per fill was −0.386R to +0.182R. The model also lost under best-case maker fees, so the current read-only scanner returns **WAIT**. [Rules, full ledger, fee cases, random control and paper setup](research/shock/README.md)
 
 **Arbitrage research.** Buying spot and shorting an 84-day BTC or ETH future when the premium cleared costs earned 350.84 simulated USDT on 10,000 over 2024–25, across three expiries. No trade qualified in January–September 2026. Zero of 116 sampled cross-exchange spot routes covered the modeled fees. [Carry results, live quote checks and code](research/carry/README.md)
