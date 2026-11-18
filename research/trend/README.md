@@ -73,6 +73,18 @@ These are post-hoc diagnostics. They do not change the rule or the verdict above
 
 **Reading.** The improvement is consistent in direction across parameters and coins, and it mostly comes from cutting drawdowns. It earns less than holding in strong bull runs. No single test clears a 95% bar, so this remains a risk-reduction overlay worth paper-tracking, not a proven source of excess return.
 
+## Forward paper record
+
+The paper record started at the 2026-11-17 UTC close with 10,000 simulated USDT per coin. Both coins were at signal 0/3, so the first decision was to hold no position. Each run replays the frozen rule from that start on closed Binance daily candles. Trades fill at the next daily open with the same 10 bp fee and 2 bp slippage. Rerunning on the same day adds no ledger row and posts nothing new. Nothing in this path can place an order.
+
+Each daily post shows the target and held weight, any trade for the next open, paper equity against holding since the start, and the three trend levels. Those are the prices tomorrow's close is compared against, so a close below a level turns that lookback off and a close above turns it on. They play the role a stop or entry line would in a discretionary signal. The rule has no fixed take-profit or stop-loss.
+
+```
+python trend_paper.py
+```
+
+The ledger, state and daily charts are written to `data/trend-paper/` (gitignored). To post to Discord, create a channel webhook and set `DISCORD_WEBHOOK_URL` before running. Without it the script saves the chart and message instead. Run it once a day shortly after 00:00 UTC.
+
 ## Choices where the plan was silent
 
 - Binance monthly archives end 2026-10; the data end there to match the plan, and the November partial month is not used. The 2026 calendar year is therefore ten months.
