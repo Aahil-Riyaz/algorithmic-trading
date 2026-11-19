@@ -1,5 +1,16 @@
 # Win rate and profit history
 
+## Trend basket filters, split-half check, historical
+
+| Evaluation | Development Sharpe | Confirmation Sharpe | Confirmation gain over base, 95% |
+| --- | ---: | ---: | --- |
+| Base rule | 0.86 | 0.94 | — |
+| BTC regime filter, chosen on development | 0.90 | 1.01 | +0.07 (−0.013 to +0.17) |
+| Liquidity filter | 0.73 | 0.67 | not tested |
+| Both filters | 0.77 | 0.73 | not tested |
+
+**Not adopted.** The interval's lower bound fell just below zero, so the paper basket keeps the base rule. [Rules fixed before scoring](trend-improve-plan.md) · [Results](trend-improve/README.md)
+
 ## Trend rule on 278 untouched coins, Binance spot, historical
 
 | Evaluation | Coins | Sharpe | CAGR | Max drawdown | Hold basket Sharpe, CAGR, max drawdown |
