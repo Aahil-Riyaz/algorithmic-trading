@@ -1,5 +1,14 @@
 # Win rate and profit history
 
+## Trend rule on 278 untouched coins, Binance spot, historical
+
+| Evaluation | Coins | Sharpe | CAGR | Max drawdown | Hold basket Sharpe, CAGR, max drawdown |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Equal-weight trend basket, Apr 2018–Oct 2026 | 278 | 0.89 | +14.1% | −29.3% | 0.29, −12.0%, −95.4% |
+| Same, Jan 2024–Oct 2026 | — | 0.19 | +1.8% | −29.3% | −0.30, −36.1%, −88.1% |
+
+**Passes the pre-registered test.** The 95% interval for the Sharpe gain over holding was +0.14 to +1.02. Trend had the higher Sharpe on 198 of 278 coins. Since 2024 it beat holding but earned less than cash would have. Win rate is not a meaningful count for a daily-weighted basket. [Rules fixed before scoring](trend-fresh-plan.md) · [Results and per-coin ledger](trend-fresh/README.md)
+
 ## Volatility-targeted trend, BTC and ETH spot, historical
 
 | Evaluation | Wins / episodes | Episode win rate | Net USDT on 10,000 | Sharpe | Max drawdown | Buy-and-hold Sharpe, max drawdown |

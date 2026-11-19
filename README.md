@@ -1,5 +1,9 @@
 # Algorithmic Trading
 
+**Trend on 278 coins it never saw.** The unchanged trend rule passed its pre-registered out-of-sample test. On 278 untouched Binance coins, delisted ones included, an equal-weight trend basket had a Sharpe of 0.89 from 2018 to October 2026, against 0.29 for holding them. Its worst drawdown was −29%, against −95%. The 95% interval for the Sharpe gain was +0.14 to +1.02. Since 2024 it returned only +1.8% a year, while holding lost 36% a year. [Results](research/trend-fresh/README.md)
+
+**Pasted four-target alerts.** 65 Discord alerts replayed on minute candles lost 0.23R per trade after fees, even though 61% reached target 1 before their exit. Random entries with the same stop and target distances hit target 1 just as often (69%) and lost less. Moving the stop to breakeven or trimming at target 1 raised the win rate to about 60% but did not make any version profitable. [Audit](research/czar/README.md)
+
 **Volatility-targeted trend.** A slow spot rule that scales BTC or ETH exposure by recent volatility and three trend lookbacks had a Sharpe of 1.14 on BTC and 0.98 on ETH from June 2018 to October 2026, against 0.76 and 0.61 for holding. Worst drawdowns were −42% and −33%, against −77% and −87%. It still fails its pre-registered test because the 95% interval for the Sharpe gain dips just below zero. The same rule improved Sharpe on seven other coins and across 27 nearby settings. It is now the lead candidate for paper tracking. [Rules, results and robustness](research/trend/README.md)
 
 **Broad funding carry.** Hedging the ten highest-funding Binance perpetuals against spot lost 2,178.86 USDT on 10,000 from 2021 to October 2026, because forced closes on spiking coins outweighed the funding earned. [Results and coin-month ledger](research/cross-carry/README.md)
