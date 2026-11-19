@@ -85,6 +85,24 @@ python trend_paper.py
 
 The ledger, state and daily charts are written to `data/trend-paper/` (gitignored). To post to Discord, create a channel webhook and set `DISCORD_WEBHOOK_URL` before running. Without it the script saves the chart and message instead. Run it once a day shortly after 00:00 UTC.
 
+## Multi-coin forward paper basket
+
+**What it tracks.** A second paper record runs the same rule on 30 liquid coins chosen mechanically at the 2026-11-18 close, with 10,000 simulated USDT split equally across them. The coins are BTC, ETH, SOL, ZEC, XRP, BNB, NEAR, PEPE, UNI, DOGE, ENA, TRX, SUI, WLD, LINK, AVAX, ADA, AAVE, PUMP, TAO, LTC, INJ, ARB, QNT, ASTER, TRUMP, ONDO, BMT, FET and ZRO.
+
+**Why the list changed before trading.** The first selection included a dollar stablecoin and tokenized stocks and gold. They were removed by an amendment committed before any paper trade.
+
+**Daily post.** Each run shows the basket against holding the same coins, plus a heatmap of every coin's target weight over the last 90 closes. It lists the trades for the next open. Costs are 10 bp fee plus 10 bp slippage per side.
+
+[Rules and amendment](../trend-basket-paper-plan.md) · [Code](../../trend_basket_paper.py)
+
+```
+python trend_basket_paper.py
+```
+
+Output goes to `data/trend-basket/` (gitignored), and it posts to the same `DISCORD_WEBHOOK_URL` when that is set.
+
+**Schedule.** Both paper records run as Windows scheduled tasks, `TrendPaperDaily` at 00:10 UTC and `TrendBasketDaily` at 00:15 UTC. They are allowed to start on battery and run as soon as the PC is back online after a missed time.
+
 ## Choices where the plan was silent
 
 - Binance monthly archives end 2026-10; the data end there to match the plan, and the November partial month is not used. The 2026 calendar year is therefore ten months.
