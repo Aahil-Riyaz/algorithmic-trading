@@ -23,7 +23,8 @@ def series(n, seed, vol=1., end=date(2026, 11, 18)):
 class TrendBasketPaperTest(unittest.TestCase):
     def test_choose_ranks_by_30_day_volume_and_skips_ineligible(self):
         hist = {"AAAUSDT": series(400, 1, 5.), "BBBUSDT": series(400, 2, 9.), "CCCUSDT": series(100, 3, 99.),
-                "USDCUSDT": series(400, 4, 99.), "BTCUPUSDT": series(400, 5, 99.)}
+                "USDCUSDT": series(400, 4, 99.), "BTCUPUSDT": series(400, 5, 99.), "NVDABUSDT": series(400, 6, 99.),
+                "UUSDT": (series(400, 7)[0], np.ones(400), np.full(400, 1.0002), np.full(400, 99.))}
         ticker = [dict(symbol=s, quoteVolume="1") for s in hist]
         with mock.patch.object(B, "SIZE", 2):
             uni, start = B.choose(ticker, hist.get)

@@ -23,6 +23,7 @@ KLINES = "https://api.binance.com/api/v3/klines?symbol={}&interval=1d&limit=1000
 TICKER = "https://api.binance.com/api/v3/ticker/24hr"
 SCREEN, SIZE, SLIP = 80, 30, .001
 SHOW = 90
+NON_CRYPTO = {"NVDAB", "SNDKB", "SPCXB", "CRCLB", "MUB", "XAUT", "PAXG"}
 
 
 def candles(sym, now_ms=None):
@@ -47,7 +48,13 @@ def candles(sym, now_ms=None):
 
 def eligible(sym):
     b = sym[:-4]
-    return sym.endswith("USDT") and b.isascii() and b.isalnum() and b not in STABLE and not b.endswith(LEVERED)
+    return (sym.endswith("USDT") and b.isascii() and b.isalnum() and b not in STABLE | NON_CRYPTO
+            and not b.endswith(LEVERED))
+
+
+def pegged(c):
+    """A dollar stablecoin missing from the name list: the last 30 closes all within 1% of 1."""
+    return bool((np.abs(c[-30:] - 1) < .01).all())
 
 
 def choose(ticker, history):
@@ -56,7 +63,7 @@ def choose(ticker, history):
     ranked = []
     for t in screened:
         h = history(t["symbol"])
-        if h and len(h[0]) >= T.WARM + 1:
+        if h and len(h[0]) >= T.WARM + 1 and not pegged(h[2]):
             ranked.append((float(h[3][-30:].sum()), t["symbol"], h[0][-1]))
     ranked.sort(reverse=True)
     picked = ranked[:SIZE]
