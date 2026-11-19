@@ -134,7 +134,8 @@ def chart(day, days, totals, sleeves):
     x = np.array(days, dtype="datetime64[D]")
     e.plot(x, totals["trend"], marker=".", color="#1b6ca8", label="trend basket (paper)")
     e.plot(x, totals["hold"], marker=".", color="#777", label="hold basket")
-    e.set(ylabel="USDT", title=f"Trend basket paper record through {day} · no orders placed")
+    e.set(ylabel="USDT", title=f"Trend basket paper record through {day} · no orders placed",
+          xlim=(x[0] - np.timedelta64(3, "D"), max(x[-1], x[0] + np.timedelta64(30, "D"))))
     e.legend(fontsize=8)
     e.grid(alpha=.3)
     h = fig.add_subplot(g[1, 0])
