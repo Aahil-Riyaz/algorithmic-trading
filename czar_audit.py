@@ -15,7 +15,7 @@ CACHE = Path("data/czar")
 VALID, TIMEOUT = 24 * 3600, 7 * 86400
 MAKER, TAKER, SLIP = 2e-4, 5e-4, 1e-4
 OFFSETS = range(-6, 7)
-RESOLVED = ("SL", "BE", "TP4", "timeout")
+RESOLVED = ("SL", "BE", "TRAIL", "TP4", "timeout")
 
 
 def read(name):
@@ -38,7 +38,7 @@ def hit_stop(bar, side, level):
     return bar.low <= level if side == 1 else bar.high >= level
 
 
-def calibrate(bars, start, alerts, hits):
+def calibrate(markets, alerts, hits):
     """Share of reported hits whose level traded in the 30 minutes before the post, for each display offset."""
     by_id = {a["id"]: a for a in alerts}
     out = {}
@@ -46,6 +46,7 @@ def calibrate(bars, start, alerts, hits):
         ok = 0
         for x in hits:
             a = by_id[x["alert_id"]]
+            bars, start = markets[a["asset"]]
             side, level = (1 if a["side"] == "LONG" else -1), float(a[f"tp{x['target']}"])
             i = (stamp(x["posted_local"], h) - start) // 60
             ok += any(reached(b, side, level) for b in bars[max(0, i - 30):max(0, i + 1)])
@@ -53,8 +54,15 @@ def calibrate(bars, start, alerts, hits):
     return out
 
 
-def replay(bars, start, a, t, breakeven=False, market=False):
-    """One alert: limit entry (or market at the next open), four equal parts at the targets, stop first in shared minutes."""
+MANAGEMENT = {"posted": ((.25,) * 4, "none"), "breakeven": ((.25,) * 4, "be"), "trail": ((.25,) * 4, "step"),
+              "trim_half_be": ((.5, 1 / 6, 1 / 6, 1 / 6), "be"), "trim_half_trail": ((.5, 1 / 6, 1 / 6, 1 / 6), "step")}
+
+
+def replay(bars, start, a, t, breakeven=False, market=False, weights=(.25,) * 4, trail=None):
+    """One alert: limit entry (or market at the next open), parts closed at the four targets, stop first in shared minutes.
+
+    trail "be" moves the stop to entry after target 1; "step" moves it to entry, then target 1, then target 2."""
+    trail = trail or ("be" if breakeven else "none")
     side = 1 if a["side"] == "LONG" else -1
     entry, stop = float(a["entry"]), float(a["stop"])
     tps = [float(a[f"tp{k}"]) for k in range(1, 5)]
@@ -77,18 +85,18 @@ def replay(bars, start, a, t, breakeven=False, market=False):
         b = bars[j]
         if hit_stop(b, side, sl):
             px = min(sl, b.open) if side == 1 else max(sl, b.open)
-            exits += [(px, TAKER + SLIP) for _ in left]
-            status, left = ("SL" if sl == stop else "BE"), []
+            exits += [(weights[k], px, TAKER + SLIP) for k in left]
+            status, left = ("SL" if sl == stop else "BE" if sl == entry else "TRAIL"), []
             break
         if j == fill:
             continue  # targets count from the minute after the fill
         for k in list(left):
             if reached(b, side, tps[k]):
-                exits.append((tps[k], MAKER))
+                exits.append((weights[k], tps[k], MAKER))
                 left.remove(k)
                 best_tp = max(best_tp, k + 1)
-        if breakeven and best_tp:
-            sl = entry
+        if best_tp and trail != "none":
+            sl = entry if trail == "be" or best_tp == 1 else tps[min(best_tp, 3) - 2]
         if not left:
             status = "TP4"
             break
@@ -97,11 +105,11 @@ def replay(bars, start, a, t, breakeven=False, market=False):
             status = "open"
     if left:
         last = bars[min(end, fill + TIMEOUT // 60) - 1].close
-        exits += [(last, TAKER + SLIP) for _ in left]
-    pnl = [side * (px - price) - fee * px - MAKER * price for px, fee in exits]
+        exits += [(weights[k], last, TAKER + SLIP) for k in left]
+    pnl = sum(w * (side * (px - price) - fee * px - MAKER * price) for w, px, fee in exits)
     return dict(status=status, best_tp=best_tp, fill_utc=datetime.fromtimestamp(start + fill * 60, timezone.utc).isoformat(),
-                fill_price=price, r=mean(pnl) / risk, stop_pct=risk / entry * 100,
-                margin_return_20x_pct=mean(pnl) / price * 20 * 100)
+                fill_price=price, r=pnl / risk, stop_pct=risk / entry * 100,
+                margin_return_20x_pct=pnl / price * 20 * 100)
 
 
 def stats(rows, key):
@@ -115,12 +123,51 @@ def stats(rows, key):
                 margin_return_20x_pct_total=sum(r[f"{key}_margin_return_20x_pct"] for r in done))
 
 
+def scaled(a, price):
+    """The alert's stop and target distances re-anchored at another price, for the random baseline."""
+    k = price / float(a["entry"])
+    return {**a, **{f: str(float(a[f]) * k) for f in ("entry", "stop", "tp1", "tp2", "tp3", "tp4")}}
+
+
+def management(markets, alerts, offset, draws=40, seed=1119):
+    """Each exit rule on the alerts (limit and market entry) and on random-time market entries with the same geometry."""
+    rng, out = np.random.default_rng(seed), {}
+    picks = []
+    for a in alerts:
+        bars, first = markets[a["asset"]]
+        hi = len(bars) - (VALID + TIMEOUT) // 60
+        for j in rng.integers(0, max(hi, 1), draws) if hi > 0 else []:
+            picks.append((a, bars, first, int(j)))
+    for name, (w, trail) in MANAGEMENT.items():
+        lim, mkt = [], []
+        for a in alerts:
+            bars, first = markets[a["asset"]]
+            t = stamp(a["posted_local"], offset)
+            lim.append(replay(bars, first, a, t, weights=w, trail=trail))
+            mkt.append(replay(bars, first, a, t, market=True, weights=w, trail=trail))
+        rnd = [replay(bars, first, scaled(a, bars[j + 1].open), first + j * 60, market=True, weights=w, trail=trail)
+               for a, bars, first, j in picks]
+        def summ(rs):
+            done = [r for r in rs if r["status"] in RESOLVED]
+            x = [r["r"] for r in done]
+            boot = np.random.default_rng(seed).choice(x, (5000, len(x))).mean(1)
+            return dict(n=len(x), mean_r=mean(x), mean_r_95=np.percentile(boot, [2.5, 97.5]).tolist(),
+                        profitable_pct=100 * mean(v > 0 for v in x), tp1_pct=100 * mean(r["best_tp"] >= 1 for r in done))
+        out[name] = dict(alerts_limit=summ(lim), alerts_market=summ(mkt), random_market=summ(rnd))
+    return out
+
+
 def main():
     alerts, hits = read("alerts.csv"), read("hits.csv")
-    first = min(stamp(a["posted_local"], 6) for a in alerts) // 86400 * 86400
     now = int(datetime.now(timezone.utc).timestamp()) // 60 * 60 - 120
-    bars, _, digest = interval_data("BTC", first, now, CACHE)
-    fit = calibrate(bars, first, alerts, hits)
+    markets, digests = {}, {}
+    for coin in sorted({a["asset"] for a in alerts}):
+        times = [stamp(a["posted_local"], 0) for a in alerts if a["asset"] == coin]
+        first = (min(times) - 6 * 3600) // 86400 * 86400
+        end = min(now, (max(times) + 6 * 3600 + VALID + TIMEOUT) // 86400 * 86400 + 86400)
+        bars, _, digests[coin] = interval_data(coin, first, end, CACHE)
+        markets[coin] = bars, first
+    fit = calibrate(markets, alerts, hits)
     offset = max(fit, key=fit.get)
     reported = {}
     for x in hits:
@@ -128,11 +175,12 @@ def main():
     rows = []
     for a in alerts:
         t = stamp(a["posted_local"], offset)
+        bars, first = markets[a["asset"]]
         base, be = replay(bars, first, a, t), replay(bars, first, a, t, breakeven=True)
         mk = replay(bars, first, a, t, market=True)
         fill_t = datetime.fromisoformat(base["fill_utc"]).timestamp() if base["fill_utc"] else float("inf")
         early = sum(stamp(x["posted_local"], offset) < fill_t for x in hits if x["alert_id"] == a["id"])
-        rows.append(dict(id=a["id"], posted_utc=datetime.fromtimestamp(t, timezone.utc).isoformat(), side=a["side"],
+        rows.append(dict(id=a["id"], asset=a["asset"], posted_utc=datetime.fromtimestamp(t, timezone.utc).isoformat(), side=a["side"],
                          entry=a["entry"], stop=a["stop"], reported_max_tp=reported.get(a["id"], 0),
                          tp1_r=round(abs(float(a["tp1"]) - float(a["entry"])) / abs(float(a["entry"]) - float(a["stop"])), 3),
                          **{f"posted_stop_{k}": v for k, v in base.items()},
@@ -140,7 +188,7 @@ def main():
                          **{f"breakeven_{k}": be.get(k, 0) for k in ("status", "best_tp", "r", "margin_return_20x_pct")},
                          **{f"market_{k}": mk.get(k, 0) for k in ("status", "best_tp", "r", "margin_return_20x_pct")}))
     write_csv(DIR / "replay.csv", rows)
-    res = dict(source_sha256=digest, through_utc=datetime.fromtimestamp(now, timezone.utc).isoformat(),
+    res = dict(source_sha256=digests, through_utc=datetime.fromtimestamp(now, timezone.utc).isoformat(),
                display_offset_hours=offset, offset_fit=fit, alerts=len(rows),
                fills=sum(bool(r["posted_stop_fill_utc"]) for r in rows),
                status={s: sum(r["posted_stop_status"] == s for r in rows)
@@ -152,13 +200,16 @@ def main():
                reported_hits=len(hits), reported_hits_before_limit_fill=sum(r["reported_hits_before_limit_fill"] for r in rows),
                posted_stop=stats(rows, "posted_stop"), breakeven_after_tp1=stats(rows, "breakeven"),
                market_entry=stats(rows, "market"),
+               btc_only=stats([r for r in rows if r["asset"] == "BTC"], "posted_stop"),
+               other_coins=stats([r for r in rows if r["asset"] != "BTC"], "posted_stop"),
                costs=dict(maker=MAKER, taker=TAKER, slip=SLIP), valid_hours=VALID // 3600, timeout_days=TIMEOUT // 86400)
+    res["management"] = management(markets, alerts, offset)
     save_json(DIR / "results.json", res)
-    plot(bars, first, rows)
+    plot(*markets["BTC"], [r for r in rows if r["asset"] == "BTC"], rows)
     print({k: v for k, v in res.items() if k != "offset_fit"}, "\nfit", {k: round(v, 2) for k, v in fit.items()})
 
 
-def plot(bars, start, rows):
+def plot(bars, start, rows, every):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -178,7 +229,7 @@ def plot(bars, start, rows):
                        xytext=(4, 6), textcoords="offset points", fontsize=7, color=c)
     ax[0].set(title="Pasted BTC alerts replayed on Binance minute candles (entry markers, dotted stops)", ylabel="USDT")
     for key, col, name in (("posted_stop", "#1b6ca8", "posted stop"), ("breakeven", "#e08a1e", "stop to entry after TP1")):
-        rs = [r[f"{key}_r"] for r in rows if r[f"{key}_status"] in RESOLVED]
+        rs = [r[f"{key}_r"] for r in sorted(every, key=lambda r: r["posted_utc"]) if r[f"{key}_status"] in RESOLVED]
         ax[1].plot(range(1, len(rs) + 1), np.cumsum(rs), marker=".", color=col, label=name)
     ax[1].axhline(0, color="#444", lw=.8)
     ax[1].set(xlabel="resolved trade", ylabel="cumulative R after costs")

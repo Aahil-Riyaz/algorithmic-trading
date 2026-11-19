@@ -38,6 +38,16 @@ class CzarAuditTest(unittest.TestCase):
         b = bars([(104, 106), (99, 101), (100, 104), (99.5, 101)])
         self.assertEqual(C.replay(b, 0, ALERT, 0, breakeven=True)["status"], "BE")
 
+    def test_trim_half_at_tp1_then_trailing_stop(self):
+        b = bars([(104, 106), (99, 101), (100, 107), (102.5, 104)])
+        r = C.replay(b, 0, ALERT, 0, weights=(.5, 1 / 6, 1 / 6, 1 / 6), trail="step")
+        self.assertEqual((r["status"], r["best_tp"]), ("TRAIL", 2))
+        self.assertAlmostEqual(r["r"], .5 * .3 + .6 / 6 + 2 * .3 / 6)
+
+    def test_scaled_geometry_keeps_r_multiples(self):
+        s = C.scaled(ALERT, 200)
+        self.assertAlmostEqual((float(s["tp1"]) - float(s["entry"])) / (float(s["entry"]) - float(s["stop"])), .3)
+
     def test_unfilled_limit_expires_but_market_entry_fills(self):
         b = bars([(104, 106)] * (C.VALID // 60 + 3))
         self.assertEqual(C.replay(b, 0, ALERT, 0)["status"], "expired")
