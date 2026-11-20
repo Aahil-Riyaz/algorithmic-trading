@@ -1,5 +1,13 @@
 # Win rate and profit history
 
+## Trend-filtered TP/SL trades, 278 untouched coins, historical
+
+| Evaluation | Wins / trades | Win rate | Mean R | Basket CAGR | Sharpe, 95% interval | CAGR since 2024 |
+| --- | ---: | ---: | ---: | ---: | --- | ---: |
+| Half at +1R, trailing stop, +3R cap, 2% risk, max 2x | 5,285 / 11,493 | 46.0% | +0.048 | +1.3% | 0.48 (−0.23 to +1.24) | −0.7% |
+
+**Fails.** It made less than the plain trend rule on every measure, because the early profit-taking cut off the long trends that pay for the losers. [Rules fixed before scoring](trend-tpsl-plan.md) · [Results and trade ledger](trend-tpsl/README.md)
+
 ## Trend basket filters, split-half check, historical
 
 | Evaluation | Development Sharpe | Confirmation Sharpe | Confirmation gain over base, 95% |
