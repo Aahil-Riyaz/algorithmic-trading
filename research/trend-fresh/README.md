@@ -22,6 +22,22 @@ This is a historical simulation, not a record of live or paper trading. [Rules f
 
 ![Basket growth, drawdown and coins live](basket.png)
 
+## What holds returns back
+
+[`trend_diagnose.py`](../../trend_diagnose.py) splits the same basket into gross return, costs, time invested and a cash-yield case.
+
+| Period | Net CAGR | Before costs | With 4% on idle cash | Hold basket | Average weight invested | Cost drag a year |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Apr 2018–Oct 2026 | +14.1% | +16.1% | +17.9% | −11.8% | 17% | 2.0% |
+| Jan 2024–Oct 2026 | +1.8% | +4.0% | +5.2% | −36.1% | 18% | 2.2% |
+| Jan 2025–Oct 2026 | −7.8% | −5.8% | −4.6% | −55.8% | 15% | 2.0% |
+
+- **Most of the money sits in cash.** Small coins often move 100% or more a year, so the 40% volatility target caps a typical position near 0.3–0.4 of its sleeve. On average the basket held only 17% of its capital in coins.
+- **Idle cash earns nothing.** The 4% column assumes a stablecoin savings rate and adds about 3–4 points a year. That assumption is not an edge, and the rate and its risks vary.
+- **Costs take about 2 points a year.** The rule turns over its weights roughly 11 times a year at 20 bp per side.
+- **Since 2025 the rule lost money before costs.** Altcoins fell 56% a year, and the short rallies in between triggered entries that reversed. The rule still lost far less than holding.
+- **Win rate is not the constraint.** The losses come from low exposure, costs and a falling market, not from how often individual trades win.
+
 ## How it was run
 
 - **Universe:** every Binance USDT spot pair whose first monthly archive is December 2021 or earlier. Excluded before scoring were stablecoin and fiat bases, leveraged tokens, the nine coins studied earlier, and coins with under a year of data after warm-up.
