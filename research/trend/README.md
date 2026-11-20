@@ -101,7 +101,7 @@ python trend_basket_paper.py
 
 Output goes to `data/trend-basket/` (gitignored), and it posts to the same `DISCORD_WEBHOOK_URL` when that is set.
 
-**Schedule.** Both paper records run as Windows scheduled tasks, `TrendPaperDaily` at 00:10 UTC and `TrendBasketDaily` at 00:15 UTC. They are allowed to start on battery and run as soon as the PC is back online after a missed time.
+**Schedule.** Both paper records run from one windowless Windows task, `PaperRecordsDaily`, at 00:10 UTC. It runs `pythonw paper_run.py` and logs to `data/paper-run.log`. Earlier tasks opened a console window, and closing that window killed a run on 2026-11-20. The task may start on battery and runs as soon as the PC is back online after a missed time. A missed day loses nothing, because each run replays the rule from the start date on closed candles.
 
 ## Choices where the plan was silent
 
