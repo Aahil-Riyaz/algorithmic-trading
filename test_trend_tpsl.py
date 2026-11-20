@@ -36,6 +36,16 @@ class TrendTpslTest(unittest.TestCase):
         self.assertEqual(t["exits"], "tp1+trail")
         self.assertAlmostEqual(t["r"], (.5 * 4 + .5 * 6) / 4)
 
+    def test_without_breakeven_the_runner_keeps_the_initial_stop(self):
+        # TP1 fills at 104 and the day closes at 102, so the 2-ATR trail sits at 98. Base lifts the stop to the entry
+        # and is stopped by the dip to 99.5; without breakeven the runner survives on the trail at 98.
+        path = [(100, 101, 99, 100), (100, 105, 99, 102), (102, 102, 99.5, 100), (100, 104, 99.5, 103)]
+        o, h, l, c = market(path)
+        base = S.simulate(o, h, l, c, signal(len(c), 19))
+        loose = S.simulate(o, h, l, c, signal(len(c), 19), breakeven=False)
+        self.assertEqual(base["trades"][0]["exits"], "tp1+trail")
+        self.assertEqual(loose["trades"], [])
+
     def test_stop_first_and_sizing_risk(self):
         o, h, l, c = market([(100, 105, 95, 98)])
         s = S.simulate(o, h, l, c, signal(len(c), 19))

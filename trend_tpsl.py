@@ -22,10 +22,16 @@ def true_range(h, l, c):
     return np.maximum(h - l, np.maximum(abs(h - prev), abs(l - prev)))
 
 
-def simulate(o, h, l, c, sig, capital=T.CAPITAL):
+STOPS = {"base": (2., 2., True), "no_breakeven": (2., 2., False), "wide_trail": (2., 3., True),
+         "wide_no_breakeven": (2., 4., False), "wide_initial": (3., 3., True)}
+
+
+def simulate(o, h, l, c, sig, capital=T.CAPITAL, stop_atr=STOP_ATR, trail_atr=STOP_ATR, breakeven=True):
     """Daily equity at closes from the first possible decision, and one record per closed trade.
 
-    Decisions use the close; entries and trend exits fill at the next open. Within a day the stop is checked first."""
+    Decisions use the close; entries and trend exits fill at the next open. Within a day the stop is checked first.
+    After the first target the remaining half trails trail_atr ATRs below the highest close, floored at the entry
+    when breakeven is set and otherwise at the initial stop."""
     n, tr = len(c), true_range(h, l, c)
     first = max(int(np.flatnonzero(~np.isnan(sig))[0]), ATR_N)
     eq, held = np.full(n, np.nan), np.zeros(n)
@@ -51,7 +57,7 @@ def simulate(o, h, l, c, sig, capital=T.CAPITAL):
             pos = None
         elif pos is None and enter:
             atr = tr[i - ATR_N:i].mean()
-            stop = o[i] - STOP_ATR * atr
+            stop = o[i] - stop_atr * atr
             if stop > 0:
                 e = state["cash"] + state["qty"] * c[i - 1]
                 units = min(RISK * e / (o[i] - stop), MAX_LEV * e / o[i])
@@ -80,7 +86,8 @@ def simulate(o, h, l, c, sig, capital=T.CAPITAL):
         if pos:
             pos["high"] = max(pos["high"], c[i])
             if pos["tp1"]:  # the trail set at this close applies from the next day
-                pos["stop"] = max(pos["stop"], pos["entry"], pos["high"] - STOP_ATR * pos["atr"])
+                floor = pos["entry"] if breakeven else pos["entry"] - pos["r"]
+                pos["stop"] = max(pos["stop"], floor, pos["high"] - trail_atr * pos["atr"])
         state["cash"] -= BORROW * max(0., -state["cash"])
         eq[i] = state["cash"] + state["qty"] * c[i]
         held[i] = state["qty"] * c[i] / eq[i]
