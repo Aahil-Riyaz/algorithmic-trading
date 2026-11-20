@@ -22,6 +22,7 @@ Can price, visible liquidity and options flow predict a profitable limit entry o
 
 | Start here | What to open |
 | --- | --- |
+| Check trend TP/SL trades on a chart | Open [app/index.html](app/index.html) in a browser, or serve it with `python -m http.server 8765 --directory app`. It loads Binance daily candles in the browser and runs the confirmed rules, matching `trend_tpsl.py` trade for trade. It also shows the plain trend rule and holding, and draws each trade's entry, stop and targets. |
 | Compare the starting and current win rates | [Scorecard, same-period controls and stop-out study](research/scorecard.md) |
 | Score live depth and follow paper orders | Run `python train_quotes.py` once, then `python live_quotes.py --count 3` for three five-minute boundaries. [Depth heatmap and paper ledger instructions](research/october-quotes/README.md#live-depth-and-paper-orders) |
 | Reproduce the two-sided model | [Data, training, frozen model selection and execution](research/flow-v1/README.md) |
