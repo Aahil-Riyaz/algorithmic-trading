@@ -36,6 +36,22 @@ Mean R per resolved trade after fees, with the 95% bootstrap interval and the sh
 - **Stop size:** the median stop was 1.5% from entry. At the posted 20x leverage that is about 30% of the margin per stopped trade. If every trade used the same margin, the 59 resolved trades together lost about **9 times** that margin.
 - **By market:** BTC alerts averaged −0.17R over 49 trades. The ten other-coin alerts averaged −0.51R, with 2 of 10 profitable.
 
+## At 1,000 USDT margin and 20x per trade
+
+This replays the 59 resolved trades in fill order on a 10,000 USDT account, with 1,000 USDT of margin per trade (a 20,000 USDT position). It uses the posted entry, stop and four targets, with the same fees as above. At 20x a long or short is liquidated after roughly a 4.6% adverse move, so a stop wider than that loses the full 1,000 margin.
+
+| Result | Value |
+| --- | ---: |
+| Ending balance | **2,732 USDT** (−73%) |
+| Lowest balance | 1,792 USDT |
+| Maximum drawdown | −83% |
+| Profitable trades | 17 of 59 |
+| Trades liquidated before their stop | 5 |
+
+- **Stop cost:** a typical 1.5% stop costs 300 USDT of the 1,000 margin, and a full run to target 4 earns about 450 USDT.
+- **Why the account falls:** stops came 43 times out of 59, while full runs came 11 times. That outcome mix produces the decline.
+- **Leverage does not change the edge.** It multiplies the same negative expectancy, so the account falls about 20 times faster than an unleveraged copy of the same trades.
+
 ## Replay rules
 
 - **Display time:** Discord times were read as UTC+4. That offset placed 78% of the 88 reported target hits within 30 minutes after the level traded, against at most 65% for any other offset.
