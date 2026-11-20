@@ -1,5 +1,14 @@
 # Win rate and profit history
 
+## TP/SL stop rules, split-half check, historical
+
+| Evaluation | Development Sharpe | Confirmation Sharpe | Confirmation gain over base, 95% |
+| --- | ---: | ---: | --- |
+| Base stop (2 ATR, then entry or 2-ATR trail) | 0.46 | 0.50 | — |
+| Wider initial stop (3 ATR, then entry or 3-ATR trail) | 0.82 | 0.71 | +0.21 (+0.10 to +0.34) |
+
+**Adopted for the TP/SL variant.** The improvement in Sharpe is confirmed. Return is still only about 1.5–1.8% a year, well below the plain trend rule. [Candidates fixed before scoring](trend-tpsl-stops-plan.md) · [All five rules](trend-tpsl-stops/README.md)
+
 ## Trend-filtered TP/SL trades, 278 untouched coins, historical
 
 | Evaluation | Wins / trades | Win rate | Mean R | Basket CAGR | Sharpe, 95% interval | CAGR since 2024 |
