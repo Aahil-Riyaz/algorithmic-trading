@@ -18,6 +18,12 @@ The earlier stop-and-target strategies all lost after costs. The slow trend rule
 - **Timeout:** close any remainder at the close 30 days after entry.
 - **Within a day:** the stop is checked first. A gap through the stop fills at the open. Targets fill at their level. On the entry day only the stop is checked, so no target can fill in the same daily candle as the entry.
 
+### Amendment before scoring, 2026-11-20
+
+The two changes below were requested and committed before any return was computed.
+- **Trailing stop after the first target:** once +1R fills, the stop on the remaining half becomes the higher of the entry price and the highest close since entry minus 2 × the entry ATR. It moves only up, is checked from the next day, and replaces the fixed move to entry. The +3R target, trend exit and timeout are unchanged.
+- **Cross margin:** all positions are assumed to share one cross-margin account. With at most 2x and stops at 2% risk, a position can only be liquidated if the price opens more than about 50% below the previous close while it is held. The number of such gap days is reported, and each is treated as the full stop-loss fill at that open.
+
 ## Sizing, leverage and costs
 
 - **Accounts:** each coin is an independent sleeve.
