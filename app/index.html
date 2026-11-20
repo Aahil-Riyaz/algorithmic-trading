@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trend TP/SL Simulator</title>
+<style>
+:root{--bg:#f7f7f5;--panel:#fff;--ink:#1d1f23;--muted:#62666d;--line:#dcdcd6;--accent:#1b6ca8;--up:#2a9d58;--down:#c8423b;--warn-bg:#fff6e0;--warn-ink:#7a5a00;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--panel:#1b1e23;--ink:#e8e9eb;--muted:#9aa0a8;--line:#30343b;--accent:#5aa7e0;--up:#3fbf72;--down:#e5625b;--warn-bg:#3a3017;--warn-ink:#f1d48a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121417;--panel:#1b1e23;--ink:#e8e9eb;--muted:#9aa0a8;--line:#30343b;--accent:#5aa7e0;--up:#3fbf72;--down:#e5625b;--warn-bg:#3a3017;--warn-ink:#f1d48a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:16px;border-bottom:1px solid var(--line);background:var(--panel)}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.warn{margin:12px 16px 0;padding:10px 12px;border-radius:8px;background:var(--warn-bg);color:var(--warn-ink);font-size:13px}
+main{display:grid;grid-template-columns:300px 1fr;gap:16px;padding:16px;max-width:1500px;margin:0 auto}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+section{min-width:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.panel h2{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 10px}
+label{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:7px 0;font-size:13px}
+input,select{width:110px;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+input[type=checkbox]{width:auto}
+.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+button{padding:7px 12px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font:inherit}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .k{color:var(--muted);font-size:12px}
+.stat .v{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat .c{color:var(--muted);font-size:12px}
+.chart{height:420px;margin-bottom:16px}
+.chart.small{height:240px}
+.legend{font-size:12px;color:var(--muted);margin:-8px 0 12px}
+.legend span{margin-right:14px}
+.legend i{display:inline-block;width:10px;height:3px;vertical-align:middle;margin-right:5px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+tbody tr{cursor:pointer}
+tbody tr:hover,tbody tr.sel{background:var(--bg)}
+.tablewrap{max-height:360px;overflow:auto}
+.pos{color:var(--up)}.neg{color:var(--down)}
+#status{font-size:12px;color:var(--muted);margin-top:8px;min-height:18px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Trend TP/SL Simulator</h1>
+  <div class="sub">Long trades only while the 20/60/120-day trend signal is fully on. Half off at TP1, then a trailing stop. Daily Binance spot candles. Paper only: this page cannot place orders.</div>
+</header>
+<div class="warn">This is a historical simulation. Changing the settings and keeping whatever looks best on past data is curve-fitting. The defaults are the rules that were fixed and confirmed before scoring; see <code>research/trend-tpsl-stops</code>. A 20x setting is not offered because these stops are usually wider than a 20x liquidation distance.</div>
+<main>
+  <section>
+    <div class="panel">
+      <h2>Market</h2>
+      <label>Coin <select id="coin"></select></label>
+      <label>Other symbol <input id="custom" placeholder="e.g. DOTUSDT"></label>
+      <h2 style="margin-top:14px">Account</h2>
+      <label>Start balance (USDT) <input id="capital" type="number" step="100"></label>
+      <label>Risk per trade (%) <input id="risk" type="number" step="0.25"></label>
+      <label>Max position (x balance) <input id="maxlev" type="number" step="0.5" min="0.5" max="3"></label>
+      <label>Borrow cost above 1x (%/day) <input id="borrow" type="number" step="0.01"></label>
+      <label>Fee + slippage (bp/side) <input id="cost" type="number" step="1"></label>
+      <h2 style="margin-top:14px">Trade rules</h2>
+      <label>Initial stop (× ATR14) <input id="stopatr" type="number" step="0.5"></label>
+      <label>TP1 (R) <input id="tp1" type="number" step="0.25"></label>
+      <label>Share closed at TP1 (%) <input id="share" type="number" step="5" min="0" max="100"></label>
+      <label>Trail after TP1 (× ATR) <input id="trailatr" type="number" step="0.5"></label>
+      <label>Floor trail at entry <input id="be" type="checkbox"></label>
+      <label>TP2 cap (R) <input id="tp2" type="number" step="0.5"></label>
+      <label>Timeout (days) <input id="timeout" type="number" step="1"></label>
+      <div class="row"><button class="primary" id="run">Run</button><button id="reset">Reset to confirmed rules</button></div>
+      <div id="status"></div>
+    </div>
+  </section>
+  <section>
+    <div class="stats" id="stats"></div>
+    <div class="panel">
+      <h2 id="pricetitle">Price and trades</h2>
+      <div id="price" class="chart"></div>
+      <div class="legend"><span>▲ entry</span><span style="color:var(--up)">▼ profit exit</span><span style="color:var(--down)">▼ loss exit</span><span>Click a trade below to draw its entry, stop and targets.</span></div>
+      <h2>Equity from start balance</h2>
+      <div id="equity" class="chart small"></div>
+      <div class="legend"><span><i style="background:#1b6ca8"></i>TP/SL rules</span><span><i style="background:#e08a1e"></i>plain trend rule</span><span><i style="background:#888"></i>buy and hold</span></div>
+      <h2>Trades</h2>
+      <div class="tablewrap"><table><thead><tr><th>Entry</th><th>Exit</th><th>Days</th><th>Entry px</th><th>Stop</th><th>Exits</th><th>R</th><th>P&amp;L USDT</th></tr></thead><tbody id="trades"></tbody></table></div>
+    </div>
+  </section>
+</main>
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+const COINS = ["BTCUSDT","ETHUSDT","SOLUSDT","BNBUSDT","XRPUSDT","DOGEUSDT","ADAUSDT","LINKUSDT","AVAXUSDT","LTCUSDT","NEARUSDT","SUIUSDT","TRXUSDT","AAVEUSDT","UNIUSDT","INJUSDT","ARBUSDT","FETUSDT","TAOUSDT","ENAUSDT","ZECUSDT","WLDUSDT","PEPEUSDT","QNTUSDT","ONDOUSDT","ZROUSDT"];
+// Rules fixed before scoring and confirmed on held-out coins (research/trend-tpsl-plan.md, trend-tpsl-stops-plan.md).
+const DEFAULTS = {capital:10000, risk:2, maxlev:2, borrow:0.03, cost:20, stopatr:3, tp1:1, share:50, trailatr:3, be:true, tp2:3, timeout:30};
+const LOOKS = [20,60,120], WARM = 150, ATR_N = 14, VOL_WIN = 30, TARGET_VOL = 0.4, BAND = 0.1;
+const $ = id => document.getElementById(id);
+const cache = {};
+
+function css(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()}
+function fmt(x,d=2){return x.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})}
+function px(x){return x >= 1 ? fmt(x,2) : x.toPrecision(4)}
+function pct(x){return (x>=0?"+":"")+fmt(100*x,1)+"%"}
+function day(t){return new Date(t).toISOString().slice(0,10)}
+
+async function load(sym){
+  if (cache[sym]) return cache[sym];
+  let rows = [], end = Date.now();
+  for (let k = 0; k < 6; k++) {   // up to 6000 daily candles, newest first
+    const url = `https://data-api.binance.vision/api/v3/klines?symbol=${sym}&interval=1d&limit=1000&endTime=${end}`;
+    const r = await fetch(url);
+    if (!r.ok) throw new Error(`Binance returned ${r.status} for ${sym}`);
+    const part = await r.json();
+    if (!part.length) break;
+    rows = part.concat(rows);
+    if (part.length < 1000) break;
+    end = part[0][0] - 1;
+  }
+  const now = Date.now();
+  rows = rows.filter(r => r[6] < now);   // closed candles only
+  // Keep the newest unbroken run of days so gaps and relistings cannot leak into the signal.
+  let s = 0;
+  for (let i = rows.length - 1; i > 0; i--) if (rows[i][0] - rows[i-1][0] !== 86400000) { s = i; break; }
+  rows = rows.slice(s);
+  const d = {t:[],o:[],h:[],l:[],c:[]};
+  for (const r of rows){ d.t.push(r[0]); d.o.push(+r[1]); d.h.push(+r[2]); d.l.push(+r[3]); d.c.push(+r[4]); }
+  return cache[sym] = d;
+}
+
+function signal(c){
+  const s = new Array(c.length).fill(NaN);
+  for (let t = WARM; t < c.length; t++) s[t] = LOOKS.reduce((a,k)=>a+(c[t]>c[t-k]?1:0),0)/LOOKS.length;
+  return s;
+}
+
+function trueRange(h,l,c){
+  return h.map((x,i)=>{const p = i ? c[i-1] : c[0]; return Math.max(x-l[i], Math.abs(x-p), Math.abs(l[i]-p));});
+}
+
+// Same rules as trend_tpsl.simulate: decide at the close, fill entries and trend exits at the next open, stop first.
+function simulateTpsl(d, p){
+  const {o,h,l,c} = d, n = c.length, tr = trueRange(h,l,c), sig = signal(c);
+  const cost = p.cost/1e4, borrow = p.borrow/100, risk = p.risk/100, share = p.share/100;
+  const first = Math.max(WARM, ATR_N);
+  const eq = new Array(n).fill(NaN); eq[first] = p.capital;
+  let cash = p.capital, qty = 0, pos = null, enter = false, leave = false;
+  const trades = [];
+  const sell = (units, price, i, why) => {
+    cash += units*price*(1-cost); qty -= units;
+    pos.pnl += units*(price*(1-cost) - pos.basis); pos.exits.push(why);
+    if (qty <= 1e-12*pos.units){ qty = 0; trades.push({...pos, exitDay:i, r:pos.pnl/pos.risk}); return true; }
+    return false;
+  };
+  for (let i = first+1; i < n; i++){
+    if (pos && leave){ sell(qty, o[i], i, "trend"); pos = null; }
+    else if (!pos && enter){
+      let atr = 0; for (let k = i-ATR_N; k < i; k++) atr += tr[k]; atr /= ATR_N;
+      const stop = o[i] - p.stopatr*atr;
+      if (stop > 0){
+        const e = cash + qty*c[i-1];
+        const units = Math.min(risk*e/(o[i]-stop), p.maxlev*e/o[i]);
+        cash -= units*o[i]*(1+cost); qty = units;
+        pos = {day:i, entry:o[i], stop, init:stop, r:o[i]-stop, atr, high:-Infinity, tp1:false, pnl:0,
+               basis:o[i]*(1+cost), risk:units*(o[i]-stop), units, exits:[]};
+        if (l[i] <= stop){ sell(qty, stop, i, "stop"); pos = null; }
+      }
+    } else if (pos){
+      if (l[i] <= pos.stop){ sell(qty, Math.min(pos.stop, o[i]), i, pos.tp1 ? "trail" : "stop"); pos = null; }
+      else {
+        if (!pos.tp1 && h[i] >= pos.entry + p.tp1*pos.r){
+          const done = sell(share >= 1 ? qty : qty*share, pos.entry + p.tp1*pos.r, i, "tp1");
+          pos.tp1 = true;
+          if (done) pos = null;
+        }
+        if (pos && h[i] >= pos.entry + p.tp2*pos.r){ sell(qty, pos.entry + p.tp2*pos.r, i, "tp2"); pos = null; }
+        else if (pos && i - pos.day >= p.timeout){ sell(qty, c[i], i, "timeout"); pos = null; }
+      }
+    }
+    if (pos){
+      pos.high = Math.max(pos.high, c[i]);
+      if (pos.tp1){ const floor = p.be ? pos.entry : pos.init; pos.stop = Math.max(pos.stop, floor, pos.high - p.trailatr*pos.atr); }
+    }
+    cash -= borrow*Math.max(0, -cash);
+    eq[i] = cash + qty*c[i];
+    enter = !pos && sig[i] === 1;
+    leave = !!pos && sig[i] <= 1/3;
+  }
+  return {eq, trades, first};
+}
+
+// The plain trend rule from trend.py: signal × min(1, 40% / 30-day vol), 0.10 band, next-open trades.
+function simulateTrend(d, p){
+  const {o,c} = d, n = c.length, sig = signal(c), cost = p.cost/1e4;
+  const w = new Array(n).fill(NaN);
+  for (let t = WARM; t < n; t++){
+    const r = [];
+    for (let k = t-VOL_WIN+1; k <= t; k++) r.push(Math.log(c[k]/c[k-1]));
+    const m = r.reduce((a,b)=>a+b,0)/r.length, s = Math.sqrt(r.reduce((a,b)=>a+(b-m)**2,0)/(r.length-1))*Math.sqrt(365);
+    w[t] = sig[t]*(s ? Math.min(1, TARGET_VOL/s) : 1);
+  }
+  const eq = new Array(n).fill(NaN); eq[WARM] = p.capital;
+  let cash = p.capital, q = 0;
+  for (let i = WARM+1; i < n; i++){
+    const cur = q*c[i-1]/eq[i-1];
+    if (Math.abs(w[i-1]-cur) > BAND){
+      let dn = w[i-1]*(cash+q*o[i]) - q*o[i];
+      dn = dn > 0 ? Math.min(dn, cash/(1+cost)) : Math.max(dn, -q*o[i]);
+      cash -= dn + Math.abs(dn)*cost; q += dn/o[i];
+    }
+    eq[i] = cash + q*c[i];
+  }
+  return eq;
+}
+
+function stats(eq, from){
+  const e = eq.slice(from).filter(x=>!isNaN(x)), r = [];
+  for (let i = 1; i < e.length; i++) r.push(e[i]/e[i-1]-1);
+  const m = r.reduce((a,b)=>a+b,0)/r.length, sd = Math.sqrt(r.reduce((a,b)=>a+(b-m)**2,0)/(r.length-1));
+  let peak = e[0], dd = 0; for (const x of e){ peak = Math.max(peak,x); dd = Math.min(dd, x/peak-1); }
+  return {final:e[e.length-1], ret:e[e.length-1]/e[0]-1, cagr:(e[e.length-1]/e[0])**(365/r.length)-1,
+          sharpe: sd ? m/sd*Math.sqrt(365) : 0, dd};
+}
+
+let priceChart, equityChart, candleSeries, lines = [], equitySeries = [], current;
+
+function charts(){
+  const opts = el => ({layout:{background:{color:css("--panel")},textColor:css("--muted")},
+    grid:{vertLines:{color:css("--line")},horzLines:{color:css("--line")}}, rightPriceScale:{borderColor:css("--line")},
+    timeScale:{borderColor:css("--line")}, width:el.clientWidth, height:el.clientHeight});
+  priceChart = LightweightCharts.createChart($("price"), opts($("price")));
+  candleSeries = priceChart.addCandlestickSeries({upColor:css("--up"),downColor:css("--down"),wickUpColor:css("--up"),wickDownColor:css("--down"),borderVisible:false});
+  equityChart = LightweightCharts.createChart($("equity"), opts($("equity")));
+  new ResizeObserver(()=>{priceChart.applyOptions({width:$("price").clientWidth}); equityChart.applyOptions({width:$("equity").clientWidth});}).observe(document.body);
+}
+
+function params(){
+  const p = {}; for (const k of Object.keys(DEFAULTS)) p[k] = k === "be" ? $(k).checked : parseFloat($(k).value);
+  return p;
+}
+function setParams(p){ for (const [k,v] of Object.entries(p)) { if (k === "be") $(k).checked = v; else $(k).value = v; } }
+
+function drawTrade(t){
+  for (const l of lines) candleSeries.removePriceLine(l); lines = [];
+  if (!t) return;
+  const add = (price, color, title, style=2) => lines.push(candleSeries.createPriceLine({price, color, lineWidth:1, lineStyle:style, axisLabelVisible:true, title}));
+  add(t.entry, css("--accent"), "entry", 0);
+  add(t.init, css("--down"), "initial stop");
+  add(t.entry + current.p.tp1*t.r, css("--up"), "TP1");
+  add(t.entry + current.p.tp2*t.r, css("--up"), "TP2 cap");
+  const d = current.d;
+  priceChart.timeScale().setVisibleRange({from:d.t[Math.max(0,t.day-30)]/1000, to:d.t[Math.min(d.t.length-1,t.exitDay+30)]/1000});
+}
+
+async function run(){
+  const sym = $("custom").value.trim().toUpperCase() || $("coin").value;
+  const p = params();
+  $("status").textContent = `Loading ${sym}…`;
+  let d;
+  try { d = await load(sym); } catch(e){ $("status").textContent = e.message; return; }
+  if (d.c.length < WARM + 60){ $("status").textContent = `${sym} has only ${d.c.length} unbroken daily candles; at least ${WARM+60} are needed.`; return; }
+  const s = simulateTpsl(d, p), trend = simulateTrend(d, p);
+  const hold = d.c.map((x,i)=> i < s.first ? NaN : p.capital*x/d.c[s.first]);
+  current = {d, p, s};
+  const st = stats(s.eq, s.first), tt = stats(trend, s.first), ht = stats(hold, s.first);
+  const T = s.trades, wins = T.filter(t=>t.r>0).length, meanR = T.length ? T.reduce((a,t)=>a+t.r,0)/T.length : 0;
+  const tp1 = T.filter(t=>t.tp1).length;
+  const card = (k,v,c,cls="") => `<div class="stat"><div class="k">${k}</div><div class="v ${cls}">${v}</div><div class="c">${c}</div></div>`;
+  $("stats").innerHTML =
+    card("TP/SL final balance", fmt(st.final,0), `${pct(st.ret)} · CAGR ${pct(st.cagr)}`, st.ret>=0?"pos":"neg") +
+    card("Trades · win rate", `${T.length} · ${T.length?fmt(100*wins/T.length,0):0}%`, `TP1 reached ${T.length?fmt(100*tp1/T.length,0):0}%`) +
+    card("Mean R per trade", (meanR>=0?"+":"")+fmt(meanR,3), "after fees and slippage", meanR>=0?"pos":"neg") +
+    card("TP/SL Sharpe · max DD", `${fmt(st.sharpe,2)} · ${pct(st.dd)}`, "daily, annualised") +
+    card("Plain trend rule", fmt(tt.final,0), `${pct(tt.ret)} · Sharpe ${fmt(tt.sharpe,2)} · DD ${pct(tt.dd)}`, tt.ret>=0?"pos":"neg") +
+    card("Buy and hold", fmt(ht.final,0), `${pct(ht.ret)} · Sharpe ${fmt(ht.sharpe,2)} · DD ${pct(ht.dd)}`, ht.ret>=0?"pos":"neg");
+  $("pricetitle").textContent = `${sym} · ${day(d.t[s.first+1])} to ${day(d.t[d.t.length-1])}`;
+  candleSeries.setData(d.t.map((t,i)=>({time:t/1000, open:d.o[i], high:d.h[i], low:d.l[i], close:d.c[i]})));
+  const marks = [];
+  for (const t of T){
+    marks.push({time:d.t[t.day]/1000, position:"belowBar", color:css("--accent"), shape:"arrowUp", text:""});
+    marks.push({time:d.t[t.exitDay]/1000, position:"aboveBar", color:t.r>0?css("--up"):css("--down"), shape:"arrowDown", text:(t.r>=0?"+":"")+t.r.toFixed(2)+"R"});
+  }
+  marks.sort((a,b)=>a.time-b.time);
+  candleSeries.setMarkers(marks);
+  for (const sr of equitySeries) equityChart.removeSeries(sr);
+  const line = (eq,color) => { const sr = equityChart.addLineSeries({color, lineWidth:2, priceLineVisible:false});
+    sr.setData(eq.map((v,i)=>({time:d.t[i]/1000, value:v})).filter((x,i)=>i>=s.first && !isNaN(x.value))); return sr; };
+  equitySeries = [line(hold,"#888"), line(trend,"#e08a1e"), line(s.eq,"#1b6ca8")];
+  equityChart.timeScale().fitContent(); priceChart.timeScale().fitContent();
+  drawTrade(null);
+  $("trades").innerHTML = T.map((t,i)=>[t,i]).reverse().map(([t,i])=>
+    `<tr data-i="${i}"><td>${day(d.t[t.day])}</td><td>${day(d.t[t.exitDay])}</td><td>${t.exitDay-t.day}</td>
+      <td>${px(t.entry)}</td><td>${px(t.init)}</td><td>${t.exits.join("+")}</td>
+      <td class="${t.r>=0?"pos":"neg"}">${(t.r>=0?"+":"")+t.r.toFixed(2)}</td><td class="${t.pnl>=0?"pos":"neg"}">${fmt(t.pnl,0)}</td></tr>`).join("");
+  const same = Object.keys(DEFAULTS).every(k => p[k] === DEFAULTS[k]);
+  $("status").textContent = `${sym}: ${d.c.length} daily candles from Binance. Settings ${same ? "match the confirmed rules" : "differ from the confirmed rules"}.`;
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  $("coin").innerHTML = COINS.map(c=>`<option>${c}</option>`).join("");
+  setParams(DEFAULTS); charts();
+  $("run").onclick = run;
+  $("reset").onclick = ()=>{ setParams(DEFAULTS); run(); };
+  $("coin").onchange = ()=>{ $("custom").value = ""; run(); };
+  $("trades").onclick = e => { const tr = e.target.closest("tr"); if (!tr) return;
+    document.querySelectorAll("#trades tr.sel").forEach(x=>x.classList.remove("sel")); tr.classList.add("sel");
+    drawTrade(current.s.trades[+tr.dataset.i]); };
+  run();
+});
+</script>
+</body>
+</html>
